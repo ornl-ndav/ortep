@@ -1,0 +1,320 @@
+<TITLE>ORTEP-III Online Doc - Analysis</TITLE>
+<center>
+<H2>
+<img src="trcubane.gif" align="middle">
+ORTEP-III Online Documentation 
+<img src="trcubane.gif" align="middle">
+<br>
+100 Series Instructions: Structure Analysis
+</H2>
+</center>
+<p> 
+<hr>
+<p> 
+This series of instructions is not connected with drawing illustrations but rather with
+obtaining a convenient tabulation of the chemically interesting aspects of a crystal structure,
+including interatomic distances and angles and principal axes of thermal motion.
+<ul>
+<li><a href="#101">101 and 102: Distances and Angles within Sphere of Enclosure</a>
+<li><a href="#103">103: Principal Axes of Thermal Motion</a>
+<li><a href="#105">105 and 106: Distances within Convoluting Sphere of Enclosure
+or Reiterative Convoluting Sphere of Enclosure </a>
+</ul>
+<hr>
+<a name="101">101 and 102: Distances and Angles within Sphere of Enclosure</a>
+<p>
+These instructions call subroutine SEARC, which finds all "target" atoms within a
+<a href="defs.html#soe">sphere of enclosure</a>
+of radius D<sub>max</sub>
+about a particular "origin" atom. The instruction card
+has an <a href="defs.html#adr">atom designator run</a>
+of one or several origin atoms (Org. ADR) and an
+<a href="defs.html#anr">atom number run</a>
+of target atoms (Tar. ANR). The Org. ADR allows calculation of several
+spheres successively with a printout of results after each one. 
+<p>
+<i>Example</i>: Suppose there are nine atoms in the input list and we want to find
+all atoms surrounding atoms 365502, 465502, and 565502 out to a maximum
+radius of 4 &Aring;.
+<pre>
+             101   365502        5        1        9      4.0 
+</pre>
+The selection of the interatomic vectors from a particular origin atom to the target
+atoms can be narrowed with a <a href="defs.html#vsc">vector search code (VSC)</a>
+on a Format No. 2 continuation card.
+The first line of the instruction defines a limiting sphere of vectors, and the VSC finds
+the subset of vectors that satisfy the additional restriction.
+The vector searches in ORTEP-III have been generalized to allow both
+atom number runs and
+<a href="defs.html#fnr">feature number runs</a> with the
+<a href="defs.html#nr">number run type</a> specified in column 24.
+In addition, it is no longer necessary to specify all three screening 
+ranges found
+on this card (i.e., origin, target, and distance range). 
+Any ranges not specified (i.e., zero or blank in the maximum value entry)
+are omitted from the screening.
+If there is more than one vector
+search card, the parameter LOGC controls the logic of the screening.
+If the value is "0" (the default), an atom satisfying the
+screening conditions on 
+any one of the No. 2 trailer cards will be retained
+(i.e., it is a logical union of the results).  If the value
+is "1", an atom must satisfy the screening conditions on all
+the cards to be retained
+(i.e., it is an intersection of the results).
+If a value of "1" is needed for LOGC, a "1" is placed in column 27
+of a Format No. 1 trailer card that goes between the main instruction
+card and the Format No. 2 VSC cards. If the value for LOGC is "0", the
+Format No. 1 card is not needed.
+
+<p>
+<i>Example</i>: Suppose we want to limit the results of the search in the preceding
+example to the shell of atoms that lie 2.0-2.7 &Aring; from each of the origin
+atoms.
+<pre>
+         2   101   365502        5        1        9      4.0   
+                  3  5  1  9  0   2.0   2.7
+</pre>
+Vectors found about a particular origin atom are stored in a table of dimension 200
+sorted on distance. Duplicate vectors (not duplicate distances) are eliminated. If more than
+200 acceptable atoms are found about an origin atom, the 200 shortest vectors are saved. At
+the end of the search about each origin atom, the distances are printed out along with the
+<a href="defs.html#adc">atom
+designator codes</a>, chemical symbols, and 
+triclinic crystal coordinates for the origin and
+target atoms. If the instruction is 102, all possible interatomic angles and interatomic distances
+for the edges opposite the angles are also calculated and printed for the stored vectors. There
+will be n(n-1)/2 angles for n vectors. The tabulation of atom designator codes, which is
+obtained automatically when these instructions are given, is often useful for planning an
+illustration.
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Instructions 101 and 102</th><td></td><td></td>
+<th>Columns</th><th>Format No. 1<br>Continuation Card<br>(if needed)</th>
+</tr>
+<tr align="center" >
+<td>3</td><td>0, 1, or 2</td><td></td><td></td>
+<td>3</td><td>2</td>
+</tr>
+<tr align="center" >
+<td>7-9</td><td>101 or 102</td><td></td><td></td>
+<td>7-9</td><td>-</td>
+</tr>
+<tr align="center" >
+<td>10-18</td><td>Org. ADR (from)</td><td></td><td></td>
+<td>10-18</td><td>-</td>
+</tr>
+<tr align="center" >
+<td>19-27</td><td>Org. ADR (to)</td><td></td><td></td>
+<td>27</td><td>LOGC</td>
+</tr>
+<tr align="center" >
+<td>28-36</td><td>Tar. ANR (from)</td><td></td><td></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr align="center" >
+<td>37-45</td><td>Tar. ANR (to)</td><td></td><td></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr align="center" >
+<td>46-54</td><td>D<sub>max</sub> (&Aring;)</td><td></td><td></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+</table>
+</center>
+
+<p>
+
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Format No. 2<br>Vector Search Code<br>(if used)</th>
+</tr>
+<tr align="center" >
+<td>3</td><td>0 or 2</td>
+</tr>
+<tr align="center" >
+<td>10-12</td><td>[Org. NR (from)</td>
+</tr>
+<tr align="center" >
+<td>13-15</td><td>Org. NR (to)]</td>
+</tr>
+<tr align="center" >
+<td>16-18</td><td>[Tar. NR (from)</td>
+</tr>
+<tr align="center" >
+<td>19-21</td><td>Tar. NR (to)]</td>
+</tr>
+<tr align="center" >
+<td>24</td><td>[Number run type]</td>
+</tr>
+<tr align="center" >
+<td>25-30</td><td>[D<sub>min</sub> (&Aring;)</td>
+</tr>
+<tr align="center" >
+<td>31-36</td><td>D<sub>max</sub> (&Aring;)]</td>
+</tr>
+</table>
+</center>
+<p>
+<p>
+<hr>
+<a name="103">103: Principal Axes of Thermal Motion</a>
+<p>
+Principal axes of thermal motion (or arbitrary spheres,
+according to the temperature factor input) for all atoms in the
+input list are calculated. The printout contains root-mean square
+amplitudes of displacement along the principal axes of the trivariate
+normal probability density function and direction cosines for the
+principal axes relative to the 
+<a href="defs.html#coord">reference
+Cartesian</a> base vectors. A
+symmetric covariance dispersion matrix based on the reference Cartesian
+system is also printed out. The diagonal elements are the mean-square
+displacements along the reference Cartesian axes.
+<p>
+<center>
+<table border>
+<tr align="center"> <th>Columns</th><th>Instruction 103</th> </tr>
+<tr align="center"> <td>7-9</td><td>103</td> </tr>
+</table> </center>
+<p>
+<hr>
+<a name="105"> 105 and 106: Distances within Convoluting Sphere of Enclosure
+or Reiterative Convoluting Sphere of Enclosure </a>
+<p>
+These instructions utilize the ATOMS array and thus can only be used after one or
+more atoms have been placed in the array by a 
+<a href="i400.html">400 series instruction</a>. 
+The contents of
+the array are returned to the condition of entry at the conclusion of instructions 105 and 106.
+<p>
+All atoms in the ATOMS array that have atom 
+or <a href="defs.html#af">feature</a>
+numbers within the origin 
+<a href="defs.html#nr">number
+run</a> (Org. NR) of the instruction are used as origin points. Interatomic distances for
+all neighboring atoms (whether or not in the ATOMS array) are found out to the specified
+radius.
+<p>
+<a href="defs.html#vsc">Vector search codes</a>
+on Format No. 2 continuation cards may be used for screening if
+desired. 
+The vector searches in ORTEP-III have been generalized to allow both
+atom number runs and
+<a href="defs.html#fnr">feature number runs</a> with the
+<a href="defs.html#nr">number run type</a> specified in column 24.
+In addition, it is no longer necessary to specify all three screening 
+ranges found
+on this card (i.e., origin, target, and distance range). 
+Any ranges not specified (i.e., zero or blank in the maximum value entry)
+are omitted from the screening.
+If there is more than one vector
+search card, the parameter LOGC controls the logic of the screening.
+If the value is "0" (the default), an atom satisfying the
+screening conditions on 
+any one of the No. 2 trailer cards will be retained
+(i.e., it is a logical union of the results).  If the value
+is "1", an atom must satisfy the screening conditions on all
+the cards to be retained
+(i.e., it is an intersection of the results).
+If a value of "1" is needed for LOGC, a "1" is placed in column 27
+of a Format No. 1 trailer card that goes between the main instruction
+card and the Format No. 2 VSC cards. If the value for LOGC is "0", the
+Format No. 1 card is not needed.
+
+<p>
+Instructions 105 and 106 are similar, except that instruction 106 keeps repeating the
+"convolution" process until no new atoms with atom numbers within the Org. NR are
+found. Instruction 106 is useful for molecular structures where the atoms in the input
+asymmetric unit do not form an intact molecule. In a case of this nature, it is advisable to
+place a single atom into the ATOMS array with a 401 instruction and let a 106 instruction
+find the molecule. Care must be taken to specify a 
+D<sub>max</sub> that will enclose only bonded atoms.
+The 106 instruction should not be used for structures forming infinite chains. Instead, a short
+sequence of 105 instructions can be used for this case.
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Instructions 105 and 106</th><td></td><td></td>
+<th>Columns</th><th>Format No. 1<br>Continuation Card<br>(if needed)</th>
+</tr>
+<tr align="center" >
+<td>3</td><td>0, 1, or 2</td><td></td><td></td>
+<td>3</td><td>2</td>
+</tr>
+<tr align="center" >
+<td>7-9</td><td>105 or 106</td><td></td><td></td>
+<td>7-9</td><td>-</td>
+</tr>
+<tr align="center" >
+<td>10-18</td><td>Org. NR (from)</td><td></td><td></td>
+<td>10-18</td><td>-</td>
+</tr>
+<tr align="center" >
+<td>19-27</td><td>Org. NR (to)</td><td></td><td></td>
+<td>27</td><td>LOGC</td>
+</tr>
+<tr align="center" >
+<td>28-36</td><td>Tar. NR (from)</td><td></td><td></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr align="center" >
+<td>37-45</td><td>Tar. NR (to)</td><td></td><td></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr align="center" >
+<td>46-54</td><td>D<sub>max</sub> (&Aring;)</td><td></td><td></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr align="center" >
+<td>63</td><td>NR type</td><td></td><td></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+</table>
+</center>
+
+<p>
+
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Format No. 2<br>Vector Search Code<br>(if used)</th>
+</tr>
+<tr align="center" >
+<td>3</td><td>0 or 2</td>
+</tr>
+<tr align="center" >
+<td>10-12</td><td>[Org. NR (from)</td>
+</tr>
+<tr align="center" >
+<td>13-15</td><td>Org. NR (to)]</td>
+</tr>
+<tr align="center" >
+<td>16-18</td><td>[Tar. NR (from)</td>
+</tr>
+<tr align="center" >
+<td>19-21</td><td>Tar. NR (to)]</td>
+</tr>
+<tr align="center" >
+<td>24</td><td>[Number run type]</td>
+</tr>
+<tr align="center" >
+<td>25-30</td><td>[D<sub>min</sub> (&Aring;)</td>
+</tr>
+<tr align="center" >
+<td>31-36</td><td>D<sub>max</sub> (&Aring;)]</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<p>
+<a href="toc.html"><img src="bluecube.gif"> Online Documentation
+Table of Contents</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="../ortep.html"><img src="bluecube.gif"> ORTEP-III Home Page</a>
+<p>
+<i>Page last revised: <!--#echo var="LAST_MODIFIED"--></i>

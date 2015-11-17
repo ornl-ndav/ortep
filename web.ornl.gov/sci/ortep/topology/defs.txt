@@ -1,0 +1,1163 @@
+                        Topology Glossary 
+
+       Mainly extracted from  (a) UC Davis Math:Profile Glossary
+ ( http://www.math.ucdavis.edu/profiles/glossary.html ) by Greg Kuperberg 
+ ( http://www.math.ucdavis.edu/profiles/kuperberg.html ), and
+ (b) Topology Atlas Glossary
+ ( http://www.achilles.net/~mtalbot/TopoGloss.html ).
+
+-------------------------------------------------------------------------
+
+absolute retract 
+
+A space A is an absolute retract if whenever a normal space X has a
+closed subspace B homeomorphic to A, then B is a retract of X. The fact
+that I and R1 are absolute retracts follows from the Tietze Extension
+Theorem. 
+
+accumulation point 
+
+Given a subset A of a topological space X, the point p in X is called an
+accumulation point of A if each neighborhood of p contains infinitely many
+distinct points of A. 
+
+algebraic topology
+
+The branch of topology concerned with homology and other algebraic models
+of topological spaces.
+
+algebraic variety 
+
+A space which is locally the solution locus to a set of polynomial
+equations.  Algebraic varieties are for algebraic geometers what
+manifolds are for manifold topologists.  Indeed, many algebraic varieties
+are (complex) manifolds.  However, algebraic varieties may also have
+complicated singular sets and may be parametrized with rings other than
+the complex numbers.  (For the technical reason that the real numbers are
+not algebraically closed, one does not consider algebraic varieties over
+the real numbers in the straightforward sense.)
+
+arc 
+
+Homeomorphic image of a closed line interval. 
+
+automorphism
+ 
+An isomorphism of a group with itself 
+
+band-connected sum 
+
+A knot formed from two other knots by connecting them along two parallel
+segments called a band.  Although the original two knots cannot be
+entangled with each other (they must be separated by a sphere), the band
+can meander among them in a complicated way.
+
+basis
+
+1. In mathematics, usually means basis in the sense of linear algebra; a
+minimal set of vectors that spans a vector space.
+
+2. A basis for a topological space X is a collection of open sets of X
+that contains "arbitrarily small" neighborhoods of every point of X.
+Specifically, for every point x of X, and for every open set U containing
+x, the collection must include a neighborhood of x lying within U. 
+
+boundary
+ 
+Boundary of A is the union of points for which every open set around them
+intersects both A and its complement OR the image of a differential map in
+a complex. 
+
+boundary of Manifold
+ 
+The boundary Bd M of a manifold M is the set of points of M that have
+boundary patches. The boundary of an n-manifold M is an (n-1) manifold
+>M whose boundary >(>M) is empty {¿}. 
+
+calculus of variations
+
+Calculus problems, especially differentiation and maximization, involving
+functions on a set of functions of a real variable.  For example, finding
+the shape of a cable suspended from both ends.
+
+category theory
+
+The study of abstracted collections of mathematical objects, such as the
+category of sets or the category of vector spaces, together with
+abstracted operations sending one object to another, such as the
+collection of functions from one set to another or linear transformations
+from one vector space to another.
+
+characteristic class
+
+A kind of homological model for a decoration or property of a manifold or
+other topological space.  The simplest characteristic class describes how
+a manifold fails to be orientable, that is, in which directions a being
+can travel in the manifold and reverse its handedness.
+
+closure 
+
+The closure of a subset A of a space X, denoted Cl A, is the minimal
+closed set of X that contains A. 
+
+codimension 
+
+In general, if a mathematical object sits inside or is associated to
+another object of dimension n, then it is said to have codimension k if
+it has dimension n-k.
+
+combinatorial geometry
+
+The visual study of discrete and finite structures, and the study of
+discrete and finite possibilities for the arrangement or features of
+geometric objects.
+
+compact
+ 
+A topological space is compact if every collection of open sets that
+covers the space has a finite subset that also covers the space. The
+compact subspaces of Rn are the closed and bounded sets. 
+
+complement 
+
+A word with a relatively specific meaning in mathematics.  The complement
+of a subset X in a set Y is Y-X, the set of all things in Y but not X.
+
+complex manifold
+
+A manifold with complex coordinates; its ordinary or real dimension is
+then twice its complex dimension.
+
+conformal
+
+Angle-preserving or angle-defining.  The Mercator map is a conformal map
+of the Earth because angles are true.  A conformal structure on a
+manifold defines angles between curves segments on the manifold but not
+their lengths.
+
+connected
+
+A topological space is connected if it cannot be partitioned into two
+disjoint, nonempty open sets. 
+
+connected sum 
+
+1. A manifold formed from two others by removing balls and gluing along
+the resulting spherical boundary.
+
+2. The analogous operation for knots; a band-connected sum in which the
+band connects the knots in the simplest possible way (by piercing the
+separating sphere only once).
+
+contractible
+ 
+A space is contractible if it can be shrunk to a point within itself.
+The homotopy that does this is called a 'contraction'. Contractible 
+spaces are simply connected. 
+
+covering
+ 
+A collection of sets whose union is the whole space. 
+
+covering space
+ 
+The domain of a covering map; also called a 'cover'. A space that looks
+locally like the space it covers, but whose parts may be connected
+together differently.
+ 
+covering transformation
+ 
+Also called 'deck transformation'. A covering transformation is a 
+homeomorphism of a covering space with itself that preserves the covering
+map. For any two liftings of a connected object, there is a covering
+transformation that carries one to the other, provided that the covering
+space is connected and locally path-connected. 
+
+convex
+
+A region in the plane, in Euclidean space, or in some other geometry with
+lines such as hyperbolic space, is convex if it always contains the line
+segment connecting two points if it contains the two points themselves.
+A convex body is, technically, a closed and bounded convex set with
+non-zero volume.
+
+convex geometry
+
+The study of convex shapes, usually in Euclidean geometry. 
+
+convolution
+ 
+A convolution of two planar regions is the set of all vector sums of a 
+point in one region with a point in the other. 
+
+correlation
+
+1. The relationship between any two random variables which may or may not
+be independent.  It may be expressed in terms of conditional
+probabilities or the mutual probability distribution of the random
+variables.
+
+2. The quadratic term in the relationship between two real-valued random
+variables; the expectation of the product minus the product of the
+expectations, suitably normalized.
+
+curvature
+
+In Riemannian geometry, usually means the intrinsic curvature of a
+manifold with a Riemannian metric.  The curvature at a point is positive
+(negative) if the sum of the angles of a small approximate triangle at
+that point is greater than (less than) 180 degrees.
+
+cusp 
+
+A trumpet-shaped salient of a hyperbolic structure or Riemannian metric
+which is typically infinitely long.  The neighborhood of an ideal vertex
+is a kind of cusp.
+
+deformation retract
+
+A subspace A of a space X is a deformation retract if X can be shrunk
+down to A without moving any point of A. The homotopy that does the
+shrinking is called a 'deformation retraction'. 
+
+Dehn filling 
+
+Another view of Dehn surgery due to Thurston and motivated by hyperbolic
+geometry.  If the complement of a knot in a 3-manifold has a family of
+hyperbolic structures, then typically many of them can be completed or
+filled in to realize different Dehn surgeries along the knot.
+
+Dehn surgery 
+
+A modification of a 3-manifold in which a solid torus around a knot is
+removed and replaced by a solid torus in a different position.
+
+Dehn twist
+ 
+On a surface of genus g > 0, cut apart one of the handles along a circle,
+give one handle a 360¡ twist, and glue the handles back together. 
+
+deRham cohomology
+
+The nth deRham cohomology is the the space of n-forms w with dw = 0,
+modulo those of the form du where u is an (n-1)-form. Its dimension is 
+called the nth Betti number of the space. 
+
+diffeomorphism 
+
+A bijection between two manifolds that preserves all smooth structure.
+
+differential geometry 
+
+The general study of smooth manifolds decorated by continuous structures
+such as foliations, Riemannian metrics, and symplectic structures. 
+Riemannian geometry is a disproportionate part of differential geometry.
+
+embedding
+
+A mapping into a space whose image is homeomorphic to the domain. The
+parametrization of a submanifold by means of a standard model. A knotted
+sphere in 4-space is an embedding of the familiar round sphere.  
+Whitney's theorem says that an n-dimensional manifold is guaranteed to
+have an embedding in Euclidean n-space. 
+
+enumeration 
+
+The goal in combinatorics of counting the number of some type of
+mathematical object.  Example:  There are n!  permutations of n distinct
+letters.  An enumeration is considered obscure unless the formula for the
+number of some object is much simpler than the set of objects itself.
+
+enumerative combinatorics
+
+The branch of mathematics concerned with finite counting problems, for
+example counting arrangements of non-attacking queens on a chessboard.
+
+essential 
+
+In low-dimensional topology, a non-trivial kind of curve or surface in a
+manifold that only sometimes exists.  An essential sphere in a
+3-manifold, for example, is a sphere that does not bound a ball.
+
+Euclidean space 
+
+A finite-dimensional vector space, such as ordinary 3-dimensional space,
+together with a metric that satisfies the Pythagorean theorem.
+
+Euler characteristic 
+
+An integer associated to a manifold or other topological space which is
+particularly easy to compute.  Example:  The Euler characteristic of a
+surface is given by the number of faces minus edges plus vertices.
+
+fiber bundle
+
+A topological space that divides into locally parallel fibers that may
+twist globally.  The set of fibers is itself a topological space called
+the base space.  For example, a Mobius strip is a fiber bundle over a
+circle with line segments as fibers.
+
+fixed-point free
+
+A flow or map is fixed-point free if it does not send any point to
+itself; any such point would be a fixed point.
+
+flow
+
+A vector field in Euclidean space or on a manifold which gives the
+velocity of a particle moving through the manifold as a function of its
+position.  More technically, an autonomous ordinary differential
+equation.
+
+foliation 
+
+A decoration of a manifold in which the manifold is partitioned into
+sheets of some lower dimension, and the sheets are locally parallel.
+(More technically, the foliated manifold is locally homeomorphic to a
+vector space decorated by cosets of a subspace).
+
+Fredholm determinant
+
+A complex analytic function which generalizes the characteristic
+polynomial of a matrix.  It is defined for those operators which have
+continuous kernels, i.e., kernels in the sense of analysis.
+
+frontier
+
+The frontier of a subset A in a space X, denoted Fr A, is Cl A - Int A:
+the set of points that lie in the closure of A but not in the interior 
+of A. 
+
+function
+
+A mapping from a domain to a range such that an element has only one
+image
+
+functor
+
+A correspondence from one category to another mapping objects to objects 
+and preserving morphisms. 
+
+functional analysis
+
+The study of differentiation, integration, estimates, and asymptotics of
+functions of real numbers.  The modern research version of calculus.
+
+fundamental group
+
+1. A group, often non-abelian, that rather fully describes the 
+periodicity or the 1-dimensional holes in a topological space.
+
+2. The group of homotopy classes of loops at a base point of a space
+is a topological invariant. It measures the holes in a space. 
+
+Gelfand-Fuchs cohomology 
+
+An ad hoc modification of certain cohomology groups in various
+infinite-dimensional settings that is more relevant and easier to compute
+than ordinary cohomology.
+
+genus 
+
+1. In geometric topology, the number of holes of a surface.  Usually this
+means the maximum number of disjoint circles that can be drawn on the
+surface such that the complement is connected.  If there are no such
+circles, the surface is planar, and the genus then sometimes means the
+maximum number of disjoint arcs with the same property.
+
+2. A measure of the twistedness of a fiber bundle defined to A. Schwarz.
+Technically, if X is a topological space with a fiber bundle F, it is the
+minimum number of open sets that cover X such that F is trivial over each
+open set.
+
+3. Some other number which generalizes or is analogous to the topological
+genus, such as the genus of an algebraic curve.
+
+geodesic 
+
+On a Riemannian manifold or some other metric space, a curve which is the
+shortest path between any two points on it that are sufficiently close
+together.
+
+Geometrization Conjecture 
+
+The conjecture of Thurston that, after cutting along essential spheres
+and tori, every compact 3-manifold admits a special Riemannian structure
+known as a geometry, usually hyperbolic geometry.  The conjecture
+subsumes the Poincaré conjecture and many other standard conjectures
+about 3-manifolds, and constitutes a classification of 3-manifolds.
+
+global analysis
+
+The study of partial differential equations (and other structures from
+analysis) on manifolds.
+
+graph
+
+In research mathematics, usually means set of points with another set of
+edges connecting them.
+
+graph theory
+
+The study of graphs, either for their own sake, or as models of such
+diverse things as groups (in pure mathematics) or computer networks.
+
+Gromov norm
+
+An invariant associated with the homology of a topological space that
+measures how many simplices are needed to represent a given homology
+class.
+
+group 
+       
+A mathematical system consisting of elements from a set G and a binary
+operation * such that 
+    1.x*y is a member of G whenever x and y are 
+    2.(x*y)*z=x*(y*z) for all x, y, and z 
+    3.there is an identity element e such that e*x=x*e=e for all x 
+    4.each member x in G has an inverse element y such that x*y=y*x=e 
+
+Haefliger structure 
+
+A relatively complicated structure on an n-manifold which consists of a
+k-plane field plus auxiliary information derived from the diffeomorphism
+group of n-k-dimensional Euclidean space.  A foliation has a parallel
+Haefliger structure just as it has a parallel plane field, but a
+Haefliger structure may have a singular locus where it is not parallel to
+a foliation.
+
+Haken 
+
+A noted mathematician with the privilege of having an adjective named
+after him.  A 3-manifold is Haken if it is closed, orientable, and has no
+essential sphere, but has an incompressible surface.
+
+Hamiltonian
+
+An expression that represents the equations of motion of a classical
+physical system via Hamilton's equations.  The equations are related to
+the Hamiltonian via phase space or symplectic geometry.  The solutions
+conserve the Hamiltonian if it is time-independent, and the value of the
+Hamiltonian can be interpreted as the energy of the system.
+
+Hausdorff separation axiom
+
+For any two elements p and q of a topological space X there exists
+disjoint open subsets P and Q in X such that p is in P and q is in Q. 
+
+Hausdorff-Besicovitch dimension
+
+DH(S) is the value of d for which the Hausdorff measure of d-dimensional
+Volume of a set S. namely hd(S), changes from infinity to zero, it is a
+space filling characterisation. 
+
+Hausdorff space
+
+A Hausdorff space is defined by the property that every two distinct
+points have disjoint neighborhoods 
+
+Heegaard splitting 
+
+A division of a 3-manifold into two handlebodies.  An early result in
+topology states that every closed 3-manifold (closed meaning that the
+manifold is finite and connected but has no boundary) has a Heegaard
+splitting and a resulting description in terms of a Heegaard diagram,
+which describes how the two handlebodies are glued together.  The surface
+lying between the two handlebodies of the splitting is a Heegaard
+surface.
+
+homeomorphism 
+
+A bijection between two topological spaces that preserves all continuous
+structure; the basic notion of equivalence in topology.
+
+homomorphism
+
+A function that preserve the operators associated with the specified 
+structure. 
+
+homological algebra
+
+The algebraic study of the homology and cohomology of manifolds and other
+mathematical objects.  Homological algebra is a grand generalization of
+linear algebra.
+
+homology/cohomology 
+
+Homology and cohomology are algebraic objects associated to a manifold or
+other mathematical object which give one measure of the number of holes
+of the object.  The homology of a topological space has a relatively
+technical definition, but it is relatively easy to compute and study with
+tools from linear algebra.
+
+Hopf algebra
+
+An abstract algebraic object, generalizing a group or a Lie algebra, with
+enough structure to have a representation theory.
+
+horocycle/horosphere 
+
+A generalized (round) circle or sphere in the hyperbolic plane or
+hyperbolic space.  A horosphere has infinite radius and meets the sphere
+at infinity at one point, and its geometric center is the same point.
+
+hyperbolic geometry 
+
+In modern terms, hyperbolic geometry is the study of manifolds with
+Riemannian metrics with constant negative curvature.  The hyperbolic
+plane is a particular hyperbolic manifold which is in a sense universal
+among hyperbolic surfaces; similarly there is also hyperbolic n-space.
+Escher's circle limit prints are excellent illustrations of the
+hyperbolic plane.
+
+hyperbolic PDE
+
+A partial differential equation that resembles a wave equation with one
+time coordinate, one or several space coordinates, and a finite speed of
+propogation for features of solutions.
+
+hyperplane/hypersurface 
+
+A high-dimensional plane or submanifold in a vector space or manifold
+with codimension 1.
+
+ideal vertex 
+
+A vertex at infinity of a hyperbolic polyhedron.  Geometrically, the
+faces of the polyhedron taper together at an exponential rate as they
+extend towards the ideal vertex.
+
+immersion
+
+A locally (but not globally) smoothly invertible mapping of one
+manifold into another. The image may have self-intersections; the
+figure-8 is an immersion of the circle in 2D. 
+
+incompressible 
+
+1. In physics, a fluid that cannot change volume or a flow that is
+possible for such a fluid.
+
+2. In 3-dimensional topology, a surface in a 3-manifold with the property
+that no essential circle in the surface bounds a disk in the manifold.
+
+incompressible fluid
+
+A fluid that does not change its volume except under extreme conditions,
+or a mathematically abstracted fluid that strictly conserves its volume.
+
+infinite dimensions
+
+In mathematics, the concept of an infinite-dimensional space considered
+literally.  It is a vector space with an infinite basis or a space with
+infinitely many coordinates.
+
+injection
+
+A function which is one-to-one, i.e. if f(x)=f(y), then x=y.
+
+int
+
+A symbol used to denote the interior operator, interior of set A can
+also be denoted by A¡ or Ao.
+
+interior 
+
+Interior of A is the union of points which have an open set containing
+them which is completely contained inside A. Also the maximal open set
+contained in A. 
+invariant
+
+In topology, a number, polynomial, or other quantity associated to a
+topological object such as a knot or 3-manifold which depends only on the
+underlying object and not on its specific description or presentation.
+
+isometry 
+
+A mapping of metric spaces which preserves the metric. 
+
+isotopy
+
+A homotopy of an object produced by a deformation of the ambient space,
+so therefore the object cannot develop new self-intersections. The 
+deformation of the teapot to a torus is an isotopy, but the deformation
+to a point is not. 
+
+Jacobian variety
+
+A space associated to a Riemann surface defined most succinctly as the
+complex cohomology (as a vector space) divided by the integral cohomology
+(as a lattice).  It is simultaneously a complex manifold, an algebraic
+variety, and a Lie group.
+
+Jones polynomial
+
+A famous invariant of knots and links discovered by Vaughan Jones.  It
+has several extremely elementary definitions and at the same time
+involves deep mathematics.
+
+kernel
+
+1. In algebra, the set of vectors annihilated (sent to zero) by a matrix,
+linear operator, homomorphism, or any similar function.
+
+2. In analysis, a continuous analogue of a matrix.  Given a vector space
+of functions of a parameter or functions on a manifold, an operator may
+have a kernel or matrix whose rows and columns are indexed by the
+parameter or by points on the manifold.
+
+knot/link 
+
+A link is a collection of disjoint circles lying in a 3-manifold, often
+but not always Euclidean 3-space or the 3-sphere.  A knot is link which
+happens to be a single circle.  Manifold topologists usually study tame
+knots and links, which can be represented by smooth or polygonal curves,
+but there are also wild links which are infinitely knotted.  Ordinary
+knots and links were topologically classified (in a certain sense) by
+Haken and Thurston.
+
+lamination 
+
+A decoration of a manifold in which some subset of the manifold is
+partitioned into sheets of some lower dimension, and the sheets are
+locally parallel.  It may or may not be possible to fill the gaps in a
+lamination to make a foliation.
+
+lattice
+
+A periodic arrangement of points such as the vertices of a tiling of
+space by parallelepipedons or the positions of chemical atoms in a
+monoatomic crystal.  More technically, a discrete abelian subgroup of an
+n-dimensional vector space which is not contained in an n-1 dimensional
+vector space.  Lattices play a central role in the theory of Lie groups,
+in number theory, in error-correcting codes, and many other areas of
+mathematics.
+
+least-area surface 
+
+A surface (manifold) lying in space or in a manifold which minimizes area
+(surface volume) among a class of similar surfaces.  Example:  The round
+sphere has least area among surfaces in Euclidean space that enclose a
+fixed volume.
+
+leopard spot 
+
+In the proof of the Geometrization Theorem, when the skinning map is
+applied to a conformal structure A to produce a new one B, B is made up
+of many (unrolled) copies of A that resemble leopard spots.
+
+Lie algebra 
+
+An algebraic structure on a vector space which describes multiplication
+of elements of a Lie group which are very close to the identity
+(infinitesimal transformations).  Lie algebras are almost as important as
+their comrades-at-arms, Lie groups.
+
+Lie group 
+
+A group (in the sense of abstract algebra) which is at the same time a
+manifold.  Example:  The group of rotations in n dimensions is a Lie
+group of dimension n(n-1)/2.  Lie groups are fundamental objects in
+mathematics and physics, especially quantum field theory.
+
+lift 
+       
+Also called 'lifting'. With respect to a covering map p:M->X, a lift of
+a map a:C->X is any map a':C->M such that p ¼ a' = a. The covering map p
+is the covering of a sheet by its blanket. 
+
+lifting
+
+The process of converting maps into a base space to maps into its
+covering space. 
+
+local
+
+A property of topological spaces is usually said to hold locally in a
+space X if it holds within arbitrarily small neighborhoods of every point
+of X. (For properties that open sets do not normally have, such as
+compactness, the definition has to be modified somewhat.) For example,
+a space is locally path-connected if it has a basis of path-connected
+sets.
+
+loop
+
+A map of a circle into a space OR a map of the unit interval [0,1] into
+a space with the same beginning and end points, i.e. f(0)=f(1). 
+
+
+loop space
+
+Given a topological space X, its loop space is the topological space of
+all continuous functions from a circle to X. Loop spaces are important
+examples of new topological spaces formed from old ones, as well as
+examples of infinite-dimensional spaces in mathematics.
+
+Loop and sphere theorems 
+
+The two most important foundational theorems in 3-manifold topology,
+proved by Papakyriakopoulos in the 1950's.  They generalize Dehn's lemma,
+which asserts that if a knot in three dimensions bounds a disk which
+intersects itself in its interior, the disk can be simplified to remove
+all self-intersection and the knot must be trivial.
+
+lozenge
+
+A rhombus with a 60 degree angle.
+
+manifold 
+
+A fundamental mathematical object which locally resembles a line, a
+plane, or space (is locally homeomorphic to a vector space).  For
+example, the surface of a sphere or a doughnut, the playing field of the
+video game Asteroids, and (in the theory of General Relativity) physical
+space are all manifolds.  The term n-manifold means a manifold which
+locally resembles n-dimensional space, not one which might lie in
+n-dimensional space.
+
+metric 
+
+A distance function on some space or set; an assignment of distance to
+every unordered pair of points that satisfies the triangle inequality.
+
+metric space 
+
+A space with a "distance" function, called a metric, defined above. 
+
+min cut, max flow principle
+
+The principle that, given a flow of some substance through a network of
+pipes with a maximum allowed flow in each pipe, the maximum possible
+total flow equals the capacity of the most constricted set of pipes
+which, if cut, would separate the source from the drain.
+
+minimal
+
+A widely used, context-dependent word in mathematics that generally means
+atomic or unsimplifiable.  For example, prime numbers are minimal with
+respect to factorization of whole numbers.
+
+minimal surface 
+
+1. A surface (or a manifold) which locally minimizes surface area (or
+surface volume), which means that one cannot replace small patches of the
+surface and decrease the area.  See also least-area surface.
+
+2. A surface that locally has the smallest area given a particular
+topological shape for it, and possibly, constrained by a fixed boundary 
+(soap-films) or prescribed behavior at infinity. 
+
+moduli space
+
+Given a topological object, usually low-dimensional, with a continuous
+family of possible geometric structures, the moduli space is the set of
+these structures considered itself as a geometric object, usually
+high-dimensional.  Two structures that differ by a topological
+automorphism of the low-dimensional object are represented by the same
+point.  In particular, the space of conformal structures on a surface.
+
+normal
+
+Said of topological spaces. In a normal space, every two disjoint closed
+sets have disjoint neighborhoods.  All metric spaces are normal. 
+
+non-abelian
+
+Non-commutative or order-dependent.  For example, the group of
+manipulations of the Rubik's cube is non-commutative because the state of
+the cube depends greatly on the order that moves are performed on it.
+
+orbifold 
+
+A topological object defined by Thurston which is locally modelled by
+Euclidean spaces divided by finite groups of symmetries.  Orbifolds are
+manifolds with singularities such as reflection surfaces, where they
+resemble manifolds with boundary, and cone lines, where they are modelled
+(in the direction perpendicular to the cone line) by a cone with an angle
+of 360/n degrees for some n.
+
+path
+
+A continuous function with domain I=[0,1] 
+
+path component
+
+The path components of a topological space are its maximal path connected
+subsets. Two points lie in the same path component of a space X iff there
+is a path in X from one point to the other.
+
+path-connected
+
+A topological space is path-connected if every pair of its points can be 
+connected by a path. Every path-connected space is connected, but not
+vice versa. If a space is connected and locally path-connected,
+however, then it is path connected.
+
+Path homotopy
+
+A homotopy between paths that fixes their endpoints; or the relation of
+being path-homotopic. Two paths are path-homotopic if there is a path
+homotopy between them.
+
+PL flow
+
+A "piecewise linear" motion on a space or a manifold, akin to a flow
+given by a vector field, in which every particle in a given simplex of
+some triangulation moves with constant velocity and in the same
+direction, so that the particle trajectories are polygons.
+
+plane field 
+
+A decoration of a n-manifold that assigns a tangent k-dimensional plane
+to every point in a continuous fashion.  The general notion includes line
+fields and hyperplane fields; line fields are very similar to vector
+fields such as the magnetic field.
+
+plane partition
+
+A stack of unit cubes in a rectangular box or in the positive octant in
+space such that to the left, behind, and below every cube lies either
+another cube or a wall.  A plane partition in a box is equivalent to a
+lozenge tiling of a hexagon in the plane.
+
+Platonism 
+
+The belief that mathematical objects exist independent of physical
+models.  It is a useful pretense in mathematics, especially in geometry.
+
+pleated surface 
+
+A surface in Euclidean or hyperbolic space which resembles a polyhedron
+in the sense that it has flat faces that meet along edges.  Unlike a
+polyhedron, a pleated surface has no corners, but it may have infinitely
+many edges that form a lamination.
+
+Poincare conjecture 
+
+The conjecture that a closed, simply-connected 3-manifold must be
+(homeomorphic to) the 3-sphere.  Many mathematicians, including Poincaré
+himself, have presented incomplete or fallacious proofs of the
+conjecture.
+
+polytope
+
+The n-dimensional generalization of a polygon or a polyhedron.
+
+projection
+
+Usually refers to composition with the covering map. For example, if
+§ is a path in a blanket M, and p:M->S is the covering map, then the
+projection of § is the path p¼§:I->S. 
+ 
+projective plane
+
+A 2-manifold obtained by gluing a Mobius strip and a disk along their
+circle boundaries.
+
+quotient space
+
+A space obtained from another by identifying or "gluing" some points to
+some others. Formally, Y is a quotient space of X if there is a
+surjective map f:X->Y such that the open sets of Y are those subsets U
+of Y for which f^(-1)(U) is open in X. 
+
+rational map 
+
+A map from some field such as the real or complex numbers (plus infinity)
+to itself given by a rational polynomial function.
+
+representation/linear representation
+
+A realization of a group, Lie group, or Lie algebra by matrices or linear
+transformations.  More technically, a homomorphism from a group to a
+group of matrices.
+
+representation theory
+
+The study of linear representations of groups, Lie groups and Lie
+algebras.
+
+retract
+
+A subspace A of a space X is a retract if there is a map f:X->A that
+fixes every point of A. The map f is called a 'retraction'. 
+
+Reuleaux polytope
+
+A convex body in the plane or in higher dimensions which, like a Reuleaux
+triangle, consists of pieces of round spheres, each centered at one of
+the corners of the convex body.
+
+Reuleaux triangle
+
+A three-cornered curve consisting of three equal arcs of circles, each
+centered at the opposite corner.
+
+Riemann matrix
+
+In the cohomology of a Riemann surface, the integral cohomology has a 2g
+x 2g generating matrix.  After a standard basis manipulation using a
+natural inner product on the cohomology and its structure as a complex
+vector space, one obtains a g x g matrix called the Riemann matrix.  It
+determines the Riemann surface and is unique up to transformations coming
+from homeomorphisms of the surface.
+
+Riemann-Schottky problem
+
+The problem of determining whether a given complex matrix is the Riemann
+matrix of some Riemann surface.
+
+Riemann sphere 
+
+A topological sphere consisting of the complex plane and the point at
+infinity; an example of a Riemann surface.
+
+Riemann surface/complex curve
+
+A surface with a conformal structure; a complex manifold with one complex
+dimension.
+
+Riemannian geometry 
+
+The study of curvature and other properties of Riemannian metrics on
+manifolds.  A Riemannian metric is a metric on a manifold which is
+locally like ordinary distance in Euclidean space.  Here ``locally'' is
+not meant in the usual sense that every point has a region around it that
+is identical to a region in Euclidean space; rather, a Riemannian metric
+agrees with Euclidean distance to first order in the sense of calculus.
+Sometimes also called differential geometry.
+
+round 
+
+In topology, the terms circle and sphere refer to topological objects and
+not geometric ones, so that the surface of an egg shape is a sphere.  A
+round sphere, then, is a sphere with constant curvature; a sphere in the
+sense of geometry.
+
+saddle function
+
+A function F(x,y) of two vectors x and y (which typically lie in
+different vector spaces) is a saddle function if it is concave up in x
+and concave down in y.
+
+Schrodinger equation
+
+The partial differential equation i hbar psi_t = H psi, where H is some
+spatial linear differential operator called a Hamiltonian.  It gives the
+evolution over time of a probability cloud in quantum mechanics.
+
+separable
+
+A separable space is one that has a countable dense subset, that is a
+countable subset whose closure is the whole space. 
+
+simplex 
+
+The n-dimensional generalization of the triangle and the tetrahedron; a
+polytope in n dimensions with n+1 vertices.
+
+simplicial
+
+Made up of simplices.  E.g.  a simplicial polytope has simplices as faces
+and a simplicial complex is a collection of simplices pasted together in
+any reasonable vertex-to-vertex and edge-to-edge arrangement.
+
+simply connected
+
+A topological space is simply connected if 
+   1. it is path connected, 
+   2. every loop in that space can be continuously shrunk to a point. 
+
+skein theory
+
+An inductive definition of an invariant of knots or links which
+postulates a linear relation between the invariant of a given link and
+the invariant of the same link with a crossing switched or otherwise
+simplified.  Sometimes skein theories also involve tangled graphs.
+
+skinning map 
+
+An iterative map on conformal structures on a surface that appears in
+Thurston's proof of the Geometrization Theorem.  In the proof, the
+hyperbolic structure of a cut-open manifold must be varied until it fits
+with itself when the manifold is glued back together.  Such a hyperbolic
+structure is determined by a conformal structure at the wounds of the cut
+(ends).  Given one such structure A, the skinning map produces a new one
+B chosen to match A; structure B also comes closer to matching itself.
+
+smooth 
+
+1. Infinitely differentiable; possessing infinitely many derivatives.
+For example, sin(x) is a smooth function, while |x|^3 is not.  More
+complicated mathematical objects such as manifolds are called smooth if
+they are defined or described by smooth functions.
+
+2. Continuously differentiable; possessing a continuous tangent or
+derivative.
+
+space 
+
+A term with many mathematical meanings.  When a mathematical object is
+called a space, there is a Platonist connotation that some kind of being
+could exist in it and examine its properties as if it were a jail or the
+entire universe.
+
+spectrum
+
+1. In quantum physics, the set of allowed energy levels of a particle or
+system.  It is directly related to bright or dark lines in a spectrum of
+light produced by a prism.
+
+2. In mathematics, the set of eigenvalues of a linear transformation.  By
+historical coincidence, it is equivalent to the notion of a spectrum in
+quantum mechanics.
+
+sphere 
+
+In topology, any manifold equivalent (homeomorphic) to the usual round
+hollow shell in some dimension.  An sphere in n+1-dimensional is called
+an n-sphere, because that is its dimension as a manifold.
+
+steepest descent method
+
+A particular way of guiding an isotopy of an embedded surface to one
+which minimizes a function that measures its shape. Moving down the 
+gradient of the area function often terminates at a minimal surface. 
+
+straight
+
+A path in a flat m-manifold is straight if its projection to Rm is linear
+and nonconstant.
+
+SU(2)
+
+The 3-dimensional Lie group of 2 x 2 unitary matrices; the most common
+Lie group in mathematics and physics after the circle.
+
+submanifold
+
+A subset of a manifold that is itself a manifold.
+
+subpath
+
+A subpath of a path µ is any path of the form µs:t for s,t in I. Defined:
+µs:t(x)=µ((1-x)s+xt). 
+
+subspace
+ 
+A subset A of a topological space X with the inherited topology: the open
+set in A are the intersections of the open sets of X with A.
+
+support
+
+A straight path § in R2 supports a piecewise linear path w at s in (0,1)
+if §(1)=w(s) and w turns towards §(0) at s. If wr:s and ws:t are segments 
+of w, we also say that § supports these segments.
+
+surjection
+
+A function where every element in the range has a preimage in the domain.
+
+tangled graph
+
+A graph in 3-dimensional space; equivalently, a graph drawn in the plane
+so that when edges cross, one edge goes over the other.
+
+tensor
+
+An object in linear algebra, generalizing a vector, an inner product, and
+a linear transformation, with a multi-dimensional matrix.
+
+thin position 
+
+A representation of a knot or graph in Euclidean space, or some analogous
+structure, with the simplest possible horizontal slices.  Between U-turns
+where the knot or link has a horizontal tangent (and between vertices of
+the graph), one counts the number of intersections with a horizontal
+plane.  Thin position is achieved when the total of these counts is
+minimized.
+
+top
+
+Category of all topological groups. 
+
+topological complexity
+
+A lower bound on computational complexity defined by Smale that involves
+topology.  A task with high computational complexity requires a computer
+to make many decisions, sometimes arbitrary decisions, to untangle the
+topology of the space of possible inputs or outputs or the space of
+possibilities for an intermediate quantity.
+
+topological quantum field theory
+
+A quantum field theory, such as the Chern-Simons field theory in three
+dimensions, whose integrals for a manifold produce topological
+invariants.
+
+topology 
+
+The study of how geometric objects are intrinsically connected to
+themselves.  Since topologists are not concerned with the geometric
+measurements of objects, people often say that they study objects up to
+continuous deformation.  But usually topologists consider spaces which
+have a topology (a qualitative shape or connectivity) but no predefined
+(quantitative) geometry.  Knots and manifolds are typical examples of
+topological objects.
+
+torsion
+
+An R-module has torsion if some non-zero element, a, and some non-zero
+scalar, r, imply ra = 0. 
+
+torus
+
+The surface of a donut, i.e. a rectangle with the top and bottom
+identified to form a cylinder and the the ends of the cylinder
+identified to form a "donut". Constructed as the cartesian product
+x of two 1-spheres (circles)  T 2 = S^(1)xS^(1).
+
+train track 
+
+A graph drawn on a surface such that every vertex has degree three, and
+such that all three edges meeting at a vertex have a common tangent, two
+edges on one side and one on the other.  Every lamination of a surface is
+carried by (approximately parallel to) a train track.
+
+tree
+
+A tree is a graph with the property that there is a unique path from any
+vertex to any other vertex traveling along the edges. 
+
+triangulation 
+
+A tiling of some object such as a manifold by simplices.
+
+trivalent graph
+
+A graph such that each vertex has three edges.
+
+unimodal
+
+A function is unimodal if it goes up and then it goes down, once.  For
+example, a bell curve.
+
+valuation
+
+In convex geometry, a function f on convex sets such that f(A) + f(B) =
+f(A cap B) + f(A cup B).
+
+variation
+
+In analysis, the amount that a function increases plus the amount that it
+decreases.
+
+weak/weakly
+
+In mathematics and especially in analysis, an object is called weak if it
+is of a generalized kind with fewer properties, and a property holds
+weakly if it holds in a lesser sense.  For instance, a weak solution to
+an equation might be a discontinuous solution if a straightforward
+interpretation implies continuity.
+
+

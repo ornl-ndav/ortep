@@ -1,0 +1,500 @@
+<TITLE>ORTEP-III Online Doc - ATOMS</TITLE>
+<center>
+<H2>
+<img src="trcubane.gif" align="middle">
+ORTEP-III Online Documentation 
+<img src="trcubane.gif" align="middle">
+<br>
+400 Series Instructions: ATOMS Array
+</H2>
+</center>
+<p> 
+<hr>
+<p> 
+This series allows the user to specify which atoms are to be included
+in the illustration.  The atom designators for the chosen atoms are
+stored in the ATOMS array for future use by other instructions. The
+ATOMS array as currently dimensioned holds 500 input atoms, but it can be
+changed by redimensioning the array in COMMON and setting the variable
+NATOM in subroutine PRIME to the new value.
+<p>
+Groups of atoms are added to or eliminated from the ATOMS array (which
+is set to zero at the start of the program) with the 40n and 41n
+series, respectively. The groups can be denoted by 
+<a href="defs.html#adr">atom designator runs</a>,
+<a href="defs.html#soe">spheres of atoms</a> about any center point, and
+<a href="defs.html#boe">boxes of atoms</a>
+centered on any point. Duplicate entries of
+the same atomic position are prevented by the program. The content of
+the ATOMS array is printed in the ORTEP output file after each 400
+series instruction.
+<p>
+<ul>
+<li><a href="#401"> 401/411: Atom Designator Run Add/Eliminate </a>
+<li><a href="#402"> 402/412: Sphere of Enclosure Add/Eliminate </a>
+<li><a href="#403"> 403/413 and 404/414: Box of Enclosure Add/Eliminate 
+and Triclinic Box of Enclosure Add/Eliminate </a>
+<li><a href="#405"> 405/415 and 406/416: Convoluting Sphere of Enclosure 
+Add/Eliminate and Reiterative Convoluting Sphere of Enclosure Add/Eliminate </a>
+<li><a href="#410"> 410: Clear ATOMS Array </a>
+</ul>
+<hr>
+<a name="401"> 401/411: Atom Designator Run Add/Eliminate </a>
+<p>
+These instructions may contain: (a) 
+<a href="defs.html#adc">atom designator codes (ADC)</a> for
+single atoms; (b) 
+<a href="defs.html#adr">atom designator runs (ADR)</a>
+for several atoms in a
+run; (c) blank fields (except between the two entries of a run); and
+(d) any combinations of (a), (b), and (c). Since up to 19 Format No. 1
+continuations are possible per instruction, up to 70 runs can be made
+per instruction and an unlimited number of these instructions can be used.
+The ATOMS array and overlap calculation, however, will only
+accept the first 500 atoms.
+<p>
+<hr>
+<a name="402"> 402/412: Sphere of Enclosure Add/Eliminate </a>
+<p>
+These instructions allow the user to build or modify the ATOMS array by
+specifying the contents (complete, partial, or vector screened) of a
+<a href="defs.html#soe">sphere of enclosure</a> about any 
+<a href="defs.html#addrpt">addressable point</a>.
+Instruction 402 adds the contents of the spheres to the ATOMS array
+omitting positional duplications. The 412 instruction eliminates 
+atoms within the spheres from the ATOMS array if they are present in that
+array. The instructions call subroutine SEARC, and the instruction
+input details are identical to those of 
+<a href="i100.html#101">instructions 101 and 102</a>
+except for the instruction number. In the ORTEP output file,
+only the ATOMS array 
+<a href="defs.html#adc">atom designator codes</a> are printed and not the
+coordinates and interatomic distances. If the origin atoms on which the
+spheres of enclosure are centered are to be saved, the target
+<a href="defs.html#anr">atom
+number run</a> (Tar. ANR) must contain that atom number. Furthermore, if
+Format No. 2 
+<a href="defs.html#vsc">vector search code</a> cards are used, one of them must
+satisfy the intra-atom null vector for the origin atom in order to
+retain the origin atom.
+<p>
+The vector searches in ORTEP-III have been generalized to allow both
+atom number runs and
+<a href="defs.html#fnr">feature number runs</a> with the
+<a href="defs.html#nr">number run type</a> specified in column 24.
+In addition, it is no longer necessary to specify all three screening 
+ranges found
+on this card (i.e., origin, target, and distance range). 
+Any ranges not specified (i.e., zero or blank in the maximum value entry)
+are omitted from the screening.
+If there is more than one vector
+search card, the parameter LOGC controls the logic of the screening.
+If the value is "0" (the default), an atom satisfying the
+screening conditions on 
+any one of the No. 2 trailer cards will be retained
+(i.e., it is a logical union of the results).  If the value
+is "1", an atom must satisfy the screening conditions on all
+the cards to be retained
+(i.e., it is an intersection of the results).
+If a value of "1" is needed for LOGC, a "1" is placed in column 27
+of a Format No. 1 trailer card that goes between the main instruction
+card and the Format No. 2 VSC cards. If the value for LOGC is "0", the
+Format No. 1 card is not needed.
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Instructions 402/412</th><td></td><td></td>
+<th>Columns</th><th>Format No. 1<br>Continuation Card<br>(if needed)</th>
+</tr>
+<tr align="center" >
+<td>3</td><td>0, 1, or 2</td><td></td><td></td>
+<td>3</td><td>2</td>
+</tr>
+<tr align="center" >
+<td>7-9</td><td>402 or 412</td><td></td><td></td>
+<td>7-9</td><td>-</td>
+</tr>
+<tr align="center" >
+<td>10-18</td><td>Org. ADR (from)</td><td></td><td></td>
+<td>10-18</td><td>-</td>
+</tr>
+<tr align="center" >
+<td>19-27</td><td>Org. ADR (to)</td><td></td><td></td>
+<td>27</td><td>LOGC</td>
+</tr>
+<tr align="center" >
+<td>28-36</td><td>Tar. ANR (from)</td><td></td><td></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr align="center" >
+<td>37-45</td><td>Tar. ANR (to)</td><td></td><td></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr align="center" >
+<td>46-54</td><td>D<sub>max</sub> (&Aring;)</td><td></td><td></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+</table>
+</center>
+
+<p>
+
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Format No. 2<br>Vector Search Code<br>(if used)</th>
+</tr>
+<tr align="center" >
+<td>3</td><td>0 or 2</td>
+</tr>
+<tr align="center" >
+<td>10-12</td><td>[Org. NR (from)</td>
+</tr>
+<tr align="center" >
+<td>13-15</td><td>Org. NR (to)]</td>
+</tr>
+<tr align="center" >
+<td>16-18</td><td>[Tar. NR (from)</td>
+</tr>
+<tr align="center" >
+<td>19-21</td><td>Tar. NR (to)]</td>
+</tr>
+<tr align="center" >
+<td>24</td><td>[Number run type]</td>
+</tr>
+<tr align="center" >
+<td>25-30</td><td>[D<sub>min</sub> (&Aring;)</td>
+</tr>
+<tr align="center" >
+<td>31-36</td><td>D<sub>max</sub> (&Aring;)]</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<a name="403"> 403/413 and 404/414: Box of Enclosure Add/Eliminate
+and Triclinic Box of Enclosure Add/Eliminate </a>
+<p>
+The 403/413 instructions allow the user to build or modify the ATOMS arrary
+by specifying the contents of a 
+<a href="defs.html#boe">box of enclosure</a> about any 
+<a href="defs.html#addrpt">addressable point</a> (or 
+<a href="defs.html#adr">atom designator run</a>
+of addressable points). The three axes of the
+box are parallel to the three base vectors of the reference
+<a href="defs.html#coord">Cartesian
+system</a>, and the semidimensions of the box are specified on the
+instruction card. If an orientation of the box different from the
+standard orientation is desired, then a 501 or a 502
+instruction, or both, should be used before this instruction to
+reorient the reference Cartesian system.  After this instruction has
+been executed, the reference system can undergo further reorientation
+as desired for plotting purposes, etc.
+<p>
+The 404/414 instructions are identical to
+the 403/413 instructions except that
+the triclinic 
+<a href="defs.html#boe">box of enclosure</a>
+is bounded by planes parallel to the
+principal planes of the crystal lattice. The semidimensions a/2, b/2,
+c/2 refer to fractional (triclinic) coordinates. To specify the
+contents of the conventional unit cell, one would use a/2 = b/2 = c/2 =
+.5, and the Org. ADR would refer to a point in the input atom list at
+(.5,.5,.5).
+<p>
+As in the case of the 
+<a href="#402">402/412 instruction</a>, the origin
+atom on which the box is centered will not be included unless the
+target 
+<a href="defs.html#anr">atom number run</a>
+includes the origin atom number. 
+Subroutine SEARC is used by
+this instruction, and the instruction input details are similar to
+those of <a href="#402">instructions 402/412</a>
+except that D<sub>max</sub>
+is replaced by the
+semidimension a/2 of the box and the following fields on the card are
+used to specify the other two semidimensions b/2 and c/2. The box
+dimensions must be chosen carefully so that the ATOMS array does not
+overflow.
+<p>
+ORTEP-III allows the use of
+Format No. 2 continuation cards for screening the atoms found by
+the 403/413 and 404/414 instructions.
+<a href="defs.html#anr">Atom number runs</a> or
+<a href="defs.html#fnr">feature number runs</a> may be used for
+the origin and target with the
+<a href="defs.html#nr">number run type</a> specified in column 24.
+If either is not specified, it is
+omitted from the screening.
+If there is more than one Format No. 2 continuation card,
+the parameter LOGC controls the logic of the screening.
+If the value is "0" (the default), an atom satisfying the
+screening conditions on 
+any one of the No. 2 trailer cards will be retained
+(i.e., it is a logical union of the results).  If the value
+is "1", an atom must satisfy the screening conditions on all
+the cards to be retained
+(i.e., it is an intersection of the results).
+If a value of "1" is needed for LOGC, a "1" is placed in column 27
+of a Format No. 1 trailer card that goes between the main instruction
+card and the Format No. 2 cards. If the value for LOGC is "0", the
+Format No. 1 card is not needed.
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Instructions 403/413<br>and 404/414</th>
+<td></td><td></td><td></td>
+<th>Columns</th><th>Format No. 1<br>Continuation Card<br>(if needed)</th>
+</tr>
+<tr align="center" >
+<td>3</td><td>0, 1, or 2</td>
+<td></td><td></td><td></td>
+<td>3</td><td>2</td>
+</tr>
+<tr align="center" >
+<td>7-9</td><td>403, 404, 413, or 414</td>
+<td></td><td></td><td></td>
+<td>7-9</td><td>-</td>
+</tr>
+<tr align="center" >
+<td>10-18</td><td>Org. ADR (from)</td>
+<td></td><td></td><td></td>
+<td>10-18</td><td>-</td>
+</tr>
+<tr align="center" >
+<td>19-27</td><td>Org. ADR (to)</td>
+<td></td><td></td><td></td>
+<td>27</td><td>LOGC</td>
+</tr>
+<tr align="center" >
+<td>28-36</td><td>Tar. ANR (from)</td>
+<td></td><td></td><td></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr align="center" >
+<td>37-45</td><td>Tar. ANR (to)</td>
+<td></td><td></td><td></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr align="center" >
+<td>46-54</td><td>a/2 (&Aring; or fraction)</td>
+<td></td><td></td><td></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr align="center" >
+<td>55-63</td><td>b/2 (&Aring; or fraction)</td>
+<td></td><td></td><td></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr align="center" >
+<td>64-72</td><td>c/2 (&Aring; or fraction)</td>
+<td></td><td></td><td></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+</table>
+</center>
+
+<p>
+
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Format No. 2<br>Continuation Card<br>(if used)</th>
+</tr>
+<tr align="center" >
+<td>3</td><td>0 or 2</td>
+</tr>
+<tr align="center" >
+<td>10-12</td><td>[Org. NR (from)</td>
+</tr>
+<tr align="center" >
+<td>13-15</td><td>Org. NR (to)]</td>
+</tr>
+<tr align="center" >
+<td>16-18</td><td>[Tar. NR (from)</td>
+</tr>
+<tr align="center" >
+<td>19-21</td><td>Tar. NR (to)]</td>
+</tr>
+<tr align="center" >
+<td>24</td><td>Number run type</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<a name="405"> 405/415 and 406/416: Convoluting Sphere of Enclosure 
+Add/Eliminate and Reiterative Convoluting Sphere of Enclosure Add/Eliminate </a>
+<p>
+These instructions are used in the same manner as 
+<a href="i100.html#105">instructions 105 and
+106</a>. Their function is to add atoms to or eliminate atoms
+from the ATOMS array. A valid origin atom must be placed in the ATOMS
+array with a 401, 402, 403, or 404 instruction before the 405/415 and 406/416
+instructions are used. All atoms in the ATOMS array that have atom
+or <a href="defs.html#af">feature</a>
+numbers within the origin 
+<a href="defs.html#nr">number run</a> (Org. NR) of the instruction
+are used as origin points of convolution.
+<p>
+An example use for the 405 instruction is to complete the
+coordination shells around metal atoms without having to 
+identify the coordination shell 
+atoms individually. Another use might be to obtain a cluster of
+atoms out to the nth neighbor when only the distance to the first
+neighbor is known. This can be accomplished by using n consecutive 405
+instructions with D<sub>max</sub> slightly more than the first neighbor distance.
+<p>
+Instruction 406 is useful for describing molecular compounds where an
+unfortunate choice of atoms for the input asymmetric unit does not
+allow the molecule to be described by a run. D<sub>max</sub> must be chosen
+judiciously so that the search does not cross molecular boundaries.
+<p>
+Instruction 406 has an added feature that makes it useful for limiting
+the atom list to the contents of an asymmetric unit of the unit cell.
+An example is the examination of
+electron density maps. When direct methods are used for solving crystal
+structures, stereoscopic drawings provide a rapid means for screening
+the E maps. If the interpolated positions of the largest peaks in the
+Fourier synthesis E map are taken as atom positions, then ORTEP can
+start at a given peak (usually the largest) and do a reiterative
+sphere-of-enclosure add to isolate a molecule if one is present. In
+order to terminate the convolution procedure when extraneous bridging
+peaks link the molecules, a feature has been added to the 406
+instruction to prevent multiple instances of an atom (in any of its
+equivalent positions) from being entered in the ATOMS array. To invoke
+this feature, a Format No. 1 continuation card with a "1" in column 18 
+(ASYMUNIT) is
+added to the 406 instruction. The 406 instruction operates in its usual
+manner if the continuation card is omitted or has a "0" or blank in column
+18.
+<p>
+<a href="defs.html#vsc">Vector search codes</a>
+on Format No. 2 continuation cards may be used for screening if
+desired. 
+The vector searches in ORTEP-III have been generalized to allow both
+atom number runs and
+<a href="defs.html#fnr">feature number runs</a> with the
+<a href="defs.html#nr">number run type</a> specified in column 24.
+In addition, it is no longer necessary to specify all three screening 
+ranges found
+on this card (i.e., origin, target, and distance range). 
+Any ranges not specified (i.e., zero or blank in the maximum value entry)
+are omitted from the screening.
+If there is more than one vector
+search card, the parameter LOGC controls the logic of the screening.
+If the value is "0" (the default), an atom satisfying the
+screening conditions on 
+any one of the No. 2 trailer cards will be retained
+(i.e., it is a logical union of the results).  If the value
+is "1", an atom must satisfy the screening conditions on all
+the cards to be retained
+(i.e., it is an intersection of the results).
+If a value of "1" is needed for LOGC, a "1" is placed in column 27
+of a Format No. 1 trailer card that goes between the main instruction
+card and the Format No. 2 VSC cards. If the value for LOGC is "0", the
+Format No. 1 card is not needed.
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Instructions 405/415 and 406/416</th><td></td><td></td>
+<th>Columns</th><th>Format No. 1<br>Continuation Card<br>(if needed)</th>
+</tr>
+<tr align="center" >
+<td>3</td><td>0, 1, or 2</td><td></td><td></td>
+<td>3</td><td>2</td>
+</tr>
+<tr align="center" >
+<td>7-9</td><td>405, 406, 415, or 416</td><td></td><td></td>
+<td>7-9</td><td>-</td>
+</tr>
+<tr align="center" >
+<td>10-18</td><td>Org. NR (from)</td><td></td><td></td>
+<td>18</td><td>ASYMUNIT (406 only)</td>
+</tr>
+<tr align="center" >
+<td>19-27</td><td>Org. NR (to)</td><td></td><td></td>
+<td>27</td><td>LOGC</td>
+</tr>
+<tr align="center" >
+<td>28-36</td><td>Tar. NR (from)</td><td></td><td></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr align="center" >
+<td>37-45</td><td>Tar. NR (to)</td><td></td><td></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr align="center" >
+<td>46-54</td><td>D<sub>max</sub> (&Aring;)</td><td></td><td></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+<tr align="center" >
+<td>63</td><td>NR type</td><td></td><td></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+</tr>
+</table>
+</center>
+
+<p>
+
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Format No. 2<br>Vector Search Code<br>(if used)</th>
+</tr>
+<tr align="center" >
+<td>3</td><td>0 or 2</td>
+</tr>
+<tr align="center" >
+<td>10-12</td><td>[Org. NR (from)</td>
+</tr>
+<tr align="center" >
+<td>13-15</td><td>Org. NR (to)]</td>
+</tr>
+<tr align="center" >
+<td>16-18</td><td>[Tar. NR (from)</td>
+</tr>
+<tr align="center" >
+<td>19-21</td><td>Tar. NR (to)]</td>
+</tr>
+<tr align="center" >
+<td>24</td><td>[Number run type]</td>
+</tr>
+<tr align="center" >
+<td>25-30</td><td>[D<sub>min</sub> (&Aring;)</td>
+</tr>
+<tr align="center" >
+<td>31-36</td><td>D<sub>max</sub> (&Aring;)]</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<a name="410"> 410: Clear ATOMS Array </a>
+<p>
+This instruction clears the ATOMS array to zero. When the program is
+first entered, the array is automatically set to zero.
+<p>
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Instruction 410</th>
+</tr>
+<tr align="center" >
+<td>7-9</td><td>410</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<p>
+<a href="toc.html"><img src="bluecube.gif"> Online Documentation
+Table of Contents</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="../ortep.html"><img src="bluecube.gif"> ORTEP-III Home Page</a>
+<p>
+<i>Page last revised: <!--#echo var="LAST_MODIFIED"--></i>

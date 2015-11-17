@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+<TITLE>ORTEP-III Version 1.0.3</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ded6bd">
+<center>
+<H2>
+<img src="trcubane.gif" align="middle">
+ORTEP-III - Version 1.0.3
+<img src="trcubane.gif" align="middle">
+</H2>
+</center>
+<p> 
+<hr>
+<p> 
+An error in ORTEP has been discovered by Dr. Louis Farrugia, the author
+of
+<a href="http://www.chem.gla.ac.uk/~louis/software/ortep3/">Ortep-3 for Windows</a>.
+The error dates back to the 1976 release of
+OR TEP-II (ORNL-5138 manual).  The result of this error is a reversal
+of handedness of chiral molecules in ORTEP drawings when BOTH of the
+following occur:
+<p>
+<ul>
+<li>All atoms in the atoms list are related by n-fold symmetry
+     with n > 2.
+<p>
+<li>A 506 instruction (inertial axes coordinate system) is used.
+</ul>
+<p>
+This situation gives a product moment matrix with two equal
+eigenvalues.  When this occurs, the coding error generates a
+left-handed coordinate system that leads to the incorrect handedness of
+the ORTEP drawing.  Thus, the drawing does not accurately depict the
+true atomic coordinates input to ORTEP.
+<p>
+We point out that this error is most significant when absolute
+configuration is being displayed and state again that it only occurs
+when both conditions listed above are met.  The fact that it took
+23 years for this error to be discovered suggests the rarity of these
+conditions in practice.
+<p>
+To extend a famous quote by W. H. Zachariasen - "Don't trust your
+theoretical models, don't trust your experimental results, [don't trust
+your computer programs,] and don't take yourself or your work too
+seriously."
+<p>
+Version 1.0.3 (Jan. 31, 2000) of ORTEP-III corrects the error described above.  
+Check with the
+authors of software packages that incorporate ORTEP for the status of
+their programs.
+
+<p> 
+<hr>
+<p> 
+<center>
+<a href="source.html">Fortran source code</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="compiled.html">Compiled versions</a> 
+</center>
+<p>
+<hr>
+<p>
+<a href="ortep.html"><img src="bluecube.gif"> ORTEP-III Home Page</a>
+<p><i>Page last revised: <!--#echo var="LAST_MODIFIED"--></i>
+</body>
+</html>

@@ -1,0 +1,32 @@
+        Groupoids: A Crystallographic Topology Perspective
+                        Carroll K. Johnson
+           Chemical and Analytical Sciences Division
+                Oak Ridge National Laboratory
+             Oak Ridge, Tennessee 37831-6197, USA
+
+The symmetry of finite objects is often difficult to describe
+algebraically without ignoring boundary and truncation effects.  The
+230 infinite crystallographic space groups provide suitable
+approximation for macroscopic crystals, but are inadequate for
+crystals containing only a few unit cells.  Space group theory also
+fails to describe a truncated symmetry set such as that of an
+asymmetric unit (fundamental domain) within a space group.  One
+approach for the asymmetric unit is to topologically wrap it up into
+a closed quotient space Euclidean 3-orbifold.  A second approach
+involves groupoids which provide algebraic machinery for handling
+each of the above incomplete group problems.
+                                                                
+The first task is to incorporate groupoids into a crystallographic
+orbifold nomenclature system using the screw and glide groupoids
+introduced by M. A. Jaswon and M. A. Rose in "Crystal Symmetry:
+Theory of Colour Crystallography", Horwood, 1983.  Screw and glide
+groupoids nomenclature is closely related to that in the
+Hermann-Mauguin space group notation, thus providing a possible
+method for describing orbifolds in a notation familiar to
+crystallographers.  A second task is to translate our Gaussian
+measure based Radon Nikodym model for Morse functions on orbifolds,
+which we use to describe crystal structure topology, into the
+terminology of measured groupoids.
+
+
+

@@ -1,0 +1,120 @@
+<TITLE>ORTEP-III - Code</TITLE>
+<center>
+<H2>
+<img src="trcubane.gif" align="middle">
+ORTEP-III - Fortran Source Code
+<img src="trcubane.gif" align="middle">
+</H2>
+</center>
+<p> 
+<hr>
+<p> 
+Executable versions of ORTEP-III 
+ready for downloading and running on several computer platforms
+are available 
+by clicking
+<a href="compiled.html">here</a>.
+<p> 
+<hr>
+<p>
+<center>
+<a href="ftp://ftp.ornl.gov/pub/ortep/src/ortep.f">
+Download the Fortran source code for ORTEP-III (175K)</a> 
+</center>
+<p>
+<hr>
+<p>
+Compilation Options (<b>IMPORTANT</b>)
+<p>
+When compiling ORTEP-III, make sure that subprogram 
+variables retain
+their values between calls.  This is the default mode
+of many Fortran 77 compilers, but some require a particular compilation
+setting.  Check your user's manual.
+<p>
+<hr>
+<p> 
+PGPLOT
+<p> 
+The screen drawing capabilities available in
+ORTEP-III are provided by PGPLOT.
+PGPLOT is a free graphics library developed by T. J. Pearson at the
+California Institute of Technology.
+Information about PGPLOT can be
+found on the World Wide Web at 
+<a href="http://astro.caltech.edu/~tjp/pgplot">http://astro.caltech.edu/~tjp/pgplot</a>
+or
+via e-mail to <a href="mailto:tjp@astro.caltech.edu">tjp@astro.caltech.edu</a>.
+<p> 
+PGPLOT is <b>not</b> required to compile ORTEP-III. Without PGPLOT, screen
+drawing is not possible, but Postscript and HPGL file ouptut
+of the ORTEP illustration still function.
+<p>
+As downloaded, the screen drawing portion of the program is commented out.
+Dummy subroutines that do nothing replace the screen drawing versions.  If
+you have PGPLOT, locate the words "DUMMY SCREEN OUTPUT" in the source file
+and remove or comment out
+the dummy subroutines found in that section.  Uncomment the
+subroutines in the section labeled "PGPLOT SCREEN OUTPUT".
+Be sure to set the operating system environment variable PGPLOT_DEV.
+<p>
+<hr>
+<p>
+No Fortran Compiler
+<p>
+The Fortran code of ORTEP-III has been successfully 
+converted to C code with the utility
+F2C and compiled with various C compilers.  F2C is available
+via anonymous ftp at 
+<a href="ftp://netlib.bell-labs.com/netlib/f2c">netlib.bell-labs.com</a> 
+in the directory /netlib/f2c.
+A Macintosh version is available at 
+<a href="ftp://alumni.caltech.edu/pub/Mac_F2C">alumni.caltech.edu</a> 
+in /pub/Mac_F2C.
+<p>
+Since PGPLOT compilation requires a Fortran compiler, the screen
+drawing capability of ORTEP-III is not available when going the 
+C route.
+<p>
+<hr>
+<p>
+Compiling for UNIX:
+<p>
+<ul>
+f77 -o ortep3 ortep.f -lpgplot -lX11
+</ul>
+<p>
+<hr>
+<p>
+Compiling for VMS:
+<p>
+<ul>
+for ortep.f<br>
+link /executable=ortep3 ortep,pgplot_dir:grpshr/lib
+</ul>
+<p>
+<hr>
+<p>
+Compiling for Macintosh with Fortner Research LS Fortran:
+<p>
+First compile the PGPLOT library for the specific Macintosh platform.
+<p>
+<ul>
+Power Macintosh
+<ul>
+fortran.ppc ortep.f -u -saveall -b -opt=0 -bkg=0<br>
+linkfortranppc ortep3 ortep.f.o pgplot.lib
+</ul>
+<p>
+68K Macintosh
+<ul>
+fortran ortep.f -u -saveall -b -opt=0 -bkg=0 -mc68020<br>
+linkfortran ortep3 ortep.f.o pgplot.lib
+</ul>
+</ul>
+
+<p>
+<hr>
+<p>
+<a href="ortep.html"><img src="bluecube.gif"> ORTEP-III Home Page</a>
+<p><i>Page last revised: <!--#echo var="LAST_MODIFIED"--></i>

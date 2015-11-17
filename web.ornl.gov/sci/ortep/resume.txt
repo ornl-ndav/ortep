@@ -1,0 +1,512 @@
+                                   RESUME
+                          Carroll K. Johnson, Ph.D.
+                               October, 1996
+
+Citizenship: Born 9/18/1929, Greeley Colorado, USA
+Residence:  344 East Drive, Oak Ridge, TN 37830
+Home Phone: (865) 483-3259
+ORNL Phone: (865) 574-4975 
+ORNL Fax:   (865) 576-5235
+ORNL e-mail:ckj@ornl.gov
+ORNL WWWeb: http://www.ornl.gov/ortep/topology.html
+
+Education and Employment
+   
+1947-48, University of Colorado, Premedical
+1948-52, US Marine Corps, TSgt, Electronics Technecian
+1952-55, B.S. Colorado State Univ., Animal Nutrition and Physiology
+1955-59, Ph.D. Mass. Inst. of Tech., Biophysics and Physics
+1959-62, Post Doc., Inst. for Cancer Res., Phil. PA, Crystallography
+1962-96, Oak Ridge National Lab., Chem. Div., Oak Ridge, TN
+Oct. 96, Retired from ORNL
+
+Professional Activities
+   
+1965-67, Crystallographic Computing Committee, ACA
+1970-76, Committee on Chemical Crystallography, NAS-NRC
+1975-76, Sabbatical, Stanford University, Artificial Intelligence
+1977-78, President, American Crystallographic Association (ACA)
+1976-78, Executive Council, ACA
+1977-78, Advisory Committee, Chem. Dept, Livermore National Lab.
+1978-81, Policy Board, National Resource for Computation in Chem.
+1981,    Sabbatical, Naval Research Lab., Artificial Intelligence
+1983-85, Advisory Committee, NIH Prophet Computer Project
+1984-85, Advisory Committee, Bureau of Engraving and Printing 
+1985-91, Project Manager,  ORNL/BEP Engineering Projects
+1994-96, Chairman, ACA General Interest Group
+
+Research in Crystallograpic and Chemical Computing
+   
+   Crystallographic graphics (ORTEP)
+   Segmented body thermal-motion analysis
+   Higher-cumulant thermal-motion refinement
+   Density map critical-point analysis
+   Analytical least-squares matrix approximation
+   Unimolecular rearrangement group theory
+   Chemical reaction and structure activity modeling
+   Orbifold topological descriptions of crystallogaphic groups
+   Critical net topological descriptions of crystal structures
+
+Research in Neutron and X-Ray Diffraction Crystallography
+   
+   Biopolymer structures and diffraction theory (Ph.D. thesis)
+   Crystal structures of various organic and inorganic compounds
+   Organic conductors, H-isotope partitioning in hydrogen bonds
+   Absolute configuration of enzymatically deuterated compounds
+   Thermal-motion and modulated-structure theory and analysis
+   Superconductor structural research via neutron diffraction
+
+Research in Artificial Intelligence and Computer Controlled Systems
+   
+   Protein density-map interpretation (with Stanford and UCSD)
+   Emergency countermeasures for chemical spills
+   Interpretation of NMR-MS-IR chemical spectroscopy results
+   Electronic troubleshooting (with Navy AI Center)
+   Chemical demiliterization reaction modeling (Army sponsored)
+   Structure activity modeling (Army sponsored)
+   Printing Ink formulation (Bureau of Engraving and Printing [BEP])
+   Perception of printing flaws (BEP sponsored)
+   Automated neutron diffraction, 4-circle diffractometer upgrade 
+
+Research in Machine Vision and Engineering Project Management
+   
+   Engineering prototype of web currency inspection system
+   Contract management for web currency inspection system
+   Web stamp inspection system design and fabrication
+   Conceptual design and specification for web currency finishing system
+   Automated video microscopy for bacteria identification
+----------------------------------------------------------------------
+
+A. JOURNAL, BOOK AND REPORT PUBLICATIONS for C. K. Johnson
+
+A.1 Structural Crystallography Publications
+
+_______, "X-Ray Diffraction Studies of Polypeptide Packing",  Ph.D.
+Thesis, Department  of Biology, Massachusetts Institute of Technology
+(September, 1959).
+
+_______, A. L. Patterson, D. van der Helm, and J. R. Minkin,
+"The Absolute Configuration of Naturally Occurring Isocitric Acid," J. Am.
+Chem. Soc. 84, 309 (1962).
+
+_______, "X-Ray Crystal Analysis of the Substrates of Aconitase. V.
+Magnesium Citrate Decahydrate," Acta Cryst. 18, 1004 (1965).
+
+_______,  J. P. Glusker, D. van der Helm, W. E. Love, M. L.Dornberg,
+J. A. Minkin, and A. L. Patterson, "X-Ray Crystal Analysis of the
+Substrates of Aconitase. VI. The Structures of Sodium and Lithium
+Dihydrogen Citrates," Acta Cryst. 19, 561 (1965).
+
+_______, E. J. Gabe, M. R. Taylor, and I. A. Rose, "Determination by
+Neutron and X-Ray Diffraction of the Absolute Configuration of an
+Enzymatically Formed .-Monodeuteroglycolate," J. Am. Chem. Soc. 87, 1802
+(1965).
+
+P. A. Agron, _______, and H. A. Levy, "Xenon Hexafluoride.
+Crystallographic Data and Phase Transitions," Inorg. Nucl. Chem. Lett. 1,
+145 (1965).
+
+_______, D. van der Helm, J. P. Glusker, J. A. Minkin, N. E. Buron,
+and A. L. Patterson, "X-Ray Crystal Analysis of the Substrates of
+Aconitase. VIII. The Structure and Absolute Configuration of Potassium
+Dihydrogen Isocitrate Isolated from Bryophyllum Calycinum," Acta Cryst.
+B24, 578 (1968).
+
+R. D. Ellison, _______, and H. A. Levy, "Glycolic Acid. Direct
+Neutron Diffraction Determination of Crystal Structure and Thermal Motion
+Analysis," Acta Cryst. B27, 333 (1971).
+
+_______, "Critical Evaluation of Protein Crystallographic Results,"
+Proc., ACS Mtg., on Critical Evaluation of Chemical and Physical Structural
+Information, Dartmouth College, June 24-29, 1974, eds. D. R. Lide and M. A.
+Paul, Nat'l Acad. Sci., Washington, DC (1974) pp. 242-247.
+
+_______, "Crystallographic Analysis of Superstructure Modulation in
+the Organic Conductor (TTF)7I5," Proc., Int. Conf. on Low Lying Lattice
+Vibrational Modes and Their Relationship to Superconductivity and
+Ferroelectricity, San Juan, Puerto Rico, Dec. 1-3, 1975.
+
+_______ and C. R. Watson, "Superstructure and Modulation Wave
+Analysis for the Unidimensional Conductor Hepta(tetrathiafulvalene)
+Pentaiodide," J. Chem. Phys. 64, 2271 (1976).
+
+G. C. Lisensky, _______, and H. A. Levy, "A Neutron Diffraction Study
+of the 1:1 Molecular Complex of 7,7,8,8-Tetracyanoquinodimethane with p-
+Terphenyl," Acta Cryst. B32, 2188 (1976).
+
+P. Rafferty, B. M. Benjamin, V. F. Raaen, W. E. Thiessen, and _______,
+"Crystal Structure of
+2,6-di-tert-butyl-5,6-epoxy-2,4-dihydroxy-4-methyl-1,3- cyclohexanedione,
+An Oxidation Product of 2,6-di-tert-butyl-4-methylphenol (BHT)," Acta
+Cryst. B35, 2067 (1979).
+
+R. C. Teitelbaum, T. J. Marks, and _______, "Crystal Structure and
+Properties of Tetrathiafulvalenium Triiodide," J. Am. Chem. Soc. 102, 2986
+(1980).
+
+A.2 Crystallographic Graphics Publications (ORTEP)
+
+_______, "OR TEP: A FORTRAN Thermal Ellipsoid Plot Program for
+Crystal Structure Illustrations," ORNL-3794 (June 1965).
+
+_______, "OR TEP: A FORTRAN Thermal-Ellipsoid Plot Program for
+Crystal Structure Illustrations. 2nd Revision," ORNL-3794 (Rev) (June
+1970).
+
+_______, "Drawing Crystal Structures by Computer," Proc., Int. Summer
+School on Crystallographic Computing, Carleton University, Ottawa, Canada,
+Aug. 1969, and Munksgaard, Copenhagen, Denmark, 1970, Crystallographic
+Computing, ed. F. R. Ahmed (1970) pp. 227-230.
+
+_______, "OR TEP: A FORTRAN Thermal-Ellipsoid Plot Program for
+Crystal Structure Illustrations. 3rd Revision," ORNL-5138 (Mar. 1976).
+
+M.N. Burnett and _______, "OR TEP-III: A Thermal Ellipsoid Plot
+Program for Crystal Structure Illustrations," ORNL-6895 (July 1996).
+
+
+A.3 Thermal Motion Analysis Publications
+ 
+_______, "Information on Molecular Motion Derived from Anisotropic
+Temperature Factor Coefficients," in Molecular Dynamics and Structure of
+Solids, eds. R. S. Carter and J. J. Rust, Nat'l Bureau of Standards Special
+Publication 301 (1969) pp. 381-384.
+
+_______, "Addition of Higher Cumulants to the Crystallographic
+Structure- Factor Equations. A Generalized Treatment for Thermal-Motion
+Effects," Acta Cryst. A25, 187 (1969).
+
+_______, "An Introduction to Thermal Motion Analysis," Proc., Int.
+Summer School on Crystallographic Computing, Carleton University,
+Ottawa, Canada, Aug.  1969, and Munksgaard, Copenhagen, Denmark, 1970,
+Crystallographic Computing, ed.  F.R. Ahmed (1970) pp.  207-219.
+
+________ "Generalized Treatments for Thermal Motion," Proc., Int.
+Summer School on the Accurate Determination of Neutron Intensities and
+Structure Factors, Harwell, England, July 1-5, 1968, Thermal Neutron
+Diffraction, Spottiswood, Ballantyne, London (1970) pp. 132-136.  
+
+______, "The Effect of Thermal Motion on Interatomic Distances and
+Angles," Proc., Int. Summer School on Crystallographic Computing, Carleton
+University, Ottawa, Canada, Aug. 1969, and Munksgaard, Copenhagen, Denmark,
+1970, Crystallographic Computing, ed. F. R. Ahmed (1970) pp. 220-226.
+
+_______, "New Computational Techniques, Particularly for Refinement,"
+Proc., Symp. on Computational Needs and Resources in Crystallography,
+Albuquerque, NM, Apr. 8, 1972, Nat'l Acad. Sci., Washington, DC (1972) pp.
+48-57.
+
+_______, "Thermal Motion Analysis," Proc., Int. Winter School on
+Crystallographic Computing, Bangalore, India, Jan. 4-14, 1980, Computing in
+Crystallography, eds. R. Diamond, S. Ramaseshan, and K. Venkatesan, Indian
+Acad. Sci., Bangalore, India (1980) pp. 14.01-14.20.
+
+_______ and H. A. Levy, "Thermal-Motion Analysis Using Bragg
+Diffraction Data," in International Tables for X-Ray Crystallography, eds.
+J. A. Ibers and W. C. Hamilton, Kynoch Press, Birmingham (1974) Vol. 4, pp.
+311-336.
+
+
+A.4 Combinatorial Chemistry Publications
+
+C. J. Collins and _______, "A Computer-Assisted Analysis of the
+Camphor- 14C Sulfuric Acid Reaction. Is 3,2-endo-hydroxyl Shift Necessary?"
+J. Am. Chem. Soc. 95, 4766 (1973).
+
+C. J. Collins, _______, and V. F. Raaen, "Molecular Rearrangements.
+XXX. Applications of an Algebraic-Graphical Model for Analyzing
+Rearrangements of Bicyclo[2,2,1]heptyl Cations," J. Am. Chem. Soc. 96, 2524
+(1974).
+
+_______ and C. J. Collins, "An Algebraic Model for the Rearrangements
+of 2-bicyclo[2,2,1]heptyl Cations," J. Am. Chem. Soc. 96, 2514 (1974). 1975
+
+
+A.5 Artificial Intelligence Publications
+
+
+E. A. Feigenbaum, R. S. Englemore, and _______, "A Correlation
+Between Crystallographic Computing and Artificial Intelligence Research,"
+Acta Cryst. A33, 13 (1977).
+
+______, "Programming Methodology of Artificial Intelligence," Proc.,
+Int. Winter School on Crystallographic Computing, Bangalore, India, Jan.
+4-14, 1980, Computing in Crystallography, eds. R. Diamond, S. Ramaseshan,
+and K. Venkatesan, Indian Acad. Sci., Bangalore, Inda (1980) pp.
+28.01-28.16.
+
+_______, "Artificial Intelligence Is Coming," ORNL Review, pp. 32-37
+(Spring 1981).
+
+_______ and J. Bachenko, "Applied Computational Linguistics in
+Perspective," Proc., Workshop, American Journal of Computational
+Linquistics, April- June 1982, 8, 55, 83 (1982).
+
+_______ and S.R. Jordan, "Emergency Management of Inland Oil and
+Hazardous Chemical Spills: A Case Study in Knowledge Engineering," Building
+Expert Systems, Ed. F. Hayes-Roth, D.A. Waterman, and D.B. Lenat,
+Addison-Wesley Pub. pp 349-397, (1983)
+
+J. D. Allen, Jr., B. A. Kelley, _______, and T. W. Oakes, "The Spills
+Problem and Applied Artificial Intelligence," Proc., 1980 UCC-ND and GAT
+Environmental Protection Seminar, Gatlinburg, TN, Apr. 5-7, 1982, ORNL
+Report (1983).
+
+_______, R. E. Blake, M. N. Burnett, R. E. Sherrod, and C. A.
+Goodman, "Flaw Speciation Language for Currency," ORNL/TM-10022 (1986).
+
+_______, R. E. Blake, M. N. Burnett, R. Cockett, C. A. Goodman,
+R. L. Schmoyer, Jr., and R. E. Sherrod, "Currency Flaw Evaluation in
+Theory and Practice," ORNL-6373 (December, 1987)
+
+_______, "Machine Intelligence Applications to Securities Production,"
+Proc. Inter. Conf. on Security Documents for the 21st Century,
+ORNL CONF-8704175 (1987).
+
+
+A.6 Crystallographic Topology
+
+_______ and M.N. Burnett, "Crystallographic Topology and Its
+Applications", Proc. Macromolecular  Crystallography Computing School,
+Western Washington Univ., Bellingham, WA, Aug.17-23, In Press, (1996)
+
+A.6 Miscellaneous
+
+_______, "Will Holography Revolutionize Crystallography?" Science
+196, 478 (1977).
+
+_______, M. N. Burnett, and C. A. Goodman, "Committee Reports of the
+International Workshop on Printing Flaw Standards for Machine Inspection,"
+CONF-8703158 (1987).
+
+M. N. Burnett, C. A. Goodman, N. A. Sexton, and _______, Eds,
+"Proceedings of the International Conference on Security Documents for the
+21st Century," ORNL CONF- 8704175 (1987).
+
+------------------------------------------------------------------------
+
+B ORAL AND POSTER PRESENTATIONS for C. K. Johnson
+
+B.1 Structural Crystallography  Presentation Abstracts
+
+_______, "Crystal Structures of Citric Acid Monohydrate and Two
+Deuterated Isomorphs Determined by Neutron Diffraction," ACA Mtg., Austin,
+TX, Feb. 28-Mar. 2, 1966.
+
+_______, "Diffraction Theory of Helices Distorted by Packing," 2nd
+Int. Congress of Pure and Applied Biophysics, Vienna, Austria, Sept. 5-9,
+1966.
+
+_______, "Crystal Structure of 3-endo-Phenyl-2-endo-Norbornanol: A
+Neutron Diffraction Structure and Analysis Utilizing Isotopic Replacement,"
+ACA Winter Mtg., Atlanta, GA, Jan. 25-28, 1967.
+
+_______ and G. D. Brunton, "Hydrogen Isotope Fractionation, Phase
+Transformation and Dynamic Disorder in YH5O2(C2O4)2H2O; A Neutron
+Diffraction Study," ACA Mtg., Albuquerque, NM, Apr. 4-8, 1972.
+
+_______, "Analysis of Some New Deuteration Results Obtained  from
+Neutron Diffraction Studies," ACA Mtg., University of Florida, Gainesville,
+FL, Jan. 14-18, 1973.
+
+_______, H. L. Reed, R. F. Hall, and V. F. Raaen, "Physical and
+Molecular Properties of TCNQ-Benzene and TCNQ-Hexamethylbenzene Crystal,"
+Symp. on Liquids and Amorphous Materials, ACA Mtg., Berkeley, CA, Mar.
+24-28, 1974.
+
+_______, C. R. Watson, and R. J. Warmack, "Strange New Organic
+Conductors: The Tetrathiofulvane Halogen Complexes," ACA Spring Mtg.,
+University of Virginia, Charlottesville, VA, Mar. 10-13, 1975.
+
+_______, "Crystallographic Analysis of Superstructure Modulation in
+the Organic Conductor (TIF)7I5," Int. Conf. on Low Lying Vibrational Modes
+and Their Relationship to Superconductivity and Ferroelectricity, San Juan,
+Puerto Rico, Dec. 1-4, 1975 [Proc. (1976)].
+
+G. C. Lisensky, _______, and H. A. Levy, "A Neutron Diffraction Study
+of the 1:1 Molecular Complex of 7,7,8,8-Tetracyanoquinodimethane with
+Deuterated p-Terphenyl," ACA Winter Mtg., Clemson University, Clemson, SC,
+Jan. 18-22, 1976.
+
+_______, "On the Analysis of Dual-Subcell Superstructures and Their
+Consoluted Reciprocal Lattices," ACA Mtg., Clemson, University, Clemson,
+SC, Jan. 18-22, 1976.
+
+_______, "Structure Solution Methods for Superstructures," U.S.-Japan
+Seminar on Long-Range Ordering in Crystals, East-West Center, Honolulu, HI,
+Mar. 18-21, 1979.
+
+
+B.2 Crystallographic Graphics Presentation Abstracts
+
+_______, "Automated Graphic Arts Using a Digital X-Y Plotter as an
+Aid in Visualizing Thermal Motion," Annual ACA Mtg., Bozeman, MT, July
+26-31, 1964.
+
+_______, "Procedures for Automated Plotting of Stereoscopic Crystal-
+Structure Illustrations," ACA Mtg., Gatlinburg, TN, June 27-July 2, 1965.
+
+_______, "Computer-Drawn Stereoscopic Illustrations of Molecular
+Models," 2nd Int. Congress of Pure and Applied Biophysics, Vienna, Austria,
+Sept. 5-9, 1966.
+
+_______, "Stereoscopic Drawings of Myoglobin, Vitamin B-12 Coenzyme,
+and Poly-Alanine," 2nd Int. Congress of Pure and Applied Biophysics,
+Vienna, Austria, Sept. 5-9, 1966.
+
+_______, "Visualizing Complex Molecular Structures with Stereoscopic
+Drawings Plotted by a Computer," Tenn. Acad. Sci. Mtg., East Tennessee
+State University, Johnson City, TN, Nov. 25, 1966.
+
+_______, "Representation Problems in Crystallographic Graphics,"
+Workshop on Computer Graphics in Biology, Columbia, University, New York,
+NY, June 22- 24, 1976.
+
+M. N. Burnett and  _______, "ORTEP-III: The Oak Ridge Thermal Ellipsoid
+Plot Program,";Burnett, M.N., General Assembly of Int. Union of
+Crystallography, Seattle, WA, Aug.8-17,1996
+
+
+B.3 Thermal Motion Presentation Abstracts
+
+_______, "Segmented-Body Thermal Motion Analysis: An Extension of the
+Rigid-Body Approach," ACA Mtg., Minneapolis, MN, Aug. 14-18, 1967.
+
+_______, "Information on Molecular Motion Derived from Anisotropic
+Temperature Factor Coefficients," 2nd Nat'l Bureau of Standards Materials
+Research Symp., Gaithersburg, MD, Oct. 16-19, 1967 [Proc. (1967)].
+
+_______, "Sources of Error in the Calculated Structure Factors Due to
+Atomic Motion," Int. Mtg. on Accurate Determination of X-Ray Intensities
+and Structure Factors, Cambridge, England, June 24-28, 1968.
+
+_______, "Generalized Treatments for Thermal Motion," Int. Summer
+School on Measurements and Interpretation of Accurate Neutron Structure
+Factors, Harwell, England, July 1-5, 1968 [Proc. (1970) pp. 132-160].
+
+_______, "Higher Moments and Cumulants for Rigid Body Motion," ACA
+Mtg., Seattle, WA, Mar. 23-29, 1969.
+
+_______, "On Estimating Liberation from the Apparent Shrinkage of
+Interatomic Distances and Vice Versa," Int. Union of Crystallography,
+Buffalo, Stony, Brook, and Upton, NY, Aug. 7-27, 1969.
+
+_______, "Series Expansion Models for Thermal Motion," ACA Winter
+Mtg., New Orleans, LA, Mar. 205, 1970.
+
+_______, "Thermal-Motion Skewness and ORTEP-II," ACA Mtg., Columbia,
+SC, Feb. 104, 1971.
+
+_______, "A Set of Five Invariants for Reporting the Precision of 
+Atomic Parameters," ACA Summer Mtg., Ames, IA, Aug. 15-21,
+1971.
+
+_______, "Corrections for Interatomic Distances Based on
+Segmented-Body Thermal-Motion Analysis," ACA Summer Mtg., University of
+California/San Diego, La Jolla, CA, Aug. 16-20, 1982.
+
+
+B.4 Combinatorial Chemistry Presentation Abstracts
+
+
+B.5 Artificial Intelligence Presentation Abstracts
+
+_______, "Black-Box Structure Analysis: Is Specimen-to-Manuscript
+Automation Feasible?" ACA Summer Mtg., Penn State University, University
+Park, PA, Aug. 18-23, 1974.
+
+_______, "Interactive Image Processing and Computer Graphics," ACA
+Mtg., Michigan State University, East Lansing, MI, Aug. 7-12, 1977.
+
+_______, "A Quasi-Orthogonal Expansion for Higher-Order Atomic
+Thermal Motion," ACA Summer Mtg., Boston, MA, Aug. 12-19, 1979.
+
+R. S. Englemore, A. Terry, S. T. Freer, and _______, "A
+Knowledge-Based System for Interpreting Protein Electron Density Maps," ACA
+Summer Mtg., Boston, MA, Aug. 12-19, 1979.
+
+_______, "Programmed Reasoning Methodology," ACA Winter Mtg.,
+Eufaula, AL, Mar. 17-21, 1980.
+
+_______, "Knowledge Engineering Applications at Oak Ridge National
+Laboratory," 6th Annual Artificial Intelligence in Medicine (AIM) Workshop,
+Stanford University, Stanford, CA, Aug. 13-16, 1980.
+
+_______, "The Manuscript Writing Bottleneck: Is Text Generation
+Through Computational Linguistics Applicable?" ACA Mtg., Nat'l Bureau of
+Standards, Gaithersburg, MD, Mar. 19-Apr. 2, 1982.
+
+_______, "Is Specimen to Manuscript Automation Feasible in Analytical
+Chemistry?" 27th ORNL Conf. on Anal. Chem. in Energy Technology, Knoxville,
+TN, Oct. 2-4, 1984.
+
+_______, "Artificial Intelligence: A Crystallographic Perspective,"
+Symp. on Artificial Intelligence and Expert Systems in Chemistry, Rochester
+Section of the ACS, Rochester, NY, Oct. 11, 1985.
+
+
+B.6 Crystallographic Topology Abstracts
+
+_______ and E. Grosse, "Interpolation Polynomials, Minimal Spanning
+Trees and Ridge-Line Analysis in Density Map Interpretation," ACA Mtg.,
+Northwestern University, Evanston, IL, Aug. 8-12, 1976.
+
+_______, "Peaks, Passes, Pales, and Pits: A Tour Through the Critical
+Points of Interest in a Density Map," ACA Mtg., Asilomar, CA, Feb. 21-25,
+1977.
+
+_______, "Interaction Analysis of Critical Point Networks in
+Macromolecule Density Maps," 11th Int. Congress of Crystallography,
+Marszawa, Poland, Aug. 3-12, 1978.
+
+_______, "Topological Symmetry Mapping of Asymmetric Unit Regions,"
+ACA Mtg., Honolulu, HI, Mar. 26-30, 1979.
+
+_______, "Critical Point Topology in Crystals," American
+Crystallographic Association 1992 Annual Meeting, Pittsburgh, PA, August
+9-14, 1992.
+
+_______, "Morse Theory Topology Potpourri: Extended-Net Structures,
+Macromolecule Density-Map Interpretation, and Direct-Methods Phasing,"
+American Crystallographic Association Annual Meeting, Albuquerque, New
+Mexico, May 23- 28, 1993.
+
+_______, "Crystallographic Orbifold Atlas,", 2nd Canadian 
+Computational Chemistry Conf., Queen's Univ., Kingston, Ontario, 
+Canada,May 21-25,1994
+
+_______, M. N. Burnett, "Euclidean and Spherical 2-Orbifolds", Annu.
+Meet. Am. Crystallographic Assoc., Atlanta, June 25-July 1,1994
+
+M. N. Burnett and _______, "Euclidean Orbifolds and Their Singular Sets",
+Annu. Meet. Am. Crystallographic Assoc., Atlanta, June 25-July 1,1994
+
+M. N. Burnett and _______, "Critical Polyhedra on Orbifolds: Topology
+in Crystal Structure Prediction,"Annu. Meet. Am. Crystallogr. Assoc.,
+Montreal, July 23-28,1995
+
+_______ and M. N. Burnett, "Crystal Structure Topology Illustrations:
+Critical Polyhedra in Euclidean  and Orbifold Spaces," Annu. Meet. Am.
+Crystallogr. Assoc., Montreal, July 23-28,1995
+
+_______ and M. N. Burnett, "Crystallographic Topology and Its
+Applications," Proc. Macromolecular Crystallography Computing School, 
+Western Washington Univ., Bellingham, WA, Aug.17-23,1996
+
+
+B.7 Miscellaneous Presentation Abstracts
+
+W. R. Busing, R. D. Ellison, _______, and H. A. Levy, "A Relatively
+Inexpensive Computer-Controlled Diffractometer," ACA Mtg., Suffern, NY,
+Feb. 22-26, 1965.
+
+_______, "The Personal Microcomputer in Crystallography," ACA Spring
+Mtg., University of Oklahoma, Norman, OK, Mar. 19-24, 1978.
+
+_______, "Automated Video Optical Microscopy," DOE Special
+Technologies EXPO '93, Y-12, Oak Ridge, TN, May 3-6, 1993.
+
+C .E. Strouse, G. J. Bunick, and M. N. Burnett, _______, "ORNL 4-Circle
+Neutron Diffractometer", Annu. Meet. Am. Crystallogr. Assoc., Atlanta,
+June 28-July 1,1994
+

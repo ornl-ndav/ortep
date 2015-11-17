@@ -1,0 +1,96 @@
+<TITLE>ORTEP-III Online Doc - Plotter</TITLE>
+<center>
+<H2>
+<img src="trcubane.gif" align="middle">
+ORTEP-III Online Documentation 
+<img src="trcubane.gif" align="middle">
+<br>
+200 Series Instructions: Plotter Control
+</H2>
+</center>
+<p> 
+<hr>
+<p> 
+
+The 200 series is a group of instructions that control the device, real
+or virtual, that receives the information to output the ORTEP
+illustration. This may be, for example, an actual hardware plotter, a
+computer monitor, or a file of page description language instructions
+that will produce a hard copy of the illustration when the file is
+downloaded to a laser printer. Because no single word can describe all
+of the possibilities, the word "plotter" will be used.
+
+<p>
+
+The 200 instructions control plotter initialization, frame advance,
+color control, termination, and any other peripheral commands that are
+required for a particular equipment configuration or plotting package.
+When the program is modified for a different equipment configuration,
+the series 200 instructions, which are executed through subroutine
+F200, should be redefined to suit the user's requirements.
+
+<p>
+
+The 201 instruction initializes plotting and must be executed before
+any plotting can take place. It is a safe policy always to make this
+the first instruction card. If the 201 and 301 instructions are
+omitted, all calculations are carried out but no plotting is done.
+
+<p>
+
+The 202 instruction with no parameters is used to terminate plotting.
+With parameters, the 202 instruction may be used to shift the plot
+origin (frame advance).
+
+<p>
+
+The 201/202 (with no parameters) form an initialize/terminate pair and
+must always appear in pairs in the ORTEP input file. The pair may occur
+more than once (unlike OR TEP-II). Each call to 201 begins a new plot
+page.
+
+<p>
+
+Instruction 204 is used to change the color of (or plotter pen used
+for) subsequent plotting. The default value is 0 for black
+(or pen #1).  The screen and Postscript drivers built into ORTEP-III
+define color value 2 as red,
+3 as green, 4 as blue, 5 as cyan, 6 as magenta, and 7 as yellow.
+(The value of 1 is not defined in the Postscript driver.)
+<p>
+Instruction 205 is used to vary the thickness of the
+plotted lines. The unit for width is thousandths of an inch, and the
+default value is 5. For both the 204 and 205 instructions, if columns 10-18
+contain "0" or are blank, the default settings are restored.
+
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Instruction 201</th><th colspan=2> Instruction 202</th>
+<th>Instruction 204</th><th> Instruction 205</th>
+</tr>
+<tr align="center" >
+<td>&nbsp;</td><td>&nbsp;</td><td>Shift plot origin</td><td>Terminate plotting</td>
+<td>&nbsp;</td> <td>&nbsp;</td>
+</tr>
+<tr align="center" >
+<td>7-9</td><td>201</td><td>202</td><td>202</td><td>204</td><td>205</td>
+</tr>
+<tr align="center" >
+<td>10-18</td><td>-</td><td>Shift along x (in.)</td><td>-</td>
+<td>Color #<br>(or pen #)</td><td>Pen width</td>
+</tr>
+<tr align="center" >
+<td>19-27</td><td>-</td><td>Shift along y (in.)</td><td>-</td>
+<td>-</td> <td>-</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<p>
+<a href="toc.html"><img src="bluecube.gif"> Online Documentation
+Table of Contents</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="../ortep.html"><img src="bluecube.gif"> ORTEP-III Home Page</a>
+<p><i>Page last revised: February 19, 1996</i>

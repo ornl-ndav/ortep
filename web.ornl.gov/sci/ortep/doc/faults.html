@@ -1,0 +1,144 @@
+<TITLE>ORTEP-III Online Doc - Faults</TITLE>
+<center>
+<H2>
+<img src="trcubane.gif" align="middle">
+ORTEP-III Online Documentation 
+<img src="trcubane.gif" align="middle">
+<br>
+Fault Indicators
+</H2>
+</center>
+<p> 
+<hr>
+<p> 
+ORTEP checks for certain exceptional situations,
+and when one of these occurs, a fault
+message, "FAULT NG = NG ADC m" is written in the ORTEP output file.  NG
+is the fault indicator number and ADC and m identify the atom code and
+the instruction involved (if these are relevant). If necessary and possible,
+corrective measures are made by ORTEP and the calculation proceeds;
+otherwise, the job is terminated by calling subroutine EXITNG.
+<p>
+<table border>
+<tr>
+<th>NG</th>
+<th>Subroutine Involved</th>
+<th>Fault</th>
+<th>Action</th>
+</tr>
+<tr>
+<td align="center">1</td>
+<td>PRELIM</td>
+<td>No sentinel found after reading 96 symmetry cards</td>
+<td>Tries to read parameter cards</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td>PRELIM</td>
+<td>No sentinel found after reading the parameter cards for 505 atoms</td>
+<td>Tries to read instruction cards</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td>PRELIM</td>
+<td>Anisotropic temperature factor coefficients form a matrix which is not positive definite</td>
+<td>EXIT, after printing out all rms principal values (imaginary ones are listed negative)</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td>ATOM, PAXES</td>
+<td>Symmetry operation number is higher than the number of input operations</td>
+<td>Omit atom</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td>ATOM, PAXES</td>
+<td>Atom number is higher than the number of input atoms</td>
+<td>Omit atom</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td>EIGEN</td>
+<td>Null temperature factor matrix or failure in bisection routine</td>
+<td>EXIT, after printing out all principal values</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td>EIGEN</td>
+<td>Eigenvector routine failure due to null vector</td>
+<td>EXIT, after printing out all principal values</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td>INITSC</td>
+<td>Error initializing screen driver</td>
+<td>EXIT</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td>MAIN, SPARE</td>
+<td>Unidentified instruction number</td>
+<td>Omit faulty instruction</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td>BOND, F700</td>
+<td>Atom out of bounds</td>
+<td>Omit atom</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td>F800</td>
+<td>No vector search codes</td>
+<td>Omit instruction</td>
+</tr>
+<tr>
+<td align="center">12</td>
+<td>F600, SEARCH</td>
+<td>Insufficient number of atoms in ATOMS array</td>
+<td>EXIT</td>
+</tr>
+<tr>
+<td align="center">13</td>
+<td>BOND</td>
+<td>Imaginary bond intersection (i.e., bond larger than atom)</td>
+<td>Omit bond</td>
+</tr>
+<tr>
+<td align="center">14</td>
+<td>BOND</td>
+<td>Hidden (end-on) bond</td>
+<td>Omit bond</td>
+</tr>
+<tr>
+<td align="center">15</td>
+<td>F900</td>
+<td>Null vector as base line</td>
+<td>Omit label</td>
+</tr>
+<tr>
+<td align="center">16</td>
+<td>STORE</td>
+<td>ATOMS array is full</td>
+<td>Omit all succeeding atoms</td>
+</tr>
+<tr>
+<td align="center">17</td>
+<td>LAP700, LAPAB</td>
+<td>Maximum number of overlapping atoms (20) exceeded</td>
+<td>Additional atoms not corrected for overlap</td>
+</tr>
+<tr>
+<td align="center">18</td>
+<td>LAP800, LAPAB</td>
+<td>Maximum number of overlapping bonds (30) exceeded</td>
+<td>Additional bonds not corrected for overlap</td>
+</tr>
+</table>
+<p>
+<hr>
+<p>
+<a href="toc.html"><img src="bluecube.gif"> Online Documentation
+Table of Contents</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="../ortep.html"><img src="bluecube.gif"> ORTEP-III Home Page</a>
+<p><i>Page last revised: May 6, 1996</i>

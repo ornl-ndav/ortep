@@ -1,0 +1,196 @@
+<TITLE>ORTEP-III Online Doc - Overlap</TITLE>
+<center>
+<H2>
+<img src="trcubane.gif" align="middle">
+ORTEP-III Online Documentation 
+<img src="trcubane.gif" align="middle">
+<br>
+Instructions 1001, 821, 822: Overlap Correction
+</H2>
+</center>
+<p> 
+<hr>
+<p> 
+(Instruction 511 in OR TEP-II has been renamed as 1001 in ORTEP-III.
+Instruction 511 continues to work as it did in OR TEP-II, but users
+should use 1001 in the future since 1001 has greater versatility.)
+<p>
+Instruction 1001 activates the hidden line removal feature of ORTEP,
+which corrects the illustration for overlapping atoms and bonds. It
+stores the projected atom boundary ellipses for all atoms in the ATOMS
+array. It is important that the contents of the ATOMS array, the
+scaling and positioning, and the structure orienting
+parameters (controlled by the
+<a href="i400.html">400</a>, 
+<a href="i600.html">600</a>, and 
+<a href="i500.html">500</a> series of instructions, respectively) not be changed
+between the 1001 instruction and the 
+drawing of the atoms and bonds by
+the 
+<a href="i700.html">700</a> and 
+<a href="i800.html">800</a> series of instructions. Otherwise, the projected
+outlines may be destroyed or become inappropriate.
+<p>
+
+The projected outlines of bonds are approximated as quadrangles. Those
+of implicitly specified bonds may be stored for overlap correction by
+adding Format No. 2 trailer cards to the 1001 instruction that are
+identical to those of the 802/812 instructions used subsequently for
+plotting the implicit bonds. Alternatively, implicitly specified bonds
+may be stored with one or more 822 instructions with the Format No. 2
+trailer card set.  A 1001 instruction must precede the first 822.
+<p>
+If more than one 802/812 instruction is used to draw the bonds, there
+should be a corresponding 822 provided for each. This allows
+different <a href="defs.html#af">atom features</a> to be treated
+separately with separate 822 (and corresponding 802/812) instructions.
+
+<p>
+Explicit bonds may only be stored by
+using one or more 821 instructions following a
+1001 instruction. These will be 
+identical to the 801/811 instructions (except for the instruction
+number) used subsequently for plotting
+the explicit bonds. The 
+<a href="../examples/thiourea.dat">thiourea-tellurium example</a>
+illustrates the use of the 821 instruction.
+<p>
+As currently dimensioned, the maximum number of projected atoms and
+projected bonds that can be stored is 500 and 599, respectively. A list
+of the projected atoms and bonds is given in the ORTEP output file.
+<p>
+The projected outline information for atoms and bonds must be
+recalculated for each member of a stereo pair; consequently the 1001
+and 821 or 822 instructions are usually the first instructions within
+the <a href="i1100.html">save sequence</a>. 
+The old overlap information is deleted whenever a
+500 or 600 series or 1001 instruction is executed.
+<p>
+All details inside atoms and bonds, including chemical symbols
+and bond-distance labels, will be corrected for overlap. Chemical
+symbols drawn by 700 series instructions
+and bond-distance labels drawn by 800 series instructions
+that are outside the atoms or bond
+boundary will not be corrected for overlap unless the overlying atom or
+bond outline actually intersects (in projection) the atom or bond being
+drawn. Labels and symbols drawn with the 
+<a href="i900.html">900 series</a> instructions will
+not be corrected for overlap.
+<p>
+<ul>
+<li><a href="#1001"> 1001: Projected Outline Storage </a>
+<li><a href="#821"> 821: Explicit Bond Outline Storage </a>
+<li><a href="#822"> 822: Implicit Bond Outline Storage </a>
+</ul>
+<hr>
+<a name="1001"> 1001: Projected Outline Storage </a>
+<p>
+A constant width overlap margin (i.e., a blank strip at the
+intersection of overlapping elements) is included in the dimensions of
+each projected atom ellipse and projected bond quadrangle. The width of
+this margin (in inches) may be specified as a parameter with the 1001
+instruction if desired; otherwise, the margin is set by default. The
+default value is calculated as follows:
+<p>
+<center>
+for SCAL1 < 0.25: OVMRGN = max (0.010,  
+SCALl<sup>1/2</sup> <img src="cross.gif"> 0.05)
+
+<p>
+
+for SCAL1 <img src="geq.gif"> 0.25: OVMRGN = max (0.025,
+SCALl<sup>1/2</sup> <img src="cross.gif"> 0.03)
+</center>
+<p>
+Some users prefer an overlap margin of 0.0 for stereoscopic drawings.
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Instruction 1001</th>
+</tr>
+<tr align="center" >
+<td>3</td><td>2 (if bonds are to be stored; otherwise 0)</td>
+</tr>
+<tr align="center" >
+<td>6-9</td><td>1001</td>
+</tr>
+<tr align="center" >
+<td>10-18</td><td align="left">Overlap Margin
+<br>&nbsp;&nbsp;&nbsp;0: default value (described above)
+<br>&nbsp;&nbsp;&nbsp;1: 0.0 in.
+<br>&nbsp;&nbsp;&nbsp;Value in range 0-1.0 in.</td>
+</tr>
+<tr align="center" >
+<td>27</td><td align="left"><a 
+href="defs.html#nr">Number run type</a> (0, 1, or 2)</td>
+</tr>
+</table>
+</center>
+<p>
+If the value in column 3 is "2", Format No. 2 trailer cards are
+included. In general, all the trailer cards included with the 
+<a href="i800.html#802">802/812 instruction</a> sets are used.
+<p>
+New on this card in ORTEP-III is the second parameter, which specifies the 
+<a href="defs.html#nr">number run type</a> of the number runs
+that follow on the Format No. 2 trailer cards.
+<p>
+<hr>
+<a name="821"> 821: Explicit Bond Outline Storage </a>
+<p>
+If explicit bonds are to be stored for the overlap correction, the
+attached atoms must be in the ATOMS array even though this is not a
+requirement for the 
+<a href="i800.html#801">801/811 instructions</a> 
+used for plotting the explicit
+bonds. In general, the 821 instructions will be identical to the 
+801/811 instructions
+(except for the instruction number) used subsequently for plotting
+the explicit bonds. The 
+<a href="../examples/thiourea.dat">thiourea-tellurium example</a>
+illustrates the use of the 821 instruction.
+<p>
+<hr>
+<a name="822"> 822: Implicit Bond Outline Storage </a>
+<p>
+Usually, the information on implicit bond outlines is stored with the
+<a href="#1001">1001 card</a>.  
+However, if more than 20 Format No. 2 trailer cards are
+needed to specify all bonds, the extra ones can be entered with this
+instruction. Also, 822 instructions in addition to the 1001 may be
+used to treat different <a href="defs.html#af">atom features</a> in different
+ways.
+In general, the 822 instructions will be identical to the 
+802/812 instructions
+(except for the instruction number) used subsequently for plotting
+the implicit bonds. The 
+<a href="../examples/thiourea.dat">thiourea-tellurium example</a>
+illustrates the use of the 822 instruction.
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Instruction 822</th>
+</tr>
+<tr align="center" >
+<td>3</td><td>2</td>
+</tr>
+<tr align="center" >
+<td>7-9</td><td>822</td>
+</tr>
+<tr align="center" >
+<td>10-18</td><td>-</td>
+</tr>
+<tr align="center" >
+<td>27</td><td><a href="defs.html#nr">Number run type</a><br> (0, 1, or 2)</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<p>
+<a href="toc.html"><img src="bluecube.gif"> Online Documentation
+Table of Contents</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="../ortep.html"><img src="bluecube.gif"> ORTEP-III Home Page</a>
+<p><i>Page last revised: July 11, 1997</i>

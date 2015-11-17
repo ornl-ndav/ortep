@@ -1,0 +1,164 @@
+<TITLE>ORTEP-III Online Doc - Format</TITLE>
+<center>
+<H2>
+<img src="trcubane.gif" align="middle">
+ORTEP-III Online Documentation 
+<img src="trcubane.gif" align="middle">
+<br>
+ORTEP Instruction Format
+</H2>
+</center>
+<p> 
+<hr>
+<p>
+There are four different formats used for ORTEP instructions, which are
+numbered 0, 1, 2, and 3. Format No. 0 is always used for a new
+instruction and includes the instruction number. Some instructions
+require trailer (continuation) cards, which use format numbers 1, 2,
+and 3. The program is informed what the format of the next card will be
+with the value in the look ahead field, columns 1-3. The program action
+is also influenced by this information.
+<p>
+<center>
+<table border>
+<tr align="center">
+<th>"Look ahead"<br>on current card<br>(column 3)</th>
+<th>Next card will be</th>
+<th>Program action</th>
+</tr>
+<tr align="center">
+<td>0 or blank</td>
+<td>Format No. 0, a new instruction</td>
+<td>Execute present instruction; then read next new instruction card</td>
+</tr>
+<tr align="center">
+<td>1</td>
+<td>Format No. 1, continuation of present instruction</td>
+<td>Read continuation card and then check its "Look ahead"</td>
+</tr>
+<tr align="center">
+<td>2</td>
+<td>Format No. 2, continuation of present instruction</td>
+<td>Read continuation card and then check its "Look ahead"</td>
+</tr>
+<tr align="center">
+<td>3</td>
+<td>Format No. 3, alphanumeric information</td>
+<td>Read alphanumeric information and execute instruction; then
+read next new instruction card</td>
+</tr>
+</table>
+</center>
+<p>
+The Format No. 0 instruction card and the Format No. 1 parameter
+continuation card have the FORMAT (I3,I6,7F9.0), but the former
+includes the instruction number while the latter does not. A maximum of
+19 Format No. 1 continuation cards per instruction is permitted.
+<p>
+<center>
+<table border>
+<tr align="center">
+<th>Columns</th>
+<th>Format No. 0<br>Instruction Card</th>
+<th>Format No. 1<br>Parameter Continuation Card</th>
+</tr>
+<tr align="center">
+<td>3</td>
+<td>"Look ahead" (0,1,2,3)</td>
+<td>"Look ahead" (0,1,2,3)</td>
+</tr>
+<tr align="center">
+<td>4-9</td>
+<td>Instruction number</td>
+<td>-</td>
+</tr>
+<tr align="center">
+<td>10-18</td>
+<td>1st parameter</td>
+<td>8th parameter<br>or 15th, ..., or 134th</td>
+</tr>
+<tr align="center">
+<td>19-27</td>
+<td>2nd parameter</td>
+<td>9th parameter<br>or 16th, ..., or 135th</td>
+</tr>
+<tr align="center">
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr align="center">
+<td>64-72</td>
+<td>7th parameter</td>
+<td>14th parameter<br>or 21st, ..., or 140th</td>
+</tr>
+</table>
+</center>
+<p>
+The Format No. 2 trailer card is also used for parameter continuation,
+but it is more compact with FORMAT (I3,6X,5I3,8F6.0), allowing more
+information to be entered than on the Format No. 1 card. Many, but not
+all, Format No. 2 trailer cards include <a href="defs.html#vsc">
+vector search codes</a>,
+and they are often referred to as Vector Search Code (VSC)
+cards. A maximum of 20 Format No. 2 continuation cards per instruction
+is permitted.
+<p>
+<center>
+<table border>
+<tr align="center">
+<th>Columns</th>
+<th>Format No. 2<br>Parameter Continuation Card</th>
+</tr>
+<tr align="center">
+<td>3</td>
+<td>"Look ahead" (0,1,2,3)</td>
+</tr>
+<tr align="center">
+<td>4-9</td>
+<td>-</td>
+</tr>
+<tr align="center">
+<td>10-12</td>
+<td>1st integer parameter</td>
+</tr>
+<tr align="center">
+<td>...</td>
+<td>...</td>
+</tr>
+<tr align="center">
+<td>22-24</td>
+<td>5th integer parameter</td>
+</tr>
+<tr align="center">
+<td>25-30</td>
+<td>1st real parameter</td>
+</tr>
+<tr align="center">
+<td>...</td>
+<td>...</td>
+</tr>
+<tr align="center">
+<td>67-72</td>
+<td>8th real parameter</td>
+</tr>
+</table>
+</center>
+<p>
+Format No. 3 trailer cards with FORMAT (18A4) are used for entering
+label information and are required for instructions 902, 903, and 913.
+As a trailer to these, they may contain up 72 characters of
+alphanumeric information in columns 1-72. The information should
+be centered about columns 36 and
+37, or it should begin in column 1 for automatic centering.
+These may also be used with other instructions as a device to
+transfer comments about the particular instruction to the ORTEP output
+listing. There is no look ahead column in Format No. 3; the next card
+must be a new instruction card.
+<p>
+<hr>
+<p>
+<a href="toc.html"><img src="bluecube.gif"> Online Documentation
+Table of Contents</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="../ortep.html"><img src="bluecube.gif"> ORTEP-III Home Page</a>
+<p><i>Page last revised: March 7, 1996</i>

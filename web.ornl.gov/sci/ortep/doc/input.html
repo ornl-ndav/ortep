@@ -1,0 +1,686 @@
+<TITLE>ORTEP-III Online Doc - Input</TITLE>
+<center>
+<H2>
+<img src="trcubane.gif" align="middle">
+ORTEP-III Online Documentation 
+<img src="trcubane.gif" align="middle">
+<br>
+Crystallographic Data Input
+</H2>
+</center>
+<p> 
+<hr>
+<p> 
+<A HREF="#titl">Title</A>
+<p> 
+<A HREF="#cell">Cell Parameters</A>
+<p> 
+<A HREF="#symm">Symmetry</A>
+<p> 
+<A HREF="#atom">Atom Parameters</A>
+<ul> 
+<A HREF="#posi">Positional Parameters</A>
+<br>
+<a href="#temp">Temperature Factors</a>
+</ul>
+<p>
+<hr>
+<a name="titl"><b>Title</b></a>
+<p> 
+The first card in the ORTEP input is a title card with FORMAT (18A4),
+consisting of up to 72 characters of alphanumeric identification
+information. This will appear periodically in the output file.
+<p>
+<hr>
+<a name="cell"><b>Cell Parameters</b></a>
+<p> 
+The second input card contains the cell parameters with FORMAT
+(I1,F8.6,5F9.6).  Any one of the following four input alternatives may
+be used. [No indicator is needed to specify which type.  The routine that
+reads the cell parameters assumes <b>a</b> <img src="geq.gif"> 1.0 &Aring;,
+<b>a</b>* &lt; 1.0 
+&Aring;<sup>-1</sup>,
+<img src="alpha.lc.gif">
+(or <img src="alpha.lc.gif">*) <img src="geq.gif">
+1.0<sup>o</sup>, and |cos <img src="alpha.lc.gif">|
+(or |cos <img src="alpha.lc.gif">*|) &lt; 1.0.]
+<p>
+<table border>
+<tr align="center">
+<th>Columns</th>
+<th>Type A</th>
+<th>Type B</th>
+<th>Type C</th>
+<th>Type D</th>
+</tr>
+<tr align="center">
+<td>1</td>
+<td>Symmetry format indicator</td>
+<td>Symmetry format indicator</td>
+<td>Symmetry format indicator</td>
+<td>Symmetry format indicator</td>
+</tr>
+<tr align="center">
+<td>2-9</td>
+<td><b>a</b> (&Aring;)</td>
+<td><b>a</b> (&Aring;)</td>
+<td><b>a</b>* (&Aring;<sup>-1</sup>)</td>
+<td><b>a</b>* (&Aring;<sup>-1</sup>)</td>
+</tr>
+<tr align="center">
+<td>10-18</td>
+<td><b>b</b> (&Aring;)</td>
+<td><b>b</b> (&Aring;)</td>
+<td><b>b</b>* (&Aring;<sup>-1</sup>)</td>
+<td><b>b</b>* (&Aring;<sup>-1</sup>)</td>
+</tr>
+<tr align="center">
+<td>19-27</td>
+<td><b>c</b> (&Aring;)</td>
+<td><b>c</b> (&Aring;)</td>
+<td><b>c</b>* (&Aring;<sup>-1</sup>)</td>
+<td><b>c</b>* (&Aring;<sup>-1</sup>)</td>
+</tr>
+<tr align="center">
+<td>28-36</td>
+<td><img src="alpha.lc.gif"> (<sup>o</sup>)</td>
+<td>cos <img src="alpha.lc.gif"> </td>
+<td><img src="alpha.lc.gif">* (<sup>o</sup>)</td>
+<td>cos <img src="alpha.lc.gif">* </td>
+</tr>
+<tr align="center">
+<td>37-45</td>
+<td><img src="beta.lc.gif" align=middle>
+(<sup>o</sup>)</td>
+<td>cos <img src="beta.lc.gif" align=middle> </td>
+<td><img src="beta.lc.gif" align=middle>*
+(<sup>o</sup>)</td>
+<td>cos <img src="beta.lc.gif" align=middle>* </td>
+</tr>
+<tr align="center">
+<td>46-54</td>
+<td><img src="gamma.lc.gif"> (<sup>o</sup>)</td>
+<td>cos <img src="gamma.lc.gif"> </td>
+<td><img src="gamma.lc.gif">* (<sup>o</sup>)</td>
+<td>cos <img src="gamma.lc.gif">* </td>
+</tr>
+</table>
+<p>
+The parameters <b>a</b>*, etc., refer to the reciprocal unit cell such
+that <b>a</b>&#183; <b>a</b>* = 1. All four types will be printed out
+regardless of which type was used for input.
+<p>
+An integer value in column 1 of the cell parameter card indicates the
+format used for the crystal symmetry cards that follow.
+<p>
+<hr>
+<a name="symm"><b>Symmetry Operators</b></a>
+<p> 
+Crystal symmetry in ORTEP-III may be supplied in either of two styles.
+The first of these is identical to that of OR TEP-II and is triggered
+by having a "0" or blank in column 1 of the cell parameter card. A "1"
+in that position indicates the symmetry operators are provided in a
+free format using the xyz coordinate triplet notation found in the
+International Tables for Crystallography. These two styles are referred
+to as Type 0 and Type 1.
+<p>
+The number of symmetry cards (NSYM) may not exceed 96. At least one
+(the identity operator) is required. The reason for the maximum of 96
+is that the symmetry operator number (SN) occupies only two places in
+the <a href="defs.html#adc">ADC</a>. If it is not possible to supply all the
+symmetry operators for the space group (or if the user chooses not to
+supply all of them), atoms in the ORTEP input file will 
+require multiple entries with those lattice
+centering translations added which are not provided in the symmetry
+cards.
+
+<p> 
+A Type 0 symmetry card has FORMAT (I1,F14.10,3F3.0,2(F15.10,3F3.0)) and
+will be interpreted in one of two ways, depending on the value of the
+number in columns 70-72.  If that number is &lt; 5.0, the card is
+interpreted as a crystallographic symmetry operation; but if the number
+is <img src="geq.gif"> 5.0, the card is interpreted as a general
+helix-screw symmetry operation along the <b>c</b>* crystal axis (third
+axis of the <a href="defs.html#coord">standard Cartesian system</a>).
+The two symmetry types can be intermixed if desired.
+<p> 
+<center>
+<table border>
+<tr align="center">
+<th>Columns</th>
+<th>(a) Crystallographic symmetry <br>(value in columns 70-72 &lt; 5)</th>
+<th>(b) Helix symmetry <br>(value in columns 70-72 <img src="geq.gif"> 5)</th>
+</tr>
+<tr align="center">
+<td>1</td>
+<td><img src="neq.gif"> 0 last card only</td>
+<td><img src="neq.gif"> 0 last card only</td>
+</tr>
+<tr align="center">
+<td>2-15</td>
+<td>T<sub>1</sub></td>
+<td>T<sub>1</sub></td>
+</tr>
+<tr align="center">
+<td>16-18</td>
+<td>S<sub>11</sub></td>
+<td>-</td>
+</tr>
+<tr align="center">
+<td>19-21</td>
+<td>S<sub>12</sub></td>
+<td>-</td>
+</tr>
+<tr align="center">
+<td>22-24</td>
+<td>S<sub>13</sub></td>
+<td>-</td>
+</tr>
+<tr align="center">
+<td>25-39</td>
+<td>T<sub>2</sub></td>
+<td>T<sub>2</sub></td>
+</tr>
+<tr align="center">
+<td>40-42</td>
+<td>S<sub>21</sub></td>
+<td>-</td>
+</tr>
+<tr align="center">
+<td>43-45</td>
+<td>S<sub>22</sub></td>
+<td>-</td>
+</tr>
+<tr align="center">
+<td>46-48</td>
+<td>S<sub>23</sub></td>
+<td>-</td>
+</tr>
+<tr align="center">
+<td>49-63</td>
+<td>T<sub>3</sub></td>
+<td>T<sub>3</sub></td>
+</tr>
+<tr align="center">
+<td>64-66</td>
+<td>S<sub>31</sub></td>
+<td>L</td>
+</tr>
+<tr align="center">
+<td>67-69</td>
+<td>S<sub>32</sub></td>
+<td>M</td>
+</tr>
+<tr align="center">
+<td>70-72</td>
+<td>S<sub>33</sub></td>
+<td>N</td>
+</tr>
+</table>
+</center>
+<p>
+(a) Crystallographic symmetry: Transformed triclinic coordinates
+(X<sub>1</sub>,
+Y<sub>1</sub>,
+Z<sub>1</sub>)
+are obtained from input triclinic coordinates (X, Y, Z) by
+<p>
+<center>
+X<sub>1</sub> =
+T<sub>1</sub> +
+S<sub>11</sub>X +
+S<sub>12</sub>Y +
+S<sub>13</sub>Z,
+<p>
+Y<sub>1</sub> =
+T<sub>2</sub> +
+S<sub>21</sub>X +
+S<sub>22</sub>Y +
+S<sub>23</sub>Z,
+<p>
+Z<sub>1</sub> =
+T<sub>3</sub> +
+S<sub>31</sub>X +
+S<sub>32</sub>Y +
+S<sub>33</sub>Z,
+</center>
+<p>
+or in matrix notation
+<p>
+<center>
+<b>X</b><sub>1</sub> = <b>T</b> + <b>SX</b>,
+</center>
+<p>
+where <b>T</b> =
+(T<sub>1</sub>,
+T<sub>2</sub>,
+T<sub>3</sub>)
+as fractions of cell edges.
+<p>
+Only symmetry cards for general symmetry equivalent positions are
+permitted. Symmetry cards that explicitly designate special positions such
+as X,X,X;
+X,X,Z;
+X,Y,0;
+1/4,Y,0;
+1/4,1/4,1/4
+are <b>not allowed</b>.
+<p>
+(b) Helix screw symmetry:
+<p>
+<center>
+<b>X</b><sub>1</sub> = <b>T</b> + <b>SX</b>,
+</center>
+<p>
+where <b>T</b> =
+(T<sub>1</sub>,
+T<sub>2</sub>,
+T<sub>3</sub> + L/N)
+as fractions of cell edges and <b>S</b> is a counterclockwise rotation of
+L&#183 M/N cycles about the <b>c</b>* axis.
+<p>
+<i>Example</i>: The Pauling and Corey
+right-handed alpha helix of
+poly-L-alanine
+repeats after 13 turns and 47 residues and can
+be represented by 47 symmetry cards with N = 47; M = 13;
+L = 0, 1, ..., 46; 
+T<sub>1</sub>,
+T<sub>2</sub>,
+T<sub>3</sub>
+= 0. In the ORTEP input file of poly-L-alanine provided
+<a href="../examples/ahelix.dat">here</a>,
+the input atom list contains the contents of one residue.
+There are 48 symmetry cards with operator 1 and operator 48 related by
+a translation along <b>c</b> for simplicity.
+<p>
+Type 1 symmetry cards do not have a specific format with the following
+two exceptions: (1) the symmetry information on each card must not go
+beyond column 72, and (2) column 1 must be "0" (or blank) on all
+symmetry cards other than the last one in the set, which must be
+non-zero. Below is an example set of Type 1 symmetry cards to
+illustrate the flexibility of this style.
+<p>
+<tt>
+<pre>
+                    X,Y,Z
+                    X    -Y   Z+1/2
+                      X+0.5,   Y+.5,  Z
+                   1x+1/2,-y+1/2,1/2+z
+</pre>
+</tt>
+<p>
+As shown, letters may be either upper or lower case. Commas or blanks
+may be used to separate the components of the triplet. The three
+components may not have blanks within them. Decimal fractions may be
+used with or without an initial "0". Fractions may precede or follow
+the letters.
+<p>
+Regardless of how the symmetry information is provided, the last card
+of the set must have a non-zero value in column 1 to signal the end of
+the symmetry cards. If the value is "1", the atom parameter information
+immediately follows in the ORTEP input file.  If the value is "2", the
+atom parameter information is read from a 
+<a href="overview.html#altf">different file</a>, and
+the ORTEP instructions follow the symmetry cards.
+<p>
+<hr>
+<a name="atom"><b>Atom Parameters</b></a>
+<p> 
+Two cards are required for each input atom. The first contains the
+chemical symbol and positional parameters, and the second contains
+temperature factor information or other information that specifies how
+the atom is to be represented on the drawing. Several alternate inputs
+are possible for each of the two cards, and the number in column 63
+denotes the type used on that particular card. The number of atoms
+(variable NATOM) may range from 1 to 500.
+<p> 
+<hr>
+<a name="posi"><b>Positional Parameters</b></a>
+<p> 
+The positional parameter cards have FORMAT(A6,3X,6F9.0).
+<p>
+<center>
+<table border>
+<tr align="center">
+<th>Columns</th>
+<th>Type 0</th>
+<th>Type 1</th>
+<th>Type 2</th>
+<th>Type 3</th>
+</tr>
+<tr align="center">
+<td>1-6</td>
+<td colspan=4>Up to 6 alphanumeric characters centered in the 6-place field</td>
+</tr>
+<tr align="center">
+<td>7-9</td>
+<td colspan=4>-</td>
+</tr>
+<tr align="center">
+<td>10-18</td>
+<td>Feature #1 or other</td>
+<td>Feature #1 or other</td>
+<td>Feature #1 or other</td>
+<td>x<sub>0</sub> (&Aring;, Cartesian)</td>
+</tr>
+<tr align="center">
+<td>19-27</td>
+<td>Feature #2 or other</td>
+<td>Feature #2 or other</td>
+<td>Feature #2 or other</td>
+<td>y<sub>0</sub> (&Aring;, Cartesian)</td>
+</tr>
+<tr align="center">
+<td>28-36</td>
+<td>x (fractional, crystal)</td>
+<td>x (&Aring;, crystal)</td>
+<td>x (&Aring;, Cartesian)</td>
+<td>r (&Aring;, cylindrical)</td>
+</tr>
+<tr align="center">
+<td>37-45</td>
+<td>y (fractional, crystal)</td>
+<td>y (&Aring;, crystal)</td>
+<td>y (&Aring;, Cartesian)</td>
+<td><img src="phi.lc.gif"> (<sup>o</sup>, cylindrical)</td>
+</tr>
+<tr align="center">
+<td>46-54</td>
+<td>z (fractional, crystal)</td>
+<td>z (&Aring;, crystal)</td>
+<td>z (&Aring;, Cartesian)</td>
+<td>z (&Aring;, cylindrical)</td>
+</tr>
+<tr align="center">
+<td>63</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+</table>
+</center>
+<p>
+Type 0 is the normal input based on triclinic coordinates. Coordinates
+in Angstroms along the unit cell vector may be entered with Type 1.
+Type 2 may be used to place a model described in Cartesian coordinates
+onto a general triclinic lattice. The orientation of the Cartesian
+system xyz in the general lattice <b>abc</b> is the 
+<a href="defs.html#coord">standard Cartesian system</a>
+type with x along <b>a</b> and z along
+<b>c</b>*. Type 3 is similar to Type 2 except that cylindrical
+coordinates r, <img src="phi.lc.gif">, z are used
+and the axis of the system can be displaced from zero in the xy
+Cartesian plane by the displacement x<sub>0</sub>, y<sub>0</sub>.
+Cylindrical coordinates are often used to describe helical structures.
+The x<sub>0</sub>, y<sub>0</sub> translation should be zero if helical symmetry
+operators are used. This translation feature is meant to be used for
+explicitly describing the contents of a multiple helix cell.
+<p>
+Column fields 10-18 and 19-27 on Type 0, 1, and 2 positional parameter
+cards may be used in ORTEP-III to enter 
+<a href="overview.html#feat">feature</a> information about the
+atoms.  Normally, these fields are ignored by
+ORTEP so any numeric values may be here or the fields may be blank. The
+information in these fields will be interpreted as atom features only
+if instructions are invoked that specifically look at atom features.
+Features can not be entered on Type 3 positional parameter
+cards.
+<p>
+<hr>
+<a name="temp"><b>Temperature Factors</b></a>
+<p> 
+Temperature factor cards have FORMAT(I1,F8.0,5F9.0,7X,F2.0).
+<p>
+<center>
+<table border>
+<tr align="center">
+<th>Columns</th>
+<th>Types 0,1,2,3,10</th>
+<th>Types 4,5,8,9</th>
+<th colspan=2>Type 6</th>
+<th colspan=2>Type 7</th>
+</tr>
+<tr align="center">
+<td>1</td>
+<td colspan=6>A sentinel <img src="neq.gif"> 0 for last atom only</td>
+</tr>
+<tr align="center">
+<td>2-9</td>
+<td>b<sub>11</sub></td>
+<td>U<sub>11</sub></td>
+<td>B</td>
+<td>B</td>
+<td>R</td>
+<td>R</td>
+</tr>
+<tr align="center">
+<td>10-18</td>
+<td>b<sub>22</sub></td>
+<td>U<sub>22</sub></td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr align="center">
+<td>19-27</td>
+<td>b<sub>33</sub></td>
+<td>U<sub>33</sub></td>
+<td>0</td>
+<td>VDC<sub>1</sub> (from)</td>
+<td>0</td>
+<td>VDC<sub>1</sub> (from)</td>
+</tr>
+<tr align="center">
+<td>28-36</td>
+<td>b<sub>12</sub></td>
+<td>U<sub>12</sub></td>
+<td>0</td>
+<td>VDC<sub>1</sub> (to)</td>
+<td>0</td>
+<td>VDC<sub>1</sub> (to)</td>
+</tr>
+<tr align="center">
+<td>37-45</td>
+<td>b<sub>13</sub></td>
+<td>U<sub>13</sub></td>
+<td>0</td>
+<td>[VDC<sub>2</sub> (from)]</td>
+<td>0</td>
+<td>[VDC<sub>2</sub> (from)]</td>
+</tr>
+<tr align="center">
+<td>46-54</td>
+<td>b<sub>23</sub></td>
+<td>U<sub>23</sub></td>
+<td>0</td>
+<td>[VDC<sub>2</sub> (to)]</td>
+<td>0</td>
+<td>[VDC<sub>2</sub> (to)]</td>
+</tr>
+<tr align="center">
+<td>62-63</td>
+<td>0, 1, 2, 3, or 10</td>
+<td>4, 5, 8, or 9</td>
+<td>6 (or 0)</td>
+<td>6 (or 0)</td>
+<td>7</td>
+<td>7</td>
+</tr>
+</table>
+</center>
+<p>
+Anisotropic temperature factor Types 0, 1, 2, 3, and 10
+use the following formula for the complete temperature factor.
+<p>
+<center>
+<img src="base.gif" align=top> -D(b<sub>11</sub>h<sup>2</sup> + 
+b<sub>22</sub>k<sup>2</sup> + 
+b<sub>33</sub><img src="ell.gif"><sup>2</sup> + 
+cb<sub>12</sub>hk +
+cb<sub>13</sub>h<img src="ell.gif"> +
+cb<sub>23</sub>k<img src="ell.gif">)
+</center>
+<p>
+The coefficients b<sub>ij</sub> (i,j = 1,2,3) 
+of the various types are defined with the following constant settings.
+<p>
+<center>
+<table>
+<tr><td>type 0:</td><td>Base = e, c = 2, D = 1</td></tr>
+<tr><td>type 1:</td><td>Base = e, c = 1, D = 1</td></tr>
+<tr><td>type 2:</td><td>Base = 2, c = 2, D = 1</td></tr>
+<tr><td>type 3:</td><td>Base = 2, c = 1, D = 1</td></tr>
+<tr><td>type 10:</td><td>Base = e, c = 2, D = 2<img 
+src="pi.lc.gif"><sup>2</sup></td></tr>
+</table>
+</center>
+<p>
+Anisotropic temperature factor Types 4, 5, 8, and 9
+use the following formula for the complete temperature factor, in which
+a<sub>1</sub>*,
+a<sub>2</sub>*, and
+a<sub>3</sub>* are reciprocal cell dimensions.
+<p>
+<center>
+exp[-D(a<sub>1</sub>*<sup>2</sup>U<sub>11</sub>h<sup>2</sup> +
+a<sub>2</sub>*<sup>2</sup>U<sub>22</sub>k<sup>2</sup> +
+a<sub>3</sub>*<sup>2</sup>U<sub>33</sub><img src="ell.gif"><sup>2</sup> +
+Ca<sub>1</sub>*a<sub>2</sub>*U<sub>12</sub>hk +
+Ca<sub>1</sub>*a<sub>3</sub>*U<sub>13</sub>h<img src="ell.gif"> +
+Ca<sub>2</sub>*a<sub>3</sub>*U<sub>23</sub>k<img src="ell.gif">)]
+</center>
+<p>
+The coefficients U<sub>ij</sub> (i,j = 1,2,3) 
+of the various types are defined with the following constant settings.
+<p>
+<center>
+<table>
+<tr><td>type 4:</td><td>C = 2, D = 1/4</td></tr>
+<tr><td>type 5:</td><td>C = 1, D = 1/4</td></tr>
+<tr><td>type 8:</td><td>C = 2, D = 2<img 
+src="pi.lc.gif"><sup>2</sup></td></tr>
+<tr><td>type 9:</td><td>C = 1, D = 2<img 
+src="pi.lc.gif"><sup>2</sup></td></tr>
+</table>
+</center>
+<p>
+Type 6 allows the input of the Debye-Waller isotropic temperature factor B, which is
+used as follows:
+<p>
+<center>
+exp (-B sin<sup>2</sup>
+<img src="theta.lc.gif"> / <img src="lambda.lc.gif"><sup>2</sup>),
+</center>
+<p>
+where <img src="lambda.lc.gif"> is the wavelength and <img 
+src="theta.lc.gif"> is the Bragg angle. 
+The parameter B is related to mean-square displacement 
+<img src="meansq.gif" align=middle>
+of the atom from its mean position by the relation
+<p>
+<center>
+<img src="meaneq.gif"> .
+</center>
+<p>
+When the isotropic temperature factor is used, the atom is represented as an isotropic
+ellipsoid (sphere) with equal principal axes of length &#181;.
+When the field in columns 19-27 is
+"0" or blank, the directions of the principal axes are along the 
+<a href="defs.html#coord">standard Cartesian system</a>
+axes. However, these arbitrary orthogonal vectors can be reoriented by using the
+two <a href="defs.html#vdc">vector designator codes</a>
+VDC<sub>1</sub> and VDC<sub>2</sub>; 
+then the three new principal-axis vectors will be
+VDC<sub>1</sub>, (VDC<sub>1</sub> <img src="cross.gif"> VDC<sub>2</sub>), 
+and VDC<sub>1</sub> <img src="cross.gif"> 
+(VDC<sub>1</sub> <img src="cross.gif"> VDC<sub>2</sub>).
+This is strictly an artistic feature of no
+physical significance.
+<p>
+Type 7 allows the input of arbitrary spheres of radius R in Angstroms. The vector
+triplet orientation is specified as with type 6. An additional feature allows a completely blank
+card (except perhaps column 1) to be used for a temperature factor card. In this case the
+program assumes type 7 with an R = 0.1 &Aring;.
+<p>
+If VDC<sub>2</sub> is omitted on Type 6 or Type 7 
+temperature factor cards, the program will
+choose one of the three lattice vectors for VDC<sub>2</sub>.
+<p>
+A type 10 temperature-factor input card may be used to load Cartesian temperature
+factors having components in the <a href="defs.html#coord">standard Cartesian system</a>. 
+This feature
+complements the <a href="#posi">Type 3 Cartesian positional parameter</a> input system and is
+useful for plotting mean-square displacements caused by internal molecular motions as
+calculated from spectroscopic normal-coordinate analyses.
+<p>
+New in
+ORTEP-III is the method for specifying the orientations and sizes of
+the pass (cigar-shaped) and pale (pancake-shaped) ellipsoids used in
+<a href="overview.html#crit">critical net illustrations</a> without
+giving their quadratic form coefficients. The temperature factor card
+following the atom parameter card for a pass or pale has the format
+shown below.
+<p>
+<center>
+<table border>
+<tr align="center">
+<th>Columns</th>
+<td>&nbsp;</td>
+</tr>
+<tr align="center">
+<td>1</td>
+<td>A sentinel <img src="neq.gif"> 0 if last atom</td>
+</tr>
+<tr align="center">
+<td>2-9</td>
+<td>Unique axis length (&Aring;)</td>
+</tr>
+<tr align="center">
+<td>10-18</td>
+<td>Second (and third) axis length (&Aring;)</td>
+</tr>
+<tr align="center">
+<td>19-27</td>
+<td>VDC<sub>1</sub> (from)</td>
+</tr>
+<tr align="center">
+<td>28-36</td>
+<td>VDC<sub>1</sub> (to)</td>
+</tr>
+<tr align="center">
+<td>37-45</td>
+<td>(optional) VDC<sub>2</sub> (from)</td>
+</tr>
+<tr align="center">
+<td>46-54</td>
+<td>(optional) VDC<sub>2</sub> (to)</td>
+</tr>
+<tr align="center">
+<td>63</td>
+<td>7</td>
+</tr>
+</table>
+</center>
+<p>
+
+VDC<sub>1</sub> is a vector parallel with the unique
+axis of the cigar-shaped pass or pancake-shaped pale and 
+VDC<sub>2</sub>
+is a second vector <b>not</b> parallel with
+VDC<sub>1</sub> such that VDC<sub>1</sub> <img src="cross.gif">
+VDC<sub>2</sub> is a second
+principal axis of that ellipsoid.  If VDC<sub>1</sub>
+and VDC<sub>2</sub> are parallel, VDC<sub>2</sub> is replaced by a suitable lattice translation
+vector. VDC<sub>2</sub> may be omitted from the input
+if desired, and the program will choose one of the three lattice
+vectors for VDC<sub>2</sub>.  
+<p>
+<hr>
+<p>
+<a href="toc.html"><img src="bluecube.gif"> Online Documentation
+Table of Contents</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="../ortep.html"><img src="bluecube.gif"> ORTEP-III Home Page</a>
+<p><i>Page last revised: July 11, 1997</i>

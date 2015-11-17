@@ -1,0 +1,252 @@
+<TITLE>ORTEP-III Online Doc - Ellipsoids</TITLE>
+<center>
+<H2>
+<img src="trcubane.gif" align="middle">
+ORTEP-III Online Documentation 
+<img src="trcubane.gif" align="middle">
+<br>
+700 Series Instructions: Atom Plotting
+</H2>
+</center>
+<p> 
+<hr>
+<p> 
+These instructions produce various representations of the atom based on
+the familiar ball-and-stick molecular model. In the general
+case, the ball is an ellipsoid representing a contour surface of equal
+probability density of thermal
+motion displacement. Alternatively, when thermal motion is not being
+portrayed, the ball can be a sphere of arbitrary dimension.
+The 700
+series also has provision for labeling the atomic site with the
+corresponding chemical symbol.
+<p>
+The instructions in this series draw the
+atoms in the ATOMS array that project onto the usable part of the
+drawing area, defined with a
+<a href="i300.html#301">301 instruction</a>. 
+Atoms found to be out of bounds are bypassed, and a 
+<a href="faults.html">fault
+message</a> (NG = 10) is printed in the ORTEP output file. An atom is out
+of bounds under the following conditions:  (1) if its z coordinate in
+the scaled 
+<a href="defs.html#coord">reference Cartesian system</a>
+is greater than 1/2 the viewing
+distance, (2) if its center after projection falls outside the limiting
+boundary of the drawing board, or (3) if the projected center falls
+in the outermost
+3/4 of the drawing margin.
+<p>
+An ellipsoid, for graphical purposes in ORTEP, is considered to be
+composed of ellipses and straight lines. The ellipses are of two
+types--principal ellipses and boundary ellipses. Relative to the
+viewpoint, a principal ellipse is further subdivided into a front half
+and a back, or hidden, half. There are three principal ellipses per
+ellipsoid, corresponding to the three principal planes. The boundary
+ellipse is the edge of the ellipsoid as seen from the viewpoint. The
+front and back halves of the principal ellipses meet at the boundary
+ellipse.  The straight-line segments of the ORTEP ellipsoid are the
+forward principal axes, reverse principal axes, and octant-shading
+lines.
+<p>
+Various combinations of these elements along with the
+ORTEP instruction number and parameter values to produce each
+are seen by clicking <a href="ellipsoid.gif">here</a>. It is
+obvious that certain of these combinations are better representations
+than others. 
+Instructions 701, 702, 703,
+and 706 generate specific ellipsoid types as shown.
+Instruction 704 draws the boundary ellipse alone. If an atom is entered
+as a sphere, the boundary will be circular before projection and
+slightly elliptical after perspective projection.
+Instruction 705 allows the user to make up any
+representation from the basic components. 
+<p>
+Chemical symbols up to six alphanumeric characters in length are
+included with the input structural parameters for each atom. These
+symbols can be put onto the illustration with one 700 series or several
+<a href="i900.html">900 series instructions</a>.
+The 700 series places the center of the six-character
+field of each atom in the same position relative to the atom
+center; the 900 series allows the user to position each symbol
+individually. The 700 series requires only three parameters as follows:
+(1) symbol height in inches, (2) parallel (left/right) offset from
+the atom center in
+inches, and (3) perpendicular (up/down) offset in inches. The
+parameters refer to the model before projection, and they will change
+slightly during perspective projection. The parallel and perpendicular
+offset refer to the exact center of the six-character input field and
+are relative to the lettering base line set up with the 
+<a href="i300.html#302">302 instruction</a>.
+A symbol height of 0 or blank will cause the symbol drawing
+routine to be bypassed.
+<p>
+In order to distinguish certain atoms, such as those in disordered
+positions, a 705/715 instruction with NPLANE = 4, NDOT = 3, 4, 5, or 6,
+NLINE = 0, and NDASH = 0 may be used to produce dotted boundary
+ellipses to contrast with the normal solid line boundary ellipses.
+Another feature of the 705/715 instruction is that if NPLANE = 0 and
+the symbol height is greater than zero, then chemical symbols alone are
+drawn on the atomic sites.
+<p>
+
+It is possible to vary the thickness of the boundary ellipse line by
+making it a function of z, the height of the atom from the drawing
+board. This option is normally used with the 704 (boundary only)
+instruction but will work for any 700 instruction. Entries are put in
+the A<sub>0</sub> and A<sub>1</sub>
+fields of the instruction continuation card to specify the coefficients
+of
+
+<p>
+<center>
+<img src="delta.uc.gif">R(z) = A<sub>0</sub> 
++ A<sub>1</sub>z ,
+</center>
+<p>
+where
+<img src="delta.uc.gif">R is the increase in radial dimension to
+be added to the width of the single pen line, A<sub>0</sub> 
+is <img src="delta.uc.gif">R for an atom
+at z = 0, and A<sub>1</sub> is the rate of increase in
+radial dimension with z.
+
+<p>
+
+<i>Example</i>: Assume that the atoms of the scaled model range from 5 in.
+below to 5 in. above the drawing board and the pen width is 0.2 mm
+(.008 in.). If we want the closest ellipse boundary to be five times as
+wide as the farthest, then <img src="delta.uc.gif">R(-5 in.) = 0,
+<img src="delta.uc.gif">R(5) = 0.008 <img src="cross.gif">
+(5 - 1) = 0.032 in.; thus
+A<sub>0</sub> = 0.016 in. and A<sub>1</sub> = 0.0032 in.
+
+<p>
+The program widens the line by stepping radially in increments of DISP,
+which is set by 
+<a href="defs.html#pp">primer constant</a> to 0. in. A 
+<a href="i300.html#303">303 instruction</a> must be used
+to give DISP a positive value for this thickening process to work.
+<p>
+Selected types of atoms from the ATOMS array can be drawn without
+having to alter the contents of the array. This is accomplished by
+using a 
+<a href="defs.html#nr">number run (NR)</a> code that 
+includes the atoms that
+are to be drawn with a particular 700-series instruction. This feature
+is particularly useful when two or more different representations are
+used, such as for the carbon and hydrogen atoms in the 
+<a href="../cubane/cubane.html">cubane example</a>.
+If no NR is entered, then all atoms in the table are drawn.
+<p>
+The ORTEP file output for the 701-706 instructions consists of the
+following:
+<p>
+1. x,y plotter coordinates: the coordinates, in inches, for the
+projected atom center on the plot, measured from the lower left-hand
+corner of the limiting boundary. This is the fixed plotter coordinate
+system with origin point set by the plotter driver.
+<p>
+2. x,y,z working Cartesian coordinates: the coordinates, in inches, for
+the oriented and scaled atomic model before projection. The x and y
+axes parallel the plotter x and y axes, and the origin of the system is
+in the plane of the plotter at the point X0,Y0 in plotter
+coordinates. The point ORGN of the scaled model is at this point.
+<p>
+3. x,y,z triclinic coordinates, in fractions of the unit-cell edges
+relative to the crystal unit-cell origin.
+<p>
+4. Principal axes of thermal motion, consisting of (a) principal values
+of root-mean-square displacement and (b) direction cosine for principal
+vectors relative to the working Cartesian system.
+<p>
+5. The 
+<a href="defs.html#adc">atom designator code</a> and chemical 
+symbol for the atom.
+<p>
+Instructions 711-716 are identical to 701-706 except that the 71x series
+suppresses all ORTEP file output except fault messages.
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Instructions 701/711, 702/712, 703/713, 704/714, 706/716</th><th>Instructions 705/715</th>
+</tr>
+<tr align="center" >
+<td>3</td><td>1 (if atom selection or boundary retracing is desired; otherwise 0)</td>
+<td>1 (if atom selection or boundary retracing is desired; otherwise 0)</td>
+</tr>
+<tr align="center" >
+<td>7-9</td><td>701, 702, 703, 704, 706,<br> 711, 712, 713, 714, or 716</td><td>705 or 715</td>
+</tr>
+<tr align="center" >
+<td>10-18</td><td>-</td>
+<td align="left">NPLANE<br>&nbsp;&nbsp;&nbsp;= 0: no ellipsoid components<br>
+&nbsp;&nbsp;&nbsp;= 1: boundary ellipse only<br>
+&nbsp;&nbsp;&nbsp;= 3: principal ellipses only<br>
+&nbsp;&nbsp;&nbsp;= 4: boundary + principal ellipses</td>
+</tr>
+<tr align="center" >
+<td>19-27</td><td>-</td>
+<td align="left">NDOT (back side of principal ellipses)<br>
+&nbsp;&nbsp;&nbsp;< 0: side line back side<br>
+&nbsp;&nbsp;&nbsp;= 0: back side omitted<br>
+&nbsp;&nbsp;&nbsp;= 3: 4 dots on back side<br>
+&nbsp;&nbsp;&nbsp;= 4: 8 dots on back side<br>
+&nbsp;&nbsp;&nbsp;= 5: 16 dots on back side<br>
+&nbsp;&nbsp;&nbsp;= 6: 32 dots on back side</td>
+</tr>
+<tr align="center" >
+<td>28-36</td><td>-</td>
+<td align="left">NLINE (forward principal axes and shading)<br>
+&nbsp;&nbsp;&nbsp;= 0: no forward axes or shading<br>
+&nbsp;&nbsp;&nbsp;= 1: forward principal axes only<br>
+&nbsp;&nbsp;&nbsp;= N: forward axes and N-1 lines of shading</td>
+</tr>
+<tr align="center" >
+<td>37-45</td><td>-</td>
+<td align="left">NDASH (dashed reverse principal axes)<br>
+&nbsp;&nbsp;&nbsp;= 0: no reverse axes<br>
+&nbsp;&nbsp;&nbsp;= N: dashed reverse axes with N dashes</td>
+</tr>
+<tr align="center" >
+<td>46-54</td><td>Symbol height (in.)</td> <td>Symbol height (in.)</td>
+</tr>
+<tr align="center" >
+<td>55-63</td><td>Parallel offset for symbols (in.)</td> <td>Parallel offset for symbols (in.)</td>
+</tr>
+<tr align="center" >
+<td>64-72</td><td>Perpendicular offset for symbols (in.)</td> <td>Perpendicular offset for symbols (in.)</td>
+</tr>
+</table>
+</center>
+<p>
+<center>
+<table border>
+<tr align="center">
+<th>Columns</th><th>Format No. 1<br>Parameter Continuation<br>(if used)</th>
+</tr>
+<tr align="center">
+<td>10-18</td><td>A<sub>0</sub> (in.) or blank</td>
+</tr>
+<tr align="center">
+<td>19-27</td><td>A<sub>1</sub> (in.) or blank</td>
+</tr>
+<tr align="center">
+<td>28-36</td><td><a href="defs.html#nr">Number run</a> (from) or blank</td>
+</tr>
+<tr align="center">
+<td>37-45</td><td><a href="defs.html#nr">Number run</a> (to) or blank</td>
+</tr>
+<tr align="center">
+<td>46-54</td><td><a href="defs.html#nr">Number run type</a> (0, 1, or 2) or blank</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<p>
+<a href="toc.html"><img src="bluecube.gif"> Online Documentation
+Table of Contents</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="../ortep.html"><img src="bluecube.gif"> ORTEP-III Home Page</a>
+<p><i>Page last revised: July 11, 1997</i>

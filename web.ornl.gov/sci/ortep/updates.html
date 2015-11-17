@@ -1,0 +1,63 @@
+<TITLE>ORTEP-III - Updates</TITLE>
+<center>
+<H2>
+<img src="trcubane.gif" align="middle">
+ORTEP-III Updates
+<img src="trcubane.gif" align="middle">
+</H2>
+</center>
+<p> 
+<hr>
+<p> 
+<h3>
+Version 1.0.2 - November 4, 1996
+</h3>
+<ul>
+<li>Corrects an error related to the use of "features" with the 105, 106, 405,
+415, 406, and 416 instructions.<p>
+<li>Corrects an error related to the logic used when more than one vector
+screening condition is provided with the 100 and 400 series instructions.
+</ul>
+<p> 
+Download the <a href="source.html">Fortran source code</a> or 
+<a href="compiled.html">compiled executables</a> of Version 1.0.2.
+<p>
+NOTE:  ALL the changes in Version 1.0.2 of ORTEP-III are in SUBROUTINE
+SEARC. If you already have the source code for Version 1.0.1, make the
+following THREE changes in SUBROUTINE SEARC:
+<p>
+<center>
+<table border>
+<tr align=center><td>CHANGE</td><td>&nbsp;&nbsp;&nbsp;</td><td>TO</td></tr>
+<tr><td><tt>inum=0<br>DO 153 KI=ITAR1,ITAR2</td><td>&nbsp;&nbsp;&nbsp;</td>
+<td><tt>DO 153 KI=ITAR1,ITAR2<br>inum=0</td></tr>
+<tr><td><tt>inum=0<br>DO 396 KI=ITAR1,ITAR2</td><td>&nbsp;&nbsp;&nbsp;</td>
+<td><tt>DO 396 KI=ITAR1,ITAR2<br>inum=0</td></tr>
+<tr><td><tt>logc=ain(8)</td><td>&nbsp;&nbsp;&nbsp;</td>
+<td><tt>logc=ain(9)</td></tr>
+</table>
+</center>
+<p>
+<hr>
+<p> 
+<h3>
+Version 1.0.1 - October 1, 1996
+</h3>
+<br>
+<ul>
+<li>Adds dashed bonds (for hydrogen bonds)<p>
+<li>Adds line bonds without atom symbols (for wireframe structures)
+</ul>
+<p>
+Read the <a href="101readme.txt">README file for Version 1.0.1</a>.  <p>
+Read the <a href="doc/i800.html">updated online documentation for the
+800 instructions</a>.  <p>
+NOTE:  ALL the changes in Version 1.0.1 of ORTEP-III are in SUBROUTINE
+BOND. If you already have the source code for Version 1.0,
+<a href="ftp://ftp.ornl.gov/pub/ortep/src/bond.f">download the new
+SUBROUTINE BOND code</a> and substitute it for the original code.
+<p>
+<hr>
+<p>
+<a href="ortep.html"><img src="bluecube.gif"> ORTEP-III Home Page</a>
+<p><i>Page last revised: November 4, 1996</i>

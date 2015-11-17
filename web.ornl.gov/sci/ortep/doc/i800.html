@@ -1,0 +1,492 @@
+<TITLE>ORTEP-III Online Doc - Bonds</TITLE>
+<center>
+<H2>
+<img src="trcubane.gif" align="middle">
+ORTEP-III Online Documentation 
+<img src="trcubane.gif" align="middle">
+<br>
+800 Series Instructions: Bond Plotting
+</H2>
+</center>
+<p> 
+<hr>
+<p> 
+The bond plotting instructions are grouped into two general types,
+explicit and implicit, depending on how the bonds are specified.
+Explicit bonds require a <a href="defs.html#vdc">vector designator code</a> for each
+bond. Implicit bonds make use of <a href="defs.html#vsc">vector search codes</a> to
+find pairs of atoms from the ATOMS array set up by the 
+<a href="i400.html">400 series instructions</a>.
+<p>
+There are two types of bonds that can be drawn, line bonds and stick
+bonds. The line bond is a very crude, but rapid, method useful in
+drawing preliminary illustrations.
+It is constructed by 
+drawing a single straight
+line between two atom sites.
+Optionally, the
+symbol <img src="star.gif"> can be drawn on the atom sites.
+Line bonds are always specified implicitly.
+<p>
+The more elaborate bond is the stick bond, which could also be called a
+conical bond because of its accentuated perspective taper. (The
+accentuated taper may be increased or decreased by changing the
+value assigned to TAPER in subroutine PRIME.) Each end
+of the bond intersects either an ellipsoid or an enveloping cone
+(tangent cone) that has its apex at the viewpoint and is tangent to an
+ellipsoid. In general, the ellipsoid intersection is automatically used
+if the axis of the bond intersects the ellipsoid at a point that is
+visible to the viewpoint; otherwise, the tangent cone intersection is
+used, so that the bond appears to terminate at the boundary of the
+ellipsoid. However, the user can specify that the ellipsoid
+intersection always be used in order to make the skeleton type ellipsoid
+model (such as produced by the <a href="ellipsoid.gif">703 instruction</a>)
+appear even more transparent.
+Stick bonds may be either dashed or non-dashed.
+The spaces in dashed bonds are not transparent (i.e., lines behind
+the dashed bonds do not show through the spaces).
+The radius of the
+stick bond and the number of lines used to draw the bond are specified
+with input parameters.
+<p>
+Bond-distance labels can be drawn automatically with stick bonds but
+not with line bonds. The bond-distance label numbers are in Angstrom
+units with one, two, or three places past the decimal point. The bond
+labels on the illustration will have their base lines parallel to the
+stick bonds and will be right side up for the viewer. The height of the
+label in inches and the perpendicular offset distance for the center of
+the label relative to the center of the bond are parameters to be
+specified by the user. With the current 
+<a href="defs.html#pp">primer constant</a> for FORE, if
+the sine of the angle between the bond and the mean viewing vector is
+greater than 0.5, the lettering is done in perspective along the bond.
+When the sine of the angle is less than 0.5, the perspective lettering
+would be excessively foreshortened; the lettering is then made parallel
+to the plane of the drawing with its base line parallel to the
+projected bond. Different lettering heights and different perpendicular
+offset distances can be assigned to the perspective and nonperspective
+bond-distance labels.
+<p>
+All 800 instructions require Format No. 2 trailer cards to provide a
+number of bond parameters as follows:
+<p>
+<ul>
+<li>Bond type for non-dashed stick bonds is designated by an integer 
+NBOND, where -5 <img src="leq.gif"> NBOND <img src="leq.gif"> 5. The
+negative integers denote that both ends of the bonds terminate at the
+ellipsoids. The positive integers denote bonds ending either at the
+ellipsoid or the tangent cone, as described previously in this section.
+An entry of zero draws no bond. A magnitude of 1 for NBOND produces two
+lines, one for each bond edge, 
+180<sup>o</sup>
+apart in the plane normal to the bond axis. Lines are
+drawn 90<sup>o</sup>, 
+45<sup>o</sup>, 
+22.5<sup>o</sup>, or 
+11.25<sup>o</sup> apart for NBOND magnitudes of 2,
+3, 4, or 5, respectively. The back side of the bond is not drawn.
+<p>
+Bond type for dashed stick bonds is designated by an integer in the range
+10 through 999 or -99 through -10. 
+The meaning of a positive or negative value is the same as that
+for non-dashed bonds. Dashed bonds are drawn with two lines (NBOND = 1).
+The separation between the two lines is controlled by the bond radius value
+(see below).  Supplying a small non-zero value for the bond radius will
+result in the bond appearing as a single line rather than two.
+<p>
+The leftmost two digits in the bond type value for dashed bonds
+indicate the number, <i>m</i>, of dashes to draw.
+(The number of spaces is <i>m</i>-1.) The rightmost digit, <i>n</i>, 
+indicates the
+size of the dashes relative to the size of the spaces between the
+dashes.  The ratio of dash length to space length is <i>n</i>/(10-<i>n</i>). 
+<ul>
+<li>If <i>n</i> is greater than 5, dashes are longer than
+spaces.
+<li>If <i>n</i> is less than 5, spaces are longer than
+dashes.
+<li>If <i>n</i> is 0 or 5, dashes and spaces are the same
+length.
+<li>The rightmost digit 1 can be used to produce lines that appear
+dotted rather than dashed (if the number of dashes is sufficiently
+large).
+</ul>
+<p>
+<li>The bond radius (mean value for stick bonds) is in Angstrom units.
+Values between 0.01 and 0.06 &Aring; usually give good results. Any positive
+value may be used as long as it is smaller than the scaled ellipsoid
+minimum semidimension. The bond radius is not changed by the 
+<a href="i600.html">ellipsoid scale factor ratio SCAL2</a>. 
+The bond radius should not be made
+vanishingly small (e.g., less than 0.005 &Aring;) if 
+the <a href="i1000.html">overlap
+feature</a> is used
+because numerical rounding may cause incorrect hidden-line
+elimination.
+<p>
+<li>The height of perspective labels for bond distances is entered as
+zero if no bond distances are to be labeled. Positive values denote the
+lettering height in inches before projection.
+<p>
+<li>The perpendicular offset for bond distance perspective labels (in
+inches) specifies the offset of the center of the distance label
+relative to the center of the bond.
+<p>
+<li>The height of regular labels for bond distances is entered as zero
+if no bond distances corresponding to foreshortened bonds are to be
+drawn. Positive values give the lettering height in inches before
+projection.
+<p>
+<li>The perpendicular offset for bond-distance regular labels (in
+inches) specifies the offset of the center of the distance label
+relative to the center of the bond.
+<p>
+<li>The significant digits indicator is -1, 0, or 1, denoting bond
+distance labels with one, two, or three digits, respectively, after the
+decimal place.
+</ul>
+<p>
+Instructions 801, 802, and 803 differ from 811, 812, and 813 only in
+the ORTEP output file listing. The second group has no output except
+error messages. The first group lists:  plotter coordinates in
+inches, scaled Cartesian coordinates (in inches) of the atoms before
+projection of each bond, and triclinic 
+crystal coordinates for the atoms of each
+bond. The interatomic bond distance in Angstroms is also listed. If an
+atom of a bonded pair is out of bounds, a 
+<a href="faults.html">fault message</a> (NG = 10) is
+printed in the ORTEP output file. If the bond is hidden and cannot be
+drawn, fault message NG = 14 is printed. Fault NG = 13 signifies that
+an imaginary intersection was found with a bond radius larger than the
+ellipsoid semidimension.
+<p>
+<ul>
+<li><a href="#801"> 801/811:Explicit Bonds </a>
+<li><a href="#802"> 802/812 and 803/813: Implicit Bonds </a>
+<li><a href="#821"> 821/822: Bond Overlap </a>
+</ul>
+<hr>
+<a name="801"> 801/811: Explicit Bonds </a>
+<p>
+Explicit stick bonds are produced with the 801/811 instructions. The
+bonds are described with two 
+<a href="defs.html#adc">atom designator codes</a> for each bond. The
+atom designator codes go on the 801/811 card and on Format No. 1 trailer
+cards if more than three atom pairs are needed. The two atom designator
+codes for a bond must be in adjacent fields, but blank fields can be
+inserted between the different bonds. Since there are seven fields
+available per card, it is a good idea to use only two, four, or six of
+them so that the card sequence within the instruction (other than first
+and last cards) will be unimportant. As described above, a Format No. 2
+trailer card is required.
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Instructions 801/811</th>
+<td></td><td></td>
+<th>Columns<th>Format No. 2<br>Continuation Card</th>
+</tr>
+<tr align="center" >
+<td>3</td><td>2 (or 1 if more than 3 pairs of ADCs are needed)</td>
+<td></td><td></td>
+<td>3</td> <td>0</td>
+</tr>
+<tr align="center" >
+<td>7-9</td><td>801 or 811</td>
+<td></td><td></td>
+<td>22-24</td> <td>Bond type</td>
+</tr>
+<tr align="center" >
+<td>10-18</td><td>ADC<sub>1</sub> (from)</td> 
+<td></td><td></td>
+<td>37-42</td> <td>Bond radius (&Aring;)</td>
+</tr>
+<tr align="center" >
+<td>19-27</td><td>ADC<sub>1</sub> (to)</td>
+<td></td><td></td>
+<td>43-48</td> <td>Perspective<br>label hgt. (in.)</td>
+</tr>
+<tr align="center" >
+<td>28-36</td><td>[ADC<sub>2</sub> (from)</td>
+<td></td><td></td>
+<td>49-54</td> <td>Perpendicular<br>displacement (in.)</td>
+</tr>
+<tr align="center" >
+<td>37-45</td><td>ADC<sub>2</sub> (to)]</td>
+<td></td><td></td>
+<td>55-60</td> <td>Nonperspective<br>label hgt. (in.)</td>
+</tr>
+<tr align="center" >
+<td>46-54</td><td>[...</td>
+<td></td><td></td>
+<td>61-66</td> <td>Perpendicular<br>displacement (in.)</td>
+</tr>
+<tr align="center" >
+<td>55-63</td><td>...]</td>
+<td></td><td></td>
+<td>67-72</td> <td>Digits indicator</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<a name="802"> 802/812 and 803/813: Implicit Bonds </a>
+<p>
+Instructions 802/812 are used for implicit stick bonds, and 803/813 are
+used for implicit line bonds. The symbol <img src="star.gif">
+is drawn on the atomic sites by
+the 803/813 instructions if the atom symbol indicator (cols. 22-24) on
+the Format No. 2 trailer card is zero or blank.  If the indicator has any
+other integer value, atom symbols are not drawn.
+If drawn, the atom symbols may be made larger or smaller by redefining
+the SCAL2 factor, which is controlled by the 
+<a href="i600.html">600 series</a> of instructions.
+<a href="defs.html#nr">Number run 
+type</a> takes a non-zero (or non-blank) value only
+when working with <a href="defs.html#af">atom features</a>. A Format
+No. 2 trailer card is required.
+<p>
+The use of <a href="defs.html#vsc">vector search code (VSC)</a> cards for the bond plotting
+instructions 802/812 and 803/813 has been extended to include a provision for
+drawing coordination polyhedra while suppressing the unwanted bonds. In
+addition to describing the bond with 
+origin and target
+<a href="defs.html#nr">number runs</a>
+and the D<sub>min</sub> to
+D<sub>max</sub> range, a condition 
+can be imposed to require that both atoms must
+be within a specified "polyhedral distance range" of an atom in the ATOMS
+array that is included in a "polyhedron" number run.
+This option is brought into play by a <b>negative number in
+columns 43 to 48 of the VSC card</b>.
+<p>
+<center>
+<table border>
+<tr align="center">
+<th></th>
+<th></th>
+<td></td><td></td>
+<th colspan=3>Format No. 2 Vector Search Code</th>
+</tr>
+<tr align="center">
+<th>Columns</th>
+<th>Instructions 802/812</th>
+<td></td><td></td>
+<th>Columns</th>
+<th>Positive number<br>in columns 43-48</th>
+<th>Negative number<br>in columns 43-48</th>
+</tr>
+<tr align="center">
+<td>3</td>
+<td>2</td>
+<td></td><td></td>
+<td>3</td>
+<td>0 or 2</td>
+<td>0 or 2</td>
+</tr>
+<tr align="center">
+<td>7-9</td>
+<td>802 or 812</td>
+<td></td><td></td>
+<td>10-12</td>
+<td>Origin NR (from)</td>
+<td>Origin NR (from)</td>
+</tr>
+<tr align="center">
+<td>10-18</td>
+<td>-</td>
+<td></td><td></td>
+<td>13-15</td>
+<td>Origin NR (to)</td>
+<td>Origin NR (to)</td>
+</tr>
+<tr align="center">
+<td>27</td>
+<td><a href="defs.html#nr">Number run type</a><br>(0, 1, or 2) or blank</td>
+<td></td><td></td>
+<td>16-18</td>
+<td>Target NR (from)</td>
+<td>Target NR (from)</td>
+</tr>
+<tr align="center">
+<td>&nbsp;</td> <td>&nbsp;</td> <td></td><td></td>
+<td>19-21</td>
+<td>Target NR (to)</td>
+<td>Target NR (to)</td>
+</tr>
+<tr align="center">
+<td>&nbsp;</td> <td>&nbsp;</td> <td></td><td></td>
+<td>22-24</td>
+<td>Bond type</td>
+<td>Bond type</td>
+</tr>
+<tr align="center">
+<td>&nbsp;</td> <td>&nbsp;</td> <td></td><td></td>
+<td>25-30</td>
+<td>D<sub>min</sub> (&Aring;)</td>
+<td>D<sub>min</sub> (&Aring;)</td>
+</tr>
+<tr align="center">
+<td>&nbsp;</td> <td>&nbsp;</td> <td></td><td></td>
+<td>31-36</td>
+<td>D<sub>max</sub> (&Aring;)</td>
+<td>D<sub>max</sub> (&Aring;)</td>
+</tr>
+<tr align="center">
+<td>&nbsp;</td> <td>&nbsp;</td> <td></td><td></td>
+<td>37-42</td>
+<td>Bond radius (&Aring;)</td>
+<td>Bond radius (&Aring;)</td>
+</tr>
+<tr align="center">
+<td>&nbsp;</td> <td>&nbsp;</td> <td></td><td></td>
+<td>43-48</td>
+<td>Perspective<br>label hgt. (in.)</td>
+<td>Polyhedron<br>NR (from)</td>
+</tr>
+<tr align="center">
+<td>&nbsp;</td> <td>&nbsp;</td> <td></td><td></td>
+<td>49-54</td>
+<td>Perpendicular<br>displacement (in.)</td>
+<td>Polyhedron<br>NR (to)</td>
+</tr>
+<tr align="center">
+<td>&nbsp;</td> <td>&nbsp;</td> <td></td><td></td>
+<td>55-60</td>
+<td>Nonperspective<br>label hgt. (in.)</td>
+<td>Polyhedron<br>D<sub>min</sub> (&Aring;)</td>
+</tr>
+<tr align="center">
+<td>&nbsp;</td> <td>&nbsp;</td> <td></td><td></td>
+<td>61-66</td>
+<td>Perpendicular<br>displacement (in.)</td>
+<td>Polyhedron<br>D<sub>max</sub> (&Aring;)</td>
+</tr>
+<tr align="center">
+<td>&nbsp;</td> <td>&nbsp;</td> <td></td><td></td>
+<td>67-72</td>
+<td>Digits indicator</td>
+<td>-</td>
+</tr>
+</table>
+</center>
+<p>
+<center>
+<table border>
+<tr align="center">
+<th></th>
+<th></th>
+<td></td><td></td>
+<th colspan=3>Format No. 2 Vector Search Code</th>
+</tr>
+<tr align="center">
+<th>Columns</th>
+<th>Instructions 803/813</th>
+<td></td><td></td>
+<th>Columns</th>
+<th>Positive number<br>in columns 43-48</th>
+<th>Negative number<br>in columns 43-48</th>
+</tr>
+<tr align="center">
+<td>3</td>
+<td>2</td>
+<td></td><td></td>
+<td>3</td>
+<td>0 or 2</td>
+<td>0 or 2</td>
+</tr>
+<tr align="center">
+<td>7-9</td>
+<td>803 or 813</td>
+<td></td><td></td>
+<td>10-12</td>
+<td>Origin NR (from)</td>
+<td>Origin NR (from)</td>
+</tr>
+<tr align="center">
+<td>10-18</td>
+<td>-</td>
+<td></td><td></td>
+<td>13-15</td>
+<td>Origin NR (to)</td>
+<td>Origin NR (to)</td>
+</tr>
+<tr align="center">
+<td>27</td>
+<td><a href="defs.html#nr">Number run type</a><br>(0, 1, or 2) or blank</td>
+<td></td><td></td>
+<td>16-18</td>
+<td>Target NR (from)</td>
+<td>Target NR (from)</td>
+</tr>
+<tr align="center">
+<td>&nbsp;</td> <td>&nbsp;</td> <td></td><td></td>
+<td>19-21</td>
+<td>Target NR (to)</td>
+<td>Target NR (to)</td>
+</tr>
+<tr align="center">
+<td>&nbsp;</td> <td>&nbsp;</td> <td></td><td></td>
+<td>22-24</td>
+<td>Atom symbol<br>indicator</td>
+<td>Atom symbol<br>indicator</td>
+</tr>
+<tr align="center">
+<td>&nbsp;</td> <td>&nbsp;</td> <td></td><td></td>
+<td>25-30</td>
+<td>D<sub>min</sub> (&Aring;)</td>
+<td>D<sub>min</sub> (&Aring;)</td>
+</tr>
+<tr align="center">
+<td>&nbsp;</td> <td>&nbsp;</td> <td></td><td></td>
+<td>31-36</td>
+<td>D<sub>max</sub> (&Aring;)</td>
+<td>D<sub>max</sub> (&Aring;)</td>
+</tr>
+<tr align="center">
+<td>&nbsp;</td> <td>&nbsp;</td> <td></td><td></td>
+<td>37-42</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr align="center">
+<td>&nbsp;</td> <td>&nbsp;</td> <td></td><td></td>
+<td>43-48</td>
+<td>&nbsp;</td>
+<td>Polyhedron<br>NR (from)</td>
+</tr>
+<tr align="center">
+<td>&nbsp;</td> <td>&nbsp;</td> <td></td><td></td>
+<td>49-54</td>
+<td>&nbsp;</td>
+<td>Polyhedron<br>NR (to)</td>
+</tr>
+<tr align="center">
+<td>&nbsp;</td> <td>&nbsp;</td> <td></td><td></td>
+<td>55-60</td>
+<td>&nbsp;</td>
+<td>Polyhedron<br>D<sub>min</sub> (&Aring;)</td>
+</tr>
+<tr align="center">
+<td>&nbsp;</td> <td>&nbsp;</td> <td></td><td></td>
+<td>61-66</td>
+<td>&nbsp;</td>
+<td>Polyhedron<br>D<sub>max</sub> (&Aring;)</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<a name="821"> 821/822: Bond Overlap </a>
+<p>
+<a href="i1000.html">Instructions 821 and 822</a> are used for calculating
+bond/atom and bond/bond overlap
+rather than for drawing bonds.
+<p>
+<hr>
+<p>
+<a href="toc.html"><img src="bluecube.gif"> Online Documentation
+Table of Contents</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="../ortep.html"><img src="bluecube.gif"> ORTEP-III Home Page</a>
+<p><i>Page last revised: October 14, 1996</i>

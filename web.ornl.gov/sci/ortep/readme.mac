@@ -1,0 +1,30 @@
+This version of ORTEP-III for Mac OS X only works inside its unix environment.  This is accessed from the Terminal application found in the Utilities folder inside the OS X Applications folder.  Knowledge of unix is required.  The input files must have unix line endings rather than the normal Mac line ends.
+
+To set up:
+
+1. From the Mac OS X GUI, copy the file AquaTerm to the OS X Applications folder.
+
+2. As root in the unix environment in a Terminal window, copy /Volumes/ORTEP-III_for_Mac_OS_X/ortep to a suitable place, e.g. /bin or /usr/bin
+
+3. As root in the unix environment in a Terminal window, copy /Volumes/ORTEP-III_for_Mac_OS_X/grfont.dat to a suitable place, e.g. /etc
+
+4. While logged into your Mac in your usual manner (not root), run the Terminal application and edit the file .bash_profile (which may not exist) in your  unix login directory.  Add the following two lines:
+
+PGPLOT_DIR=/etc; export PGPLOT_DIR
+PGPLOT_DEV=/AQT; export PGPLOT_DEV
+
+The first line indicates the path where the grfont.dat file was placed.
+
+5. Quit the Terminal application.
+
+
+
+To run:
+
+1. Start the Terminal application.
+
+2. Change to the directory that contains the ortep input file.
+
+3. Type ortep
+
+

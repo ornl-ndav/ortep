@@ -1,0 +1,332 @@
+<TITLE>ORTEP-III Online Doc - Orientation</TITLE>
+<center>
+<H2>
+<img src="trcubane.gif" align="middle">
+ORTEP-III Online Documentation 
+<img src="trcubane.gif" align="middle">
+<br>
+500 Series Instructions: Orientation
+</H2>
+</center>
+<p> 
+<hr>
+<p> 
+Any Cartesian coordinate system is based on three orthonormal base
+vectors and an origin point. In the absence of any 500 instructions,
+ORTEP calculates the base vectors of the reference and working
+<a href="defs.html#coord">Cartesian 
+systems</a> from the input cell parameters and sets
+the origin to (0.,0.,0.).
+<p>
+This series of instructions can be used to reorient the reference and
+working Cartesian systems. Each time the reference system is redefined
+or rotated, the working system is automatically made coincident with
+the reference system. The working system can be displaced from the
+reference system by rotating about the x or y axis of the reference system with
+a 503 instruction. The working system is always positioned from the
+reference system and does not depend on any previous working system
+orientation. After each 500 series instruction, the base vectors of the
+relevant Cartesian system are printed in the ORTEP output file. These
+vectors are based on the triclinic coordinate system. The postfactor
+transformation matrix for converting from triclinic coordinates to
+Cartesian coordinates is also printed out. The inverse transformation
+matrix may be formed by placing the three base vectors together in row
+vector form.
+<p>
+<ul>
+<li><a href="#501"> 501: Explicit Reference Cartesian System Assignment </a>
+<li><a href="#502"> 502: Reference Cartesian System Rotation </a>
+<li><a href="#503"> 503: Working Cartesian System Rotation (Stereoscopic Rotation) </a>
+<li><a href="#504"> 504: Reference Cartesian System Origin Translation </a>
+<li><a href="#505"> 505: Reference Cartesian System Origin at Centroid </a>
+<li><a href="#506"> 506: Reference Cartesian System Origin at Centroid and Inertial Axis 
+Coordinate System</a>
+</ul>
+<hr>
+<a name="501"> 501: Explicit Reference Cartesian System Assignment </a>
+<p>
+Instruction 501 allows the user to define the 
+<a href="defs.html#coord">reference Cartesian system</a> explicitly.
+The origin point in the model (ORGN) is specified with an 
+<a href="defs.html#adc">atom designator code</a>. The three
+orthonormal base vectors can be described by two non-collinear vectors, and ORTEP provides
+the two following separate techniques for performing this operation, using vector cross
+products of the two vectors <b>u</b> and <b>v</b>. Type 1 produces base vectors that are roughly along the
+general triclinic coordinate axes of the crystal.
+<p>
+<p>
+<center>
+<table width=70%>
+<tr align="center" >
+<th></th><th>Type 0</th><th>Type 1</th>
+</tr>
+<tr align="center" >
+<td>Base vector 1 (x axis)</td><td><b>u</b></td><td><b>u</b></td>
+</tr>
+<tr align="center" >
+<td>Base vector 2 (y axis)</td><td><b>u</b> <img src="cross.gif"> <b>v</b></td>
+<td>(<b>u</b> <img src="cross.gif"> <b>v</b>) 
+<img src="cross.gif"> <b>u</b></td>
+</tr>
+<tr align="center" >
+<td>Base vector 3 (z axis)</td><td><b>u</b> <img src="cross.gif"> 
+(<b>u</b> <img src="cross.gif"> <b>v</b>)</td>
+<td><b>u</b> <img src="cross.gif"> <b>v</b></td>
+</tr>
+</table>
+</center>
+<p>
+The reference system x and y axes will parallel the plotter x and y
+axes, and the origin point ORGN will lie in the plane of the plotter.
+The viewer will be looking into the z axis vector of the coordinate
+system from a 
+<a href="i300.html#301">distance VIEW</a> in inches directly above the
+origin point.
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Instruction 501</th><th>Effective Primer Constant</th>
+</tr>
+<tr align="center" >
+<td>7-9</td><td>501</td><td>-</td>
+</tr>
+<tr align="center" >
+<td>10-18</td><td>ORGN (ADC)</td><td>000000</td>
+</tr>
+<tr align="center" >
+<td>19-27</td><td>Vector <b>u</b> (from ADC)</td><td>155501</td>
+</tr>
+<tr align="center" >
+<td>28-36</td><td>Vector <b>u</b> (to ADC)</td><td>165501</td>
+</tr>
+<tr align="center" >
+<td>37-45</td><td>Vector <b>v</b> (from ADC)</td><td>155501</td>
+</tr>
+<tr align="center" >
+<td>46-54</td><td>Vector <b>v</b> (to ADC)</td><td>165501</td>
+</tr>
+<tr align="center" >
+<td>55-63</td><td>-</td><td>-</td>
+</tr>
+<tr align="center" >
+<td>64-72</td><td>Type</td><td>1</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<a name="502"> 502: Reference Cartesian System Rotation </a>
+<p>
+The crystal model can be given any desired orientation with a series of
+rotations of the model about the 
+<a href="defs.html#coord">reference system</a> axes. In general,
+three rotations (e.g., those of an Eulerian system) are sufficient to
+achieve any orientation, but for convenience an unlimited number of
+rotations are permitted in the program. In addition, rotations of 120
+about the body diagonal of the reference Cartesian system are permitted
+(this is achieved by a cyclic permutation of reference base vectors).
+<p>
+Each operation requires two fields on the instruction card. For axial
+rotations, the first field of each pair will have the number 1, 2, or 3
+to indicate rotation about the x, y, or z axis of the reference system,
+respectively. The second field will have the rotation angle in degrees
+for a right-handed rotation of the model about the designated axis
+(i.e., a positive angle signifies a counterclockwise rotation of the
+structure with the designated axis pointing toward the reader). The
+body diagonal rotation is designated by either a -1 or a -2 in the
+first field to indicate a 120 or a 240 right-handed rotation about the
+body diagonal, respectively, and the second field is blank. A -3 would
+rotate the structure completely around and thus not change its previous
+orientation.
+<p>
+If desired, each rotation can be executed with a separate 502 instruction.
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Instruction 502</th>
+</tr>
+<tr align="center" >
+<td>3</td><td>0 (or 1 if continued)</td>
+</tr>
+<tr align="center" >
+<td>7-9</td><td>502</td>
+</tr>
+<tr align="center" >
+<td>10-18</td><td>1, 2, 3, -1, or -2</td>
+</tr>
+<tr align="center" >
+<td>19-27</td><td><img src="phi.lc.gif"> (<sup>o</sup>)
+(if value in previous field is positive)</td>
+</tr>
+<tr align="center" >
+<td>28-36</td><td>[1, 2, 3, -1, or -2]</td>
+</tr>
+<tr align="center" >
+<td>37-45</td><td>[<img src="phi.lc.gif"> (<sup>o</sup>)
+(if value in previous field is positive)]</td>
+</tr>
+<tr align="center" >
+<td>46-54</td><td>[...]</td>
+</tr>
+<tr align="center" >
+<td>55-63</td><td>[...]</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<a name="503"> 503: Working Cartesian System Rotation (Stereoscopic Rotation) </a>
+<p>
+To define an orientation of the 
+<a href="defs.html#coord">working system</a> that is not coincident
+with the reference system, a 503 instruction may be used, which allows
+one rotation about one axis of the reference system. Actually any
+number of successive rotations can be made, but the effect is not
+cumulative since the starting point for each rotation is always the
+reference system. Body diagonal rotations are not permitted.
+<p>
+A 503 rotation normally precedes each member of a stereoscopic pair of
+plots. The rotation is about axis 2 if the
+stereo pair is to be viewed with the x axis parallel to the observer's
+interocular line and about axis 1 if the y axis is to be parallel to
+that line.
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Instruction 503</th>
+</tr>
+<tr align="center" >
+<td>7-9</td><td>503</td>
+</tr>
+<tr align="center" >
+<td>10-18</td><td>1 or 2</td>
+</tr>
+<tr align="center" >
+<td>19-27</td><td><img src="omega.lc.gif"> (<sup>o</sup>)</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<a name="504"> 504: Reference Cartesian System Origin Translation </a>
+<p>
+Instruction 504 is used to translate the origin of the 
+<a href="defs.html#coord">reference
+Cartesian system</a> along the x, y, and z axes of the reference system.
+Stereo by translation of origin can be achieved with instruction 504,
+which may be used in place of the 503 instruction. However, the 504
+instruction should not be used when the ellipsoids have internal
+structure because the octants selected for shading may not be the same
+on both stereo views.
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Instruction 504</th>
+</tr>
+<tr align="center" >
+<td>7-9</td><td>504</td>
+</tr>
+<tr align="center" >
+<td>10-18</td><td>Translation along x axis (in.)</td>
+</tr>
+<tr align="center" >
+<td>19-27</td><td>Translation along y axis (in.)</td>
+</tr>
+<tr align="center" >
+<td>28-36</td><td>Translation along z axis (in.)</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<a name="505"> 505: Reference Cartesian System Origin at Centroid </a>
+<p>
+This instruction finds the first moment (i.e., centroid or center of
+gravity) of the atoms in the ATOMS array and makes this point the
+origin point (ORGN) of the reference and working 
+<a href="defs.html#coord">coordinate systems</a>.
+The base vectors of the coordinate systems are unchanged from their
+previous values. A weighting scheme and screening may be applied to the
+atoms used to calculate the centroid by using Format No. 2 trailer
+cards. If no trailer cards are used, all atom positions are entered
+with unit weights.
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Instruction 505</th><td><td><td><td><th>Columns</th>
+<th>Format No. 2<br>Continuation Card<br>(if used)</th>
+</tr>
+<tr align="center" >
+<td>3</td><td>0 or 2</td><td><td><td><td><td>3</td><td>0 or 2</td>
+</tr>
+<tr align="center" >
+<td>7-9</td><td>505</td><td><td><td><td><td>10-12</td><td>NR (from)</td>
+</tr>
+<tr align="center" >
+<td>&nbsp;</td><td>&nbsp;</td><td><td><td><td><td>13-15</td><td>NR (to)</td>
+</tr>
+<tr align="center" >
+<td>&nbsp;</td><td>&nbsp;</td><td><td><td><td><td>24</td><td><a
+href="defs.html#nr">Number run type</a></td>
+</tr>
+<tr align="center" >
+<td>&nbsp;</td><td>&nbsp;</td><td><td><td><td><td>25-30</td><td>Weight</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<a name="506"> 506: Reference Cartesian System Origin at Centroid and Inertial Axis 
+Coordinate System</a>
+<p>
+The calculation described for 
+<a href="#505">instruction 505</a> is performed; then the
+second moment matrix about the centroid is calculated, and the
+reference and working 
+<a href="defs.html#coord">coordinate systems</a> are set up along the principal
+axes of this matrix. This principal axis system of coordinates is along
+the inertial axis of the configuration of atoms in the ATOMS array. The
+x axis is along the long axis of the configuration (i.e., the minimum
+axis of inertia), and the z axis is along the short axis of the
+configuration (i.e. the maximal axis of inertia). The overlap along the
+z-view direction is often minimized by this option. Furthermore, the xy
+plane is the least-squares best plane for the atomic configuration.
+Format No. 2 trailer cards may be used to supply weights and
+screening.
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Instruction 506</th><td><td><td><td><th>Columns</th>
+<th>Format No. 2<br>Continuation Card<br>(if used)</th>
+</tr>
+<tr align="center" >
+<td>3</td><td>0 or 2</td><td><td><td><td><td>3</td><td>0 or 2</td>
+</tr>
+<tr align="center" >
+<td>7-9</td><td>506</td><td><td><td><td><td>10-12</td><td>NR (from)</td>
+</tr>
+<tr align="center" >
+<td>&nbsp;</td><td>&nbsp;</td><td><td><td><td><td>13-15</td><td>NR (to)</td>
+</tr>
+<tr align="center" >
+<td>&nbsp;</td><td>&nbsp;</td><td><td><td><td><td>24</td><td><a
+href="defs.html#nr">Number run type</a></td>
+</tr>
+<tr align="center" >
+<td>&nbsp;</td><td>&nbsp;</td><td><td><td><td><td>25-30</td><td>Weight</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<p>
+<a href="toc.html"><img src="bluecube.gif"> Online Documentation
+Table of Contents</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="../ortep.html"><img src="bluecube.gif"> ORTEP-III Home Page</a>
+<p><i>Page last revised: July 11, 1997</i>

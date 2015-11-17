@@ -1,0 +1,134 @@
+<TITLE>ORTEP-III Online Doc - Labels</TITLE>
+<center>
+<H2>
+<img src="trcubane.gif" align="middle">
+ORTEP-III Online Documentation 
+<img src="trcubane.gif" align="middle">
+<br>
+900 Series Instructions: Label Plotting
+</H2>
+</center>
+<p> 
+<hr>
+<p> 
+The 900 series allows the user to plot general titles up to 72
+characters in length, chemical symbols up to 6 characters long, and
+bond length labels. The bond length labels can have two decimal places
+before the decimal point and one, two, or three places after the
+decimal point. The 700 and 800 series instructions can plot chemical
+symbols and bond length labels, but it is often desirable to position
+certain labels individually with the 900 series.
+<p>
+ORTEP-III provides the following character set for labels:
+<p>
+<center>
+<img src="charset.gif">
+</center>
+<p>
+General titles and bond length labels can be drawn either along a
+general vector baseline or parallel to the plane of the drawing.
+Chemical symbols are always drawn parallel to the plane. Instructions
+913-916 produce general plane lettering, and instructions 901-906 produce
+normal plane lettering.
+<p>
+Two vectors, the upright vector and the base-line vector, are needed to
+describe a lettering plane. In ORTEP the upright lettering vector is
+always parallel to the plane of the drawing. For perspective lettering
+the base-line vector is a general vector in three dimensions.  In the
+nonperspective case, the base-line vector is either along the
+projection of a general vector or along the vector (in the plane of the
+drawing) that is oriented with a 
+<a href="i300.html#302">302 title rotation instruction</a> (theta
+base line). If theta is zero, then the theta base-line vector is along
+the plotter positive x axis.
+<p>
+The exact center of the label is always referred to when specifying the
+position of the label. The program goes through the following steps to
+position the center point of the label onto the drawing.
+<p>
+(1) A point P1 is found that is either the position of atom A (columns 10-18)
+or the
+mean of two atom positions (atom A and atom B) if an atom designator
+exists in the atom B field (columns 19-27) of the instruction card.
+<p>
+(2) A point P2 is found by (a) translating from P1 along the base-line
+vector for the distance specified by the parallel offset, then (b)
+translating along the upright vector by the perpendicular offset
+distance.
+<p>
+(3) A point P3 is found by projecting P2 onto the plane of the
+drawing.
+<p>
+(4) If the "x edge reset" is greater than 0, then x is reset to this
+value. If "x edge reset" is less than 0, x is reset to the positive x
+plot boundary minus |x edge reset|. No resetting is done if x edge
+reset equals 0. The y parameter is handled in the same manner with "y
+edge reset".
+<p>
+Instruction 901 produces a normal plane atom label with theta base
+line, using the atom label for atom A.
+<p>
+A normal plane title with theta base line is drawn with the 902
+instruction. The title must be provided with the instruction on a
+Format No. 3 trailer card. The title should be centered about columns
+36-37 of that card. However, if the title begins in column 1, it will be
+centered within the field automatically. (New feature in ORTEP-III)
+<p>
+A general vector title with normal plane lettering is produced by the
+903 instruction and with general plane lettering by 913. The general
+vector is from atom A to atom B. The title must be provided with the
+instruction on a Format No. 3 trailer card. The title should be
+centered about columns 36-37 of that card. If the title begins in
+column 1, it will be centered automatically.
+<p>
+Instructions 904, 905, 906, 914, 915, and 916 produce general-vector
+bond-length labels. The first three are for normal plane lettering with
+one, two, and three places after the decimal point, respectively; and
+the last three are for the corresponding bond-length labels with
+general plane lettering. The general vector is from atom A to atom B.
+Note that the sense of the vector is important in order to have the
+label right side up.
+<p>
+The format for the entire 900 series is as follows:
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>900 Instructions</th>
+</tr>
+<tr align="center" >
+<td>3</td><td>0 (or 3 for 902, 903, and 913)</td>
+</tr>
+<tr align="center" >
+<td>7-9</td><td>9xx (instruction number)</td>
+</tr>
+<tr align="center" >
+<td>10-18</td><td><a href="defs.html#adc">ADC</a> for atom A</td>
+</tr>
+<tr align="center" >
+<td>19-27</td><td>ADC for atom B (or blank)</td>
+</tr>
+<tr align="center" >
+<td>28-36</td><td>x edge reset (in.)</td>
+</tr>
+<tr align="center" >
+<td>37-45</td><td>y edge reset (in.)</td>
+</tr>
+<tr align="center" >
+<td>46-54</td><td>Lettering height (in.)</td>
+</tr>
+<tr align="center" >
+<td>55-63</td><td>Parallel offset (in.)</td>
+</tr>
+<tr align="center" >
+<td>64-72</td><td>Perpendicular offset (in.)</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<p>
+<a href="toc.html"><img src="bluecube.gif"> Online Documentation
+Table of Contents</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="../ortep.html"><img src="bluecube.gif"> ORTEP-III Home Page</a>
+<p><i>Page last revised: March 5, 1996</i>

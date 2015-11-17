@@ -1,0 +1,10 @@
+User-agent: arc		# The mailing lists archives
+User-agent: arc_year	# The mailing lists archives yearly
+Disallow: /analog/
+Disallow: /ServerIron/
+
+User-agent: *
+Disallow: /analog/
+Disallow: /lists/
+Disallow: /ServerIron/
+Disallow: /whos/

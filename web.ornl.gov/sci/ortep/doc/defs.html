@@ -1,0 +1,307 @@
+<TITLE>ORTEP-III Online Doc - Defs</TITLE>
+<center>
+<H2>
+<img src="trcubane.gif" align="middle">
+ORTEP-III Online Documentation 
+<img src="trcubane.gif" align="middle">
+<br>
+Definitions
+</H2>
+</center>
+<p> 
+<hr>
+<p> 
+<A HREF="#addrpt">Addressable Point</A>
+<p> 
+<A HREF="#adc">Atom Designator Code (ADC)</A>
+<p> 
+<A HREF="#adr">Atom Designator Run (ADR)</A>
+<p> 
+<A HREF="#af">Atom Feature</A>
+<p> 
+<A HREF="#anr">Atom Number Run (ANR)</A>
+<p>
+<a href="#boe">Box of Enclosure</a>
+<p>
+<a href="#fnr">Feature Number Run (FNR)</a>
+<p>
+<a href="#nr">Number Run (NR) and Number Run Type</a>
+<p>
+<a href="#pp">Prime Parameters and Primer Constants</a>
+<p>
+<a href="#coord">Reference, Working, and Standard Cartesian Coordinate Systems
+</a>
+<p>
+<a href="#soe">Sphere of Enclosure</a>
+<p>
+<a href="#vdc">Vector Designator Code (VDC)</a>
+<p>
+<a href="#vsc">Vector Search Code (VSC)</a>
+<p>
+<hr>
+<a name="addrpt"><b>Addressable Point</b></a>
+<p> 
+An addressable point in the crystal is any point for which an 
+<A HREF="#adc">atom designator code</A>
+exists. In general, the addressable region is
+a 9 <img src="cross.gif"> 9 <img src="cross.gif"> 9 block of unit cells.
+<p>
+<hr>
+<a name="adc"><b>Atom Designator Code (ADC)</b></a>
+<p> 
+In order to
+specify a particular atom in the crystal within a reasonable distance
+from the crystallographically defined origin, the following
+five-component atom designator code (ADC) is used.
+<p>
+<center>
+ADC = AN <img src="cross.gif"> 10<sup>5</sup> + 
+(TA + 5) <img src="cross.gif"> 10<sup>4</sup> +
+(TB + 5) <img src="cross.gif"> 10<sup>3</sup> + 
+(TC + 5) <img src="cross.gif"> 10<sup>2</sup> + SN
+</center>
+<p>
+where
+<p>
+AN = atom number (0  <img src="leq.gif"> AN  <img src="leq.gif"> 
+NATOM  <img src="leq.gif"> 500)  - the numerical position of the
+atom in the input list of atoms, which contains
+NATOM atoms. Atom 0 is not in the input list but refers to the
+crystal origin point (0., 0., 0.).
+<p>
+TA,TB,TC = crystal lattice translation digits - cell translations along
+cell edges <b>a</b>, <b>b</b>, and <b>c</b>, respectively. Each digit in an ADC can range
+from 1 to 9; consequently, it is possible to move up to 4 cells in any
+direction from the origin cell 555.
+<p>
+SN = symmetry operator number (0  <img src="leq.gif"> SN  
+<img src="leq.gif"> NSYM  <img src="leq.gif"> 96) - the numerical position
+of the symmetry operator in the input list of symmetry operators, which
+contains NSYM entries. Symmetry operator 0 is not in the
+input list but refers to an identity operator. However, the identity
+operation (corresponding to position x,y,z) generally must be
+somewhere in the input symmetry operator list and is usually the first
+operator.
+<p>
+<i>Example</i>: An atom designator code of 347502 refers to atom 3 moved
+through symmetry operation 2, then translated -1 cell translation along
+<b>a</b>, +2 cell translations along <b>b</b>, and 0 cell translations along <b>c</b>.
+<p>
+<hr>
+<a name="adr"><b> Atom Designator Run (ADR)</b></a>
+<p> 
+
+A straight run sequence of atoms can be defined using two 
+<A HREF="#adc">atom designator codes</A>
+with a "-" preceding the second of the two. The run
+hierarchy is: first, atom number AN; second, symmetry operator number
+SN; third, <b>a</b> translation TA; fourth, <b>b</b> translation TB; and last, <b>c</b>
+translation TC.
+<p> 
+<i>Example</i>: ADR (145502-245603) will generate the 8-atom run 145502, 245502,
+145503, 245503, 145602, 245602, 145603, 245603.
+<p>
+Exceptions allowed in the "origin" ADRs of
+instructions 101, 102, 402/412, 403/413, and 404/414 <b>only</b>:
+<p>
+<ul>
+<li> The minus sign may be eliminated.
+<li> If the second atom in the atom designator run has the same symmetry
+and translation components as the first atom, the second atom may 
+be represented by its atom number component alone.
+<li> If the symmetry and translation components of both atoms are 55501,
+both atoms may be represented by their atom number components alone.
+<p>
+<i>Example</i>:  ADR (345502-745502) may also
+be represented as (345502 745502) or (345502 7). ADR (355501-755501)
+may also be represented as (355501 755501) or (355501 7) or (3 7).
+</ul>
+<p>
+<hr>
+<a name="af"><b> Atom Feature</b></a>
+<p> 
+An atom feature is a user-defined characteristic of a group of atoms that may be
+assigned to the atoms in the ORTEP input as needed for a given task. For example, the atomic
+number may be provided with each atom to make selecting atoms of the same element easier.
+Up to two features may be assigned to each atom. These are referred to as Feature #1 and
+Feature #2.
+<p> 
+<hr>
+<a name="anr"><b> Atom Number Run (ANR)</b></a>
+<p> 
+An atom number run is a subset of the 
+<A HREF="#adr">atom designator run</A>.
+In this
+case, only the atom number AN changes. Normally, an ANR is entered by
+using only the atom number values for the first and last members of the
+sequence without a "-".
+<p>
+<i>Example</i>: (1 4) will designate atoms 1, 2, 3, and 4 of the input list.
+<p>
+<hr>
+<a name="boe"><b> Box of Enclosure </b></a>
+<p>
+A box of enclosure is a parallelepiped that can be centered about any
+<A HREF="#addrpt">addressable point</A>
+and assigned arbitrary dimensions.
+The orientation depends upon either the unit cell axes (triclinic box of
+enclosure) or the reference axes (rectangular box of enclosure).
+The box of enclosure can have
+a <b>complete population</b>, a <b>partial population</b>,
+or a <b>vector screened population</b>
+as described for the 
+<a href="#soe">sphere of enclosure</a>.
+<p>
+<hr>
+<a name="fnr"><b>Feature Number Run (FNR)
+</b></a>
+<p>
+A feature number run is used to identify those atoms having a particular 
+<a href="#af">atom feature</a> within a specified value range.
+<p>
+<hr>
+<a name="nr"><b>Number Run (NR) and Number Run Type
+</b></a>
+<p>
+A number run is a generic term that refers to both <A HREF="#anr">atom
+number runs (ANR)</A> and <A HREF="#fnr">feature number runs
+(FNR)</A>.  The number run type identifies the number run. Number run
+type 0 refers to an ANR, type 1 refers to an FNR on Feature #1, and
+type 2 refers to an FNR on Feature #2.
+<p>
+<hr>
+<a name="pp"><b>
+Prime Parameters and Primer Constants
+</b></a>
+<p>
+The more basic among the many settable
+parameters in ORTEP are the prime parameters. The 
+default values assigned to these
+prime parameters are often similar or identical from one problem to the
+next. Among the first things ORTEP does is a call to subroutine PRIME,
+which sets as many prime parameters as possible to reasonable default
+primer constant values.  For example, the maximum plot dimensions
+(instruction 301) are set to 10.5 in. for X and 8.0 in.
+for Y, and the overall scale for plotting (instruction
+600 series) is set to 1.0 in./&Aring;. If the value assigned to a
+particular constant by the PRIME subroutine is satisfactory, the user
+does not have to reset this constant with ORTEP instructions.
+<p>
+<hr>
+<a name="coord"><b>
+Reference, Working, and Standard Cartesian Coordinate Systems
+</b></a>
+<p>
+Many of the ORTEP calculations use fractional coordinates based
+on the crystal axes <b>a</b>, <b>b</b>, and <b>c</b> (triclinic coordinate system);
+but other steps necessitate the introduction of orthonormal base vector
+triplets (Cartesian coordinate systems). Two Cartesian systems, reference
+and working, are utilized.  The reference (major) system is used for all
+operations except plotting, where the working (minor) system is used.
+For a right-eye or left-eye stereo view, the working system is moved
+from the reference system by rotation about an axis of the reference
+system. However, certain decisions made while plotting must still be
+referred to the reference system to maintain accurate stereopsis. The
+user can define and orient the two Cartesian systems through the series
+500 instructions. Until a 500-series instruction is given, a "standard
+Cartesian system" is utilized for both the reference and working
+systems. The orthonormal base vectors of the standard system are
+oriented as follows:
+<p>
+<blockquote>
+x axis along <b>a</b>,
+<p>
+y axis along (<b>a</b> <img src="cross.gif"> <b>b</b>) <img src="cross.gif"> <b>a</b>,
+<p>
+z axis along (<b>a</b> <img src="cross.gif"> <b>b</b>) = <b>c</b>*,
+</blockquote>
+<p>
+where <b>a</b>, <b>b</b>, and <b>c</b> are crystal axes and 
+<img src="cross.gif"> denotes the outer vector
+product (cross product). The symbol <b>c</b>* refers to a reciprocal axis.
+<p>
+<hr>
+<a name="soe"><b> Sphere of Enclosure </b></a>
+<p>
+A sphere of enclosure specifies some or all of the atoms lying within a
+sphere of radius D<sub>max</sub> 
+about a given "origin" atom without the necessity
+of delineating each atom individually. The sphere of enclosure is said
+to contain a <b>complete population</b> if all addressable atoms within the
+D<sub>max</sub> radius are included. If 
+the sphere of enclosure contains only
+certain types of atoms that are derived from a group of sequential
+atoms in the input list or atoms having particular 
+<a href="#af">features</a>, then the sphere is said to have a <b>partial
+population</b>.  Finally, the population (complete or partial) of the
+sphere of enclosure can be screened as selectively as desired through
+the use of 
+<A HREF="#vsc">vector search codes</A>,
+and the resulting content is
+called a <b>vector screened population</b>.
+<p>
+A sphere of enclosure can be centered on any addressable atom, but the
+origin atom should not be chosen in the outermost cells because of the
+possibility of having nonaddressable points within the <br>
+D<sub>max</sub> radius.
+<p>
+<hr>
+<a name="vdc"><b> Vector Designator Code (VDC)</b></a>
+<p> 
+A vector direction is specified by two 
+<A HREF="#adc">atom designator codes</A>.
+The
+vector direction is from the first to the second.
+<p> 
+<i>Example</i>: 253704 263704 is a vector along the positive <b>a</b> direction of
+the crystal lattice.
+<p>
+<hr>
+<a name="vsc"><b> Vector Search Code (VSC) </b></a>
+<p>
+A vector search code consists of two 
+<A HREF="#nr">number runs</A>
+and a distance
+range. It is used for finding interatomic distances that have a
+particular chemical significance, such as covalent and coordination
+bonds.
+<p>
+<i>Example</i>: Suppose that metal atoms are numbers 1 and 2 in the atom list,
+oxygen atoms are 6-12, and the interatomic distance range between
+metals and oxygens is 1.9 &Aring; to 2.4 &Aring;. The metal-to-oxygen vectors can be
+specified by the vector search code (1 2) (6 12) (1.9 2.4). Several
+variations of this basic code are used in the program.
+<p>
+The vector searches in ORTEP-III for the 
+<a href="i100.html">100 instructions</a> and
+<a href="i400.html">400 instructions</a>
+have been generalized to allow both
+<a href="defs.html#anr">atom number runs</a> and
+<a href="defs.html#fnr">feature number runs</a> with the
+<a href="defs.html#nr">number run type</a> specified in column 24.
+In addition, it is no longer necessary to specify all three screening 
+ranges found
+on this card (i.e., origin, target, and distance range). 
+Any ranges not specified (i.e., zero or blank in the maximum value entry)
+are omitted from the screening.
+If there is more than one vector
+search card, the parameter LOGC controls the logic of the screening.
+If the value is "0" (the default), an atom satisfying the
+screening conditions on 
+any one of the No. 2 trailer cards will be retained
+(i.e., it is a logical union of the results).  If the value
+is "1", an atom must satisfy the screening conditions on all
+the cards to be retained
+(i.e., it is an intersection of the results).
+If a value of "1" is needed for LOGC, a "1" is placed in column 27
+of a Format No. 1 trailer card that goes between the main instruction
+card and the Format No. 2 VSC cards. If the value for LOGC is "0", the
+Format No. 1 card is not needed.
+<p>
+<hr>
+<p>
+<a href="toc.html"><img src="bluecube.gif"> Online Documentation
+Table of Contents</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="../ortep.html"><img src="bluecube.gif"> ORTEP-III Home Page</a>
+<p>
+<i>Page last revised: <!--#echo var="LAST_MODIFIED"--></i>

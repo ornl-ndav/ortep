@@ -1,0 +1,161 @@
+<TITLE>ORTEP-III Online Doc - Drawing</TITLE>
+<center>
+<H2>
+<img src="trcubane.gif" align="middle">
+ORTEP-III Online Documentation 
+<img src="trcubane.gif" align="middle">
+<br>
+300 Series Instructions: Drawing Parameters
+</H2>
+</center>
+<p> 
+<hr>
+<p> 
+
+This is a set of miscellaneous instructions for specifying the
+drawing dimensions, viewing distance, general lettering
+orientation, pen displacement for line retracing, and ellipse
+smoothness.
+<p>
+<ul>
+<li><a href="#301"> 301: Drawing Boundaries, Margin, and Viewing Distance </a>
+<li><a href="#302"> 302: Title Rotation </a>
+<li><a href="#303"> 303: Retrace Displacement </a>
+<li><a href="#304"> 304: Ellipse Smoothness </a>
+</ul>
+<hr>
+<a name="301"> 301: Drawing Boundaries, Margin, and Viewing Distance </a>
+
+<p>
+This instruction defines the maximum x and y dimensions of
+the drawing and the drawing margin, all in inches. The boundary
+dimensions must not exceed those allowed by the plotter. The program
+will prevent the pen from getting closer than 0.1 in. to any boundary.
+The drawing margin is a constant width border inside the entire boundary.
+When automatic scaling is used (<a href="i600.html">600 series instructions</a>),
+the center points of the
+atoms are prevented from falling in the margin; but the atom
+representation, which has a finite size, may extend into that area. To
+accommodate this extension into the margin,
+the margin width should be large when
+the overall drawing scale and the ellipsoid scale are expected to be
+large.
+<p>
+In addition, instruction 301 specifies the perspective viewing
+distance, in inches, from the plane of the drawing. An entry of 0 for
+view distance is used to indicate an infinite view distance, and the
+crystal structure is then mapped in parallel projection normal to the
+drawing board.
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Instruction 301</th><th>Primer Constant</th>
+</tr>
+<tr align="center" >
+<td>7-9</td><td>301</td><td>&nbsp;</td>
+</tr>
+<tr align="center" >
+<td>10-18</td><td>Drawing x<sub>max</sub>
+(in.)</td><td>10.5</td>
+</tr>
+<tr align="center" >
+<td>19-27</td><td>Drawing y<sub>max</sub>
+(in.)</td><td>8.0</td>
+</tr>
+<tr align="center" >
+<td>28-36</td><td>View distance (in.)</td><td>0. (parallel projection)</td>
+</tr>
+<tr align="center" >
+<td>37-45</td><td>Margin width (in.)</td><td>0.5</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<a name="302"> 302: Title Rotation </a>
+<p>
+For regular titles and chemical symbols, the title rotation is
+specified with instruction 302. The lettering base line for all
+lettering is rotated counterclockwise by an angle theta, in degrees,
+from the x axis of the plotter. Although any value is allowed, 0 and
+-90 are the values most often used, so that the finished drawing has
+either the y plotter axis vertical or the x plotter axis vertical.
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Instruction 302</th><th>Primer Constant</th>
+</tr>
+<tr align="center" >
+<td>7-9</td><td>302</td><td>&nbsp;</td>
+</tr>
+<tr align="center" >
+<td>10-18</td><td><img src="theta.lc.gif"> (<sup>o</sup>)</td><td>0.</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<a name="303"> 303: Retrace Displacement </a>
+<p>
+Instruction 303 directs certain lines to be made heavier than others by
+retracing over the path several times with slight pen displacements
+(DISP) from the original path. For example, if DISP is greater than 0.,
+the forward half of the principal plane trace of ellipsoids is drawn
+heavier than the hidden half so the eye does not confuse the two
+halves. Also, all regular lettering (but not perspective lettering) is
+gone over four times to give it a boldface appearance. In ORTEP-III,
+retracing is turned off by default with the 
+<a href="defs.html#pp">primer constant</a> for DISP
+set to 0. inches. Retracing can be turned on with the 303 instruction,
+using a value for DISP greater than 0. (0.005 in. usually works well).
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Instruction 303</th><th>Primer Constant</th>
+</tr>
+<tr align="center" >
+<td>7-9</td><td>303</td><td>&nbsp;</td>
+</tr>
+<tr align="center" >
+<td>10-18</td><td>DISP (in.)</td><td>0.</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<a name="304"> 304: Ellipse Smoothness </a>
+<p>
+
+Instruction 304 may be used to adjust the smoothness of the plotted
+ellipses as a function of their size. Smoother ellipses require more
+computational time and produce larger illustration files.
+Smaller smoothness factors produce smoother ellipses, and larger values
+produce ellipses with more jaggies. Factors in the range 0.5-3.0 are
+recommended; the default value is 1. A value of 0. will draw all size
+ellipses with 128 points, the maximum provided in ORTEP.
+<p>
+<center>
+<table border>
+<tr align="center" >
+<th>Columns</th><th>Instruction 304</th>
+</tr>
+<tr align="center" >
+<td>7-9</td><td>304</td>
+</tr>
+<tr align="center" >
+<td>10-18</td><td>Smoothness factor</td>
+</tr>
+</table>
+</center>
+</center>
+<p>
+<hr>
+<p>
+<a href="toc.html"><img src="bluecube.gif"> Online Documentation
+Table of Contents</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="../ortep.html"><img src="bluecube.gif"> ORTEP-III Home Page</a>
+<p>
+<i>Page last revised: <!--#echo var="LAST_MODIFIED"--></i>

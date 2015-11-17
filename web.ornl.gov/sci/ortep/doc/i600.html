@@ -1,0 +1,198 @@
+<TITLE>ORTEP-III Online Doc - Pos&Scal</TITLE>
+<center>
+<H2>
+<img src="trcubane.gif" align="middle">
+ORTEP-III Online Documentation 
+<img src="trcubane.gif" align="middle">
+<br>
+600 Series Instructions: Positioning and Scaling
+</H2>
+</center>
+<p> 
+<hr>
+<p> 
+These instructions are used to direct the placement of the origin point
+ORGN (specified by 
+<a href="i500.html">instruction 501, 505, or 506</a>) onto the drawing
+(dimensioned by 
+<a href="i300.html#301">instruction 301</a>). In addition the three-dimensional
+assembly of atoms (chosen by the 
+<a href="i400.html">400 series instructions</a>) constituting
+the model is scaled. The atomic centers of the model will then be
+hanging in space above and below the drawing board, correctly
+positioned to be projected from the eye point described with
+instruction 301.
+<p>
+<ul>
+<li><a href="#600"> 60x: Normal Modes of Positioning and Scaling </a>
+<li><a href="#610"> 61x: Incremental Modes of Positioning and Scaling </a>
+</ul>
+<hr>
+<a name="600"> 60x: Normal Modes of Positioning and Scaling </a>
+<p>
+Several normal modes of operation are available to the user for
+positioning and scaling the model. Instruction 601 requires the user to
+supply a complete explicit description of position (X0,Y0) and scale
+(SCAL1). At the other extreme, instruction 604 automatically scales and
+positions the model so that the peripheral projected atom centers will
+touch two opposite borders and the peripheral atoms in the remaining
+dimensions will be centered on the drawing. An intermediate mode is
+available through 602, which provides automatic scaling after explicit
+positioning. This usually allows only one edge of the model to touch a
+border. Finally, instruction 603 requires an explicit scale and does
+automatic centering.
+<p>
+In general, the 604 instruction is the easiest and safest one to use,
+but situations arise in which the user should not relinquish control to
+the program. For example, if a big illustration is to be drawn
+piecewise on a small plotter, the user will have to maintain control
+over the scale, and probably over positioning, so that the partial
+plots can be fitted together correctly.
+<p>
+A second scale factor SCAL2 is required in connection with the
+ellipsoid (or sphere) size. It is a dimensionless scale factor ratio
+used to modify all rms displacement values before plotting
+equiprobability ellipsoids or spheres. SCAL2 values for given
+probabilities are tabulated in various books on statistics such as
+D. B. Owen's <i>Handbook of Statistical Tables</i>.
+The <a href="defs.html#pp">primer constant</a> for SCAL2 is
+1.54, which corresponds to 50% probability.  
+<p>ORTEP-III saves the
+user the time of looking up the SCAL2 value
+corresponding to a desired probability.
+If the value entered in
+columns 37-45 is a negative whole number in the range -1 to -99, it is
+interpreted as the probability of the ellipsoids or spheres, and the value of
+SCAL2 is set by the program by table lookup.
+<p>
+If the instruction's entry for X0, Y0, SCAL1, or SCAL2 is "0" or blank,
+the primer constant value is used. This means that an X0 or Y0 cannot
+be entered as exactly zero. If zero is wanted, a small nonzero number
+should be entered.
+<p>
+<center>
+<table border>
+<tr align="center">
+<th>Columns</th>
+<th>Instruction 601</th>
+<th>Instruction 602</th>
+<th>Instruction 603</th>
+<th>Instruction 604</th>
+<th>Primer Constant</th>
+</tr>
+<tr align="center">
+<td>7-9</td>
+<td>601</td>
+<td>602</td>
+<td>603</td>
+<td>604</td>
+<td>-</td>
+</tr>
+<tr align="center">
+<td>10-18</td>
+<td>X0</td>
+<td>X0</td>
+<td>-</td>
+<td>-</td>
+<td>8.5</td>
+</tr>
+<tr align="center">
+<td>19-27</td>
+<td>Y0</td>
+<td>Y0</td>
+<td>-</td>
+<td>-</td>
+<td>5.5</td>
+</tr>
+<tr align="center">
+<td>28-36</td>
+<td>SCAL1</td>
+<td>-</td>
+<td>SCAL1</td>
+<td>-</td>
+<td>1.0</td>
+</tr>
+<tr align="center">
+<td>37-45</td>
+<td>SCAL2 or<br>probability</td>
+<td>SCAL2 or<br>probability</td>
+<td>SCAL2 or<br>probability</td>
+<td>SCAL2 or<br>probability</td>
+<td>1.54</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<a name="610"> 61x: Incremental Modes of Positioning and Scaling </a>
+<p>
+
+Additional flexibility is provided through the incremental instructions
+611, 612, and 613. These allow the user to "nudge" the model or modify
+the scale factor (SCAL1), or both, after the parameters have been
+initially set with a previous 600 series instruction. The 611
+instruction adds <img src="delta.uc.gif">X0, <img
+src="delta.uc.gif">Y0 to the previous X0, Y0 position for the
+ORGN and multiplies the existing SCAL1 by <img
+src="delta.uc.gif">K (except if <img src="delta.uc.gif">K =
+0, SCAL1 is unmodified). Instruction 612 increments the position and
+then does an automatic scaling; 613 first increments the scale (by
+multiplying by <img src="delta.uc.gif">K) and then automatically
+repositions.
+
+<p>
+
+A conservative general approach is to follow a 604 with a 611 having
+<img src="delta.uc.gif">X0 = 0, <img src="delta.uc.gif">Y0
+= 0 and <img src="delta.uc.gif">K = 0.9. This will simply reduce
+the scale 10% about the origin so that there is more space for labels,
+etc.
+
+<p>
+<center>
+<table border>
+<tr align="center">
+<th>Columns</th>
+<th>Instruction 611</th>
+<th>Instruction 612</th>
+<th>Instruction 613</th>
+</tr>
+<tr align="center">
+<td>7-9</td>
+<td>611</td>
+<td>612</td>
+<td>613</td>
+</tr>
+<tr align="center">
+<td>10-18</td>
+<td><img src="delta.uc.gif">X0</td>
+<td><img src="delta.uc.gif">X0</td>
+<td>-</td>
+</tr>
+<tr align="center">
+<td>19-27</td>
+<td><img src="delta.uc.gif">Y0</td>
+<td><img src="delta.uc.gif">Y0</td>
+<td>-</td>
+</tr>
+<tr align="center">
+<td>28-36</td>
+<td><img src="delta.uc.gif">K</td>
+<td>-</td>
+<td><img src="delta.uc.gif">K</td>
+</tr>
+<tr align="center">
+<td>37-45</td>
+<td>SCAL2 or<br>probability</td>
+<td>SCAL2 or<br>probability</td>
+<td>SCAL2 or<br>probability</td>
+</tr>
+</table>
+</center>
+<p>
+<hr>
+<p>
+<a href="toc.html"><img src="bluecube.gif"> Online Documentation
+Table of Contents</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="../ortep.html"><img src="bluecube.gif"> ORTEP-III Home Page</a>
+<p><i>Page last revised: February 19, 1996</i>

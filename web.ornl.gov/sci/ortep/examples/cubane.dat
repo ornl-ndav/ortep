@@ -1,0 +1,69 @@
+ CUBANE  E.B.FLEISCHER   1964  J.A.C.S.  86, 3889
+1    5.34     5.34     5.34    72.26    72.26    72.26
+  x, y, z
+  z, x, y
+  y, z, x
+  -x, -y, -z
+  -z, -x, -y
+1 -y, -z, -x
+  C1                         -.18711   .19519   .10706        0
+0  .04100   .04250   .04500  -.00420  -.01420  -.00510        0
+  C2                          .11546   .11546   .11546        0
+0  .04680   .04680   .04680  -.01430  -.01430  -.01430        0
+  H1                         -.32460   .34680   .18480        0
+0     .10                                                     7
+  H2                          .21000   .21000   .21000        0
+0     .10                                                     7
+ ORGN                              0        0        0        0
+1                                                             0
+# FIND ALL NEIGHBOR ATOMS AROUND C1 AND C2 OUT TO 3.61 A
+      101   155501        2        1        4     3.61
+# FIND COVALENT BONDS AND BOND ANGLES AROUND CARBONS 
+      102   155501        2        1        4      1.8
+# INITIALIZE PLOTTER PACKAGE
+      201
+# 5x5 BOUNDARY, 4x4 INSIDE 0.5 MARGIN, VIEW FROM 15 INCHES
+      301      5.0      5.0      15.      0.5
+# ENCLOSER SPHERE OF RADIUS 3.2 A ABOUT DUMMY ATOM 5,555,01 
+      402   555501        5        1        4      3.2
+# ORIGIN ON DUMMY ATOM 555501, VECTORS ALONG 2 EDGES OF CUBANE
+      501   555501   255501   155501   255501   155502        0        0
+# ROTATE 25 DEGREES ABOUT Y, THEN 28 DEGREES ABOUT NEW X
+      502        2      25.        1      28.
+# AUTOMATIC SCALE AND POSITION, 50 PERCENT PROBABILITY ELLIPSOIDS
+      604                                 -50
+# STEREO ROTATION OF 2.7 DEGREES ABOUT Y FOR LEFT EYE
+      503        2      2.7
+# START SAVE SEQUENCE
+     1101
+# STORE PROJECTED ATOMS AND BONDS FOR OVERLAP, MARGIN SET BY DEFAULT        
+  2  1001        
+           1  4  1  4  4   0.9   1.6   .04
+# DRAW CARBON ATOM ELLIPSOIDS, ATOM NUMBER RUN 1-2 
+  1   716                                          .12      .30      .40
+                                   1        2
+# DRAW HYDROGEN ATOM SPHERES, ATOM NUMBER RUN 3-4
+  1   712                                          .12      .25      .25
+                                   3        4
+# TYPE 4 BONDS .04 A MEAN RADIUS, ATOMS 1-4 TO ATOMS 1-4, 0.9-1.6 A         
+  2   812
+           1  4  1  4  4   0.9   1.6   .04
+# LABEL BOND 155504-155503 WITH REGULAR BOND DISTANCE LABEL
+      906   155504   155503                        .12        0      -.4
+# LABEL BOND 255504-155505 WITH PERSPECTIVE BOND DISTANCE LABEL 
+      916   255504   155505                        .12        0      -.4
+# PUT TITLE ON PLOT
+  3   902   555501               3.0      0.5      .20        0        0
+Cubane
+# END OF SAVE SEQUENCE 
+     1102
+# SHIFT PLOT ORIGIN 4 INCHES ALONG X 
+      202      4.0
+# STEREO ROTATION OF -2.7 DEGREES ABOUT Y FOR RIGHT EYE VIEW 
+      503        2     -2.7
+# EXECUTE SAVED SEQUENCE FOR RIGHT EYE DRAWING 
+     1103
+# TERMINATE PLOTTING
+      202
+# TERMINATE PROGRAM
+       -1

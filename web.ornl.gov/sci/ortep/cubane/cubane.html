@@ -1,0 +1,403 @@
+<TITLE>ORTEP-III - Cubane Example</TITLE>
+<center>
+<H2>
+<img src="trcubane.gif" align="middle">
+ORTEP-III
+<img src="trcubane.gif" align="middle">
+<br>
+Cubane - A Detailed Example
+</H2>
+</center>
+<p> 
+<hr>
+<p>
+The standard example for illustrating the use of ORTEP is the novel compound cubane
+(C<sub>8</sub>H<sub>8</sub>),
+whose carbon-carbon bonds lie along the edges of a cube within experimental error.
+The structure was published in 1964 by E. B. Fleischer (Journal of the American
+Chemical Society, Vol. 86, p.3889).
+The compound crystallizes with the trigonal symmetry of space group 
+R<img src="3bar.gif">. The <img src="3bar.gif"> axis lies
+along a body diagonal of the molecule, and as a result the compound contains only four
+unique atoms. These are one carbon and its attached hydrogen in 
+general positions off 
+the <img src="3bar.gif">
+axis (C1 and H1) and one carbon and its hydrogen in special positions on 
+the <img src="3bar.gif"> axis (C2 and
+H2). Anisotropic temperature factor coefficients were fitted to the carbon atoms during the
+least-squares refinement of the structure, and isotropic temperature factors were used for the
+hydrogen atoms. The anisotropic temperature factors given for the carbon atoms are of the
+type called 0 in ORTEP.
+<p>
+To draw the structure the following information is needed:
+<p>
+
+<ul>
+Cell Parameters:
+<p>
+<ul>
+a = b = c = 5.34 &Aring; &nbsp;&nbsp;
+<img src="alpha.lc.gif"> =
+<img src="beta.lc.gif" align=middle> =
+<img src="gamma.lc.gif"> = 72.26<sup>o</sup>
+</ul>
+Equivalent Positions of Space Group R<img src="3bar.gif">:
+<p>
+<ul>
+x,y,z&nbsp;&nbsp;z,x,y&nbsp;&nbsp;y,z,x&nbsp;&nbsp;-x,-y,-z&nbsp;&nbsp;-z,-x,-y&nbsp;&nbsp;-y,-z,-x
+</ul>
+<p>
+Positional Parameters (x,y,z in fractional parts along unit cell edges):
+<p>
+<ul>
+C1&nbsp;&nbsp;-0.18711&nbsp;&nbsp;0.19519&nbsp;&nbsp;0.10706
+<br>
+C2 &nbsp;&nbsp;0.11546&nbsp;&nbsp;0.11546&nbsp;&nbsp;0.11546
+<br>
+H1&nbsp;&nbsp;-0.32460&nbsp;&nbsp;0.34680&nbsp;&nbsp;0.18480
+<br>
+H2 &nbsp;&nbsp;0.21000&nbsp;&nbsp;0.21000&nbsp;&nbsp;0.21000
+</ul>
+<p>
+Anisotropic Temperature Factor Coefficients
+(b<sub>11</sub>,
+b<sub>22</sub>,
+b<sub>33</sub>,
+b<sub>12</sub>,
+b<sub>13</sub>,
+b<sub>23</sub>)
+<p>
+<ul>
+C1&nbsp;&nbsp;0.0410&nbsp;&nbsp;0.0425&nbsp;&nbsp;0.0450&nbsp;&nbsp;-0.0042&nbsp;&nbsp;-0.0142&nbsp;&nbsp;-0.0050
+<br>
+C2&nbsp;&nbsp;0.0468&nbsp;&nbsp;0.0468&nbsp;&nbsp;0.0468&nbsp;&nbsp;-0.0143&nbsp;&nbsp;-0.0143&nbsp;&nbsp;-0.0143
+</ul>
+</ul>
+
+<p>
+<hr>
+The first line of input is a <a href="../doc/input.html#titl">job title</a>.
+<pre>
+ CUBANE  E.B.FLEISCHER   1964  J.A.C.S.  86, 3889
+</pre>
+<hr>
+<a href="../doc/input.html#cell">Cell parameters</a>
+are provided on the second line.  The "1" in the first column
+signals the format of the symmetry information that follows.
+<pre>
+1    5.34     5.34     5.34    72.26    72.26    72.26
+</pre>
+<hr>
+The <a href="../doc/input.html#symm">symmetry operators</a>
+of the space group begin on line 3 of the input.
+The last of these has a "1" in column 1.
+<pre>
+  x, y, z
+  z, x, y
+  y, z, x
+  -x, -y, -z
+  -z, -x, -y
+1 -y, -z, -x
+</pre>
+<hr>
+Two lines provide the atomic parameters for each atom. The first gives the atom's 
+<a href="../doc/input.html#posi">positional
+parameters</a>, and the second provides its 
+<a href="../doc/input.html#temp">thermal parameters</a>. The
+last atom has a "1" in column 1 of its thermal parameter card. Atoms are referenced in the
+instructions by their numeric position within this list.
+<p>
+Atoms 1 and 2 are entered with positional parameter type 0 and anisotropic temperature
+factor type 0.
+<pre>
+  C1                         -.18711   .19519   .10706        0
+0  .04100   .04250   .04500  -.00420  -.01420  -.00510        0
+  C2                          .11546   .11546   .11546        0
+0  .04680   .04680   .04680  -.01430  -.01430  -.01430        0
+</pre>
+Atoms 3 and 4 are entered with positional parameter type 0 and with dummy sphere
+temperature factors (type 7) with a radius of  0.1 &Aring; before scaling.
+<pre>
+  H1                         -.32460   .34680   .18480        0
+0     .10                                                     7
+  H2                          .21000   .21000   .21000        0
+0     .10                                                     7
+</pre>
+A dummy atom (atom 5) at the cell origin is also included with a blank card dummy
+sphere. This could also be entered with type 7 as were atoms 3 and 4.
+<pre>
+ ORGN                              0        0        0        0
+1                                                             0
+</pre>
+<hr>
+The 100 instructions are neither associated with nor required for producing an illustration.
+They are shown here to demonstrate how they are used. 
+<p>
+A <a href="../doc/i100.html#101">101 instruction</a>
+is used to obtain a
+tabulation of the atoms surrounding one atom or a series of several designated atoms. For
+example, to obtain a list of all atoms (hydrogen and carbon atoms) out to a distance of 3.61
+&Aring; about the two carbons C1 and C2, the following 101 instruction would be used.
+<pre>
+      101   155501        2        1        4     3.61
+           |_______________|      |__________|   |____|
+                  (a)                  (b)         (c)
+</pre>
+where the parts designate:
+<p>
+<ul>
+(a) origin atoms 1 through 2 of symmetry operation 1
+<p>
+(b) target atoms 1 through 4 of all symmetry and translation operations
+<p>
+(c) a distance D<sub>max</sub> of 3.61 &Aring;
+</ul>
+<p>
+A <a href="../doc/i100.html#101">102 instruction</a>
+gives both interatomic distances and interatomic angles. The
+following instruction could be used to find all covalent bonds and bond angles about the two
+carbons.
+<pre>
+      102   155501        2        1        4      1.8
+</pre>
+In this case a smaller D<sub>max</sub>
+was used so that only the distances and 
+angles of immediate interest would be computed since there are n(n - 1)/2 
+angles for n interatomic vectors about an atom.
+<hr>
+Plotting is initialized with a <a href="../doc/i200.html">201 instruction</a>.
+<pre>
+      201
+</pre>
+<hr>
+The two plot boundary dimensions can be equal for the present illustration since the
+cubane molecule is a cube. A 5 
+<img src="cross.gif"> 5 inch boundary is specified with a 0.5 inch margin to
+give a 4 
+<img src="cross.gif"> 4 inch square working area. A 
+15 inch view distance might be reasonable to use
+in viewing a model of this size.  These are set with the 
+<a href="../doc/i300.html#301">301 instruction</a>.
+<pre>
+      301      5.0      5.0      15.      0.5
+</pre>
+<hr>
+The subject of the illustration is a single complete cubane molecule. Since all the
+atoms of the molecule were not provided in the input atoms list, the "missing" atoms may be
+found by using the <a href="../doc/i400.html#402">402 instruction</a>
+to specify a 
+<a href="../doc/defs.html#soe">sphere of enclosure</a>,
+centered on the dummy atom 5, 
+which is at the
+center of a cubane molecule. A radius of 3.2 &Aring; should be adequate to find all the atoms and
+isolate a single molecule. 
+<pre>
+      402   555501        5        1        4      3.2
+	   |_______________|      |__________|    |___|				
+                  (a)                  (b)         (c)
+</pre>
+where the parts designate:
+<p>
+<ul>
+(a) a run of origin atom(s) representing sphere centers 
+from atom 5 to atom 5 in symmetry
+position 55501 (in this example, a single sphere) 
+<p>
+(b) a run of target atoms from atom 1 to atom 4
+<p>
+(c) a sphere radius of 3.2 &Aring;
+</ul>
+<hr>
+The <a href="../doc/i500.html#501">501 instruction</a>
+is used to establish a coordinate system in order to orient the molecule.
+In this case, the coordinate system is defined along the edges of the cubane cube.
+The origin will be positioned on the dummy atom 5. The
+desired coordinate system orientation will be defined by specifying two vectors from the
+special position atom 255501 to the two symmetry-related general-position atoms 155501
+and 155502.
+<pre>
+      501   555501   255501   155501   255501   155502        0        0
+</pre>
+<hr>
+The <a href="../doc/i500.html#502">502 instruction</a>
+is used to rotate the molecule relative to the
+established coordinate system to optimize the appearance of
+the illustration.  A rotation of
+25<sup>o</sup> about the y axis (axis 2)
+followed by a rotation of 28<sup>o</sup>
+about the x axis (axis 1) will produce a satisfactory view of the
+molecule.
+<pre>
+      502        2      25.        1      28.
+</pre>
+<hr>
+To position and scale the subject for projection onto the 
+"drawing board" and to utilize
+all available space, a <a href="../doc/i600.html#600">604 instruction</a>
+is used, which will automatically set X0, Y0, and SCALl.
+However, the ellipsoid scale factor ratio SCAL2 must be specified independently.
+A value of -50 will provide thermal ellipsoids 
+corresponding to 50% probability as ORTEP sets the value of
+SCAL2 to 1.54. (If the value supplied is positive, ORTEP interprets the
+value as SCAL2.  If the value is negative, ORTEP interprets
+the value
+as a probability and sets the appropriate value of SCAL2 automatically.)
+<pre>
+      604                                 -50
+</pre>
+<hr>
+The stereoscopic rotation for the left eye can be done at this point with the 
+<a href="../doc/i500.html#503">503
+instruction</a>. A rotation of 2.7<sup>o</sup>
+about the y axis (axis 2) is used for the left-eye view. Later in the program, a 
+-2.7<sup>o</sup> rotation
+about the same axis will be made for the right-eye view to give a total interocular angle of
+5.4<sup>o</sup>. 
+<pre>
+      503        2      2.7
+</pre>
+<hr>
+Since the structure will be drawn twice, once for each eye, the 
+<a href="../doc/i1100.html">save sequence</a>
+feature can be used to shorten the program. Note that the instructions between the start
+(1101) and end (1102) instructions are both executed and saved the first time through. They
+can then be re-executed as many times as desired by using the "execute save sequence"
+instruction 1103.
+<p>
+The 1101 instruction starts the save sequence.
+<pre>
+     1101
+</pre>
+<hr>
+The <a href="../doc/i1000.html#1001">1001 instruction</a> (or 511)
+stores the information needed for the overlap hidden-line
+correction (i.e., as a projected boundary ellipse for each atom and a quadrangle
+approximation for each bond). The bonds are specified with a Format No. 2 trailer card
+identical to that used in the 812 instruction described below.
+<pre>
+  2  1001        
+           1  4  1  4  4   0.9   1.6   .04
+</pre>
+<hr>
+The ATOMS array currently contains all the atom designators for one cubane
+molecule. The molecule is drawn in two separate steps so that the hydrogen and carbon atoms
+can be given different graphical representations. To draw the carbon atoms 
+(<a href="../doc/defs.html#anr">ANR</a> = 1,2), a
+standard model produced with the new 
+<a href="../doc/i700.html">706/716 instruction</a> is used. 
+[This model is the same as that produced with a
+705/715 instruction that (a) draws the three principal-plane forward traces and the 
+boundary-plane trace (NPLANE = 4), (b) omits the reverse sides of the principal planes (NDOT = 0),
+(c) draws the forward principal axes without additional shading (NLINE = 1), and (d) omits
+the reverse principal axes (NDASH = 0).] In addition, chemical symbols are drawn with letters
+0.12 in. high (before projection) and displaced from the atomic center by 0.3 in. horizontally and 
+0.4 in. vertically.
+<pre>
+  1   716                                          .12      .30      .40
+                                   1        2
+</pre>
+The 716 instruction is used, rather than 706, to shorten the output listing of the
+example. A 706 instruction would provide a listing of all coordinates.
+<p>
+The hydrogen atoms (ANR = 3, 4) are to be drawn with a different standard 
+model (<a href="../doc/i700.html">instruction 702/712</a>)
+than the carbon atoms. Chemical symbols are 0.12 in. high and offset 0.25 in. horizontally
+and vertically.
+<pre>
+  1   712                                          .12      .25      .25
+                                   3        4
+</pre>
+<hr>
+The most convenient procedure for drawing bonds is to use the implicit bond 
+<a href="../doc/i800.html#802">instruction 812</a>.
+All other information can be entered with a single Format No. 2 trailer
+card.
+<pre>
+  2   812
+           1  4  1  4  4   0.9   1.6   .04
+          |____||____||_| |_________| |___|
+            (a)   (b) (c)     (d)      (e)
+</pre>
+where the parts designate:
+<p>
+<ul>
+(a) origin
+<a href="../doc/defs.html#anr">atom number run</a> of atoms 
+making up one member of bond atom pairs to be drawn
+<p>
+(b) target atom number run of atoms making up second member of bond atom pairs
+<p>
+(c) bond type 4
+<p>
+(d) the distance range 0.9 to 1.6 &Aring; that will cover all covalent bond
+distances
+<p>
+(e) the bond radius is 0.04 &Aring;
+</ul>
+<p>
+The remaining fields on the card can be blank, since a complete set of bond distance
+labels is not desired.
+<hr>
+The last feature of the illustration is the labeling 
+with <a href="../doc/i900.html">900 instructions</a>. Because of the
+symmetry, there are only two different C-C bond lengths in cubane. These are C1-C1 and
+C1-C2. One example of each of these bonds will be labeled. For variety, one will be labeled
+with a normal bond-length label and the other with a perspective label. The two bonds that
+can be labeled most advantageously are 155504-155503 and 255504-155505. The labels
+will be 0.12 in. high and displaced vertically from the bond center by -0.4 in.
+<pre>
+      906   155504   155503                        .12        0      -.4
+      916   255504   155505                        .12        0      -.4
+</pre>
+	Finally, a caption for the illustration is drawn. This can conveniently be positioned by
+"hanging" it from the dummy atom 555501 and "bouncing" it 3 in. from the left x
+boundary and 0.5 in. from the lower y boundary. The caption is 0.2 in. high.
+<pre>
+  3   902   555501               3.0      0.5      .20        0        0
+Cubane
+</pre>
+<hr>
+The <a href="../doc/i1100.html">save sequence</a> is now terminated.
+<pre>
+     1102
+</pre>
+<hr>
+The plotting origin is then shifted 4 in. along x
+with a <a href="../doc/i200.html">202 instruction</a>
+in preparation for the right-eye view.
+<pre>
+      202      4.0
+</pre>
+<hr>
+The stereo rotation of -2.7<sup>o</sup> 
+about axis 2 is now performed for the right-eye view
+with a <a href="../doc/i500.html#503">503 instruction</a>.
+(Note that this rotation starts with the reference orientation,
+not the previous working orientation.)
+<pre>
+      503        2     -2.7
+</pre>
+<hr>
+The <a href="../doc/i1100.html">save sequence</a>
+can now be repeated for the right eye. (Note that the ATOMS
+array now contains the same information that it did when the first view was drawn.)
+<pre>
+     1103
+</pre>
+<hr>
+Plotting is terminated with a 
+<a href="../doc/i200.html">202 instruction</a>
+with no parameters.
+<pre>
+      202
+</pre>
+<hr>
+Finally, a <a href="../doc/i-1.html">-1 instruction</a> terminates the program.
+<pre>
+       -1
+</pre>
+<p>
+<hr>
+<p>
+<a href="../ortep.html"><img src="bluecube.gif"> ORTEP-III Home Page</a>
+<p><i>Page last revised: <!--#echo var="LAST_MODIFIED"--></i>
