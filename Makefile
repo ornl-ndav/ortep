@@ -1,5 +1,6 @@
 # Makefile for the ORTEP-III
 
+FC=gfortran
 TARGET= ortep3
 SRC= ortep.f
 OBJ= ortep.o
