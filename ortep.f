@@ -5456,7 +5456,7 @@ c ****************************************************************
       xwid=11.
       yhgt=8.5
 
-c     *** The following is for PGPLOT on an X-windows system.
+c *** The following is for PGPLOT on an X-windows system.
       outdev = '/XWINDOW'
 c *** The following is for PGPLOT on an MS-DOS system.
 c     outdev = '/MS'
