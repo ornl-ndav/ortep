@@ -5,7 +5,7 @@ TARGET= ortep3
 SRC= ortep.f
 OBJ= ortep.o
 FFLAGS= -O2
-LFLAGS=
+LFLAGS= -lpgplot
 
 all: ${OBJ}
 	${FC} ${LFLAGS} -o ${TARGET} ${OBJ}
