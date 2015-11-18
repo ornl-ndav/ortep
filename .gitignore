@@ -1,3 +1,6 @@
+ortep3
+*.tar.gz
+
 # Compiled Object files
 *.slo
 *.lo
