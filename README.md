@@ -10,4 +10,4 @@ Linux
 
 1. Install `gfortran` and `pgplot`
 2. `make`
-3. `PGPLOT_DEV=/XWINDOW ./ortep3`
+3. `./ortep3`
