@@ -8,7 +8,7 @@ FFLAGS= -O2
 LFLAGS= -lpgplot
 
 PREFIX=/usr/local
-ifdef ${DESTDIR}
+ifdef DESTDIR
 PREFIX= ${DESTDIR}/usr
 endif
 
