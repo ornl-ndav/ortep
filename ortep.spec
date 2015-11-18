@@ -30,6 +30,10 @@ rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/usr/bin
 %make_install
 
+%clean
+if [ -d $RPM_BUILD_ROOT ]; then rm -rf $RPM_BUILD_ROOT; fi
+rm -rf $RPM_BUILD_DIR/%{name}-%{version}
+
 #%check
 #ctest
 
