@@ -13,5 +13,11 @@ all: ${OBJ}
 ortep.o: ortep.f
 	${FC} ${FFLAGS} -c $<
 
+ortep-1.0.3.tar.gz:
+	 tar -c -z -f ortep-1.0.3.tar.gz --transform='s,^,ortep-1.0.3/,' Makefile *.f
+
+install: ortep3
+	install -c -m 755 ortep3 ${DESTDIR}/usr/bin/ortep3
+
 clean:
 	rm -f *.o ${TARGET}
