@@ -5465,7 +5465,7 @@ c     outdev = '/MAC'
 
       open(npf,status='scratch')
 
-      if (pgbeg(0,' ',1,1) .ne. 1) call exitng(8)
+      if (pgbeg(0,outdev,1,1) .ne. 1) call exitng(8)
 
 c     switch black and white
       call pgscr(0,1.,1.,1.)
