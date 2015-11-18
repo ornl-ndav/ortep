@@ -22,3 +22,7 @@ $ brew install homebrew/x11/pgplot
 $ make
 $ ./ortep3
 ```
+
+Windows
+-------
+A graphical user interface (GUI) can be found as part of the [WinGX software](http://www.chem.gla.ac.uk/~louis/software/ortep/index.html).
